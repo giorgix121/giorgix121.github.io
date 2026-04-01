@@ -125,22 +125,38 @@
             transition: all 0.2s; font-family: var(--mono);
         }
         .pub-links a:hover { border-color: var(--accent); color: var(--accent); }
-        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .project-card {
-            background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;
-            padding: 20px; transition: box-shadow 0.25s, transform 0.25s;
-        }
-        .project-card:hover {
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.06);
-            transform: translateY(-1px);
-        }
-        .project-card h3 {
-            font-family: var(--serif); font-size: 15px; font-weight: 600;
-            margin-bottom: 6px; line-height: 1.4;
-        }
-        .project-card .project-meta { font-size: 12px; color: var(--accent); font-weight: 500; margin-bottom: 8px; }
-        .project-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
         .awards-list { display: flex; flex-direction: column; gap: 10px; }
+
+        /* ── TIMELINE (Education & Experience) ── */
+        .timeline { display: flex; flex-direction: column; gap: 0; }
+        .timeline-item {
+            display: grid; grid-template-columns: 120px 1fr; gap: 20px;
+            padding: 16px 0; align-items: start;
+        }
+        .timeline-item + .timeline-item { border-top: 1px solid var(--border); }
+        .timeline-left { padding-top: 2px; }
+        .timeline-date {
+            font-family: var(--mono); font-size: 11px; color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+        .timeline-header { display: flex; align-items: center; gap: 10px; margin-bottom: 3px; }
+        .timeline-icon {
+            width: 28px; height: 28px; border-radius: 5px; flex-shrink: 0;
+            overflow: hidden;
+        }
+        .timeline-icon img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+        .timeline-right h3 {
+            font-family: var(--serif); font-size: 15px; font-weight: 600;
+            line-height: 1.35;
+        }
+        .timeline-subtitle {
+            font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 5px;
+        }
+        .timeline-detail {
+            font-size: 13px; color: var(--text-secondary); line-height: 1.55;
+        }
         .award-item {
             display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;
             padding: 12px 16px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 6px;
@@ -157,10 +173,10 @@
             .hero-links { justify-content: center; }
             .pub-card { grid-template-columns: 1fr; }
             .pub-thumb { width: 100%; }
-            .projects-grid { grid-template-columns: 1fr; }
             .award-item { grid-template-columns: 1fr; gap: 4px; }
-            nav .nav-links { gap: 16px; }
-            nav .nav-links a { font-size: 12px; }
+            nav .nav-links { gap: 12px; }
+            nav .nav-links a { font-size: 11px; }
+            .timeline-item { grid-template-columns: 1fr; gap: 4px; }
         }
     </style>
 </head>
@@ -169,8 +185,9 @@
     <div class="nav-inner">
         <a href="#" class="nav-name">Giorgi Merabishvili</a>
         <div class="nav-links">
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
             <a href="#publications">Publications</a>
-            <a href="#projects">Projects</a>
             <a href="#awards">Awards</a>
         </div>
     </div>
@@ -178,26 +195,26 @@
 <main>
     <section class="hero" id="about">
         <div class="hero-photo">
-            <!-- Replace with: <img src="images/photo.jpg" alt="Giorgi Merabishvili"> -->
-            GM
+            <img src="images/photo.jpg" alt="Giorgi Merabishvili">
         </div>
         <div class="hero-info">
             <h1>Giorgi Merabishvili</h1>
             <p class="subtitle">
-                PhD student in Computer Science at North Carolina State University.
+                PhD student in Computer Science at North Carolina State University,
+                advised by <a href="https://damorim.github.io">Marcelo d'Amorim</a>.
                 I work on software testing and improving the robustness of software systems.
                 Previously, I earned my MS in Computer Engineering from NYU and worked with
-                <a href="https://stocco.xyz">Andrea Stocco</a> at TU Munich (DAAD scholar).
+                <a href="https://tsigalko18.github.io">Andrea Stocco</a> at TU Munich (DAAD scholar).
                 This summer I will join the
                 <a href="https://www.mpi-sp.org/">Max Planck Institute for Security and Privacy</a>
                 as a research intern with
-                <a href="https://mboehme.github.io/">Marcel Böhme</a>.
+                <a href="https://www.mpi-sp.org/boehme">Marcel Böhme</a>.
             </p>
             <div class="hero-links">
                 <a href="mailto:gmerabi@ncsu.edu">Email</a>
                 <a href="https://github.com/giorgix121">GitHub</a>
                 <a href="https://www.linkedin.com/in/giorgi-merabishvili/">LinkedIn</a>
-                <a href="https://scholar.google.com">Scholar</a>
+                <a href="https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en">Scholar</a>
                 <a href="cv.pdf">CV</a>
             </div>
         </div>
@@ -220,6 +237,112 @@
             <span class="news-text">Started PhD at <strong>NC State University</strong>.</span>
         </div>
     </div>
+
+    <!-- ═══════ EDUCATION ═══════ -->
+    <section id="education">
+        <div class="section-label">Education</div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <span class="timeline-date">2025 – Present</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="images/logos/NCSU.jpeg" alt="NC State"></div>
+                        <h3>North Carolina State University</h3>
+                    </div>
+                    <p class="timeline-subtitle">PhD in Computer Science</p>
+                    <p class="timeline-detail">Coursework: Design and Analysis of Algorithms, Software Testing and Reliability</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <span class="timeline-date">2023 – 2025</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="images/logos/NYU.jpeg" alt="NYU"></div>
+                        <h3>New York University</h3>
+                    </div>
+                    <p class="timeline-subtitle">MS in Computer Engineering · GPA: 3.80</p>
+                    <p class="timeline-detail">Coursework: Machine Learning, Deep Learning, ML for Cybersecurity, Probability and Stochastic Processes</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <span class="timeline-date">2019 – 2023</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="images/logos/SFC.png" alt="St. Francis College"></div>
+                        <h3>St. Francis College</h3>
+                    </div>
+                    <p class="timeline-subtitle">BS in Information Technology · GPA: 3.95 · Summa Cum Laude</p>
+                    <p class="timeline-detail">Honors Thesis: "Robotics and Environmental Issues", NE Regional Honors Conference 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ WORK EXPERIENCE ═══════ -->
+    <section id="experience">
+        <div class="section-label">Experience</div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <span class="timeline-date">2026 incoming</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="images/logos/MPI.jpg" alt="Max Planck Institute"></div>
+                        <h3>Max Planck Institute for Security and Privacy</h3>
+                    </div>
+                    <p class="timeline-subtitle">Research Intern · Bochum, Germany</p>
+                    <p class="timeline-detail">Advisor: Dr. Marcel Böhme</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <span class="timeline-date">2025 – Present</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="images/logos/NCSU.jpeg" alt="NC State"></div>
+                        <h3>North Carolina State University</h3>
+                    </div>
+                    <p class="timeline-subtitle">Research Assistant · Raleigh, NC</p>
+                    <p class="timeline-detail">Advisor: Dr. Marcelo d'Amorim. Game testing: developed MR-guided VLM glitch detection for gameplay videos. WebAssembly runtime analysis: transplanting regression tests across runtimes and using them as seed corpora for fuzzing.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <span class="timeline-date">2024 – 2025</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="images/logos/TUM.jpeg" alt="TU Munich"></div>
+                        <h3>Technical University of Munich</h3>
+                    </div>
+                    <p class="timeline-subtitle">Research Intern · Munich, Germany</p>
+                    <p class="timeline-detail">Advisor: Dr. Andrea Stocco. Conducted research on automated testing for deep learning systems. Developed latent space interpolation methods for boundary testing and improved validity of generated test pairs.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-left">
+                    <span class="timeline-date">2024 – 2025</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="images/logos/ROBOM.jpeg" alt="RoboMaster NYU"></div>
+                        <h3>RoboMaster NYU</h3>
+                    </div>
+                    <p class="timeline-subtitle">Computer Vision Engineer · New York, NY</p>
+                    <p class="timeline-detail">Worked on real-time object detection systems for tracking enemy robots. Trained and tested models on hardware provided by the mechanical team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="publications">
         <div class="section-label">Publications</div>
         <div class="pub-card">
@@ -280,31 +403,6 @@
                     <a href="https://doi.org/10.1145/3771557">paper</a>
                     <a href="https://github.com/ast-fortiss-tum/SMOO/tree/mimicry">code</a>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section id="projects">
-        <div class="section-label">Selected Projects</div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Gameplay Glitch Detection via VLMs + Metamorphic Relations</h3>
-                <div class="project-meta">NC State University · 2025</div>
-                <p>System that mines MR properties from gameplay data and guides VLMs to detect visual and physical anomalies in gameplay videos.</p>
-            </div>
-            <div class="project-card">
-                <h3>DL Fault-Revealing Input Generation via Latent-Space Truncation</h3>
-                <div class="project-meta">ATS Lab, TU Munich & fortiss · 2025</div>
-                <p>Tool that synthesizes images with StyleGAN and applies latent-space truncation to produce diverse fault-revealing test inputs.</p>
-            </div>
-            <div class="project-card">
-                <h3>Boundary Testing via Latent-Space Interpolation</h3>
-                <div class="project-meta">ATS Lab, TU Munich & fortiss · 2024</div>
-                <p>Generates boundary-revealing test inputs by selectively switching feature layers and applying linear interpolation in latent space.</p>
-            </div>
-            <div class="project-card">
-                <h3>Classical Artwork Generator using GANs</h3>
-                <div class="project-meta">NYU Deep Learning Course · 2024</div>
-                <p>GAN with spectral normalization, LeakyReLU, and data augmentation for generating classical artwork with stable training.</p>
             </div>
         </div>
     </section>
