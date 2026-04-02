@@ -101,6 +101,557 @@
 
         /* ═══════ MAIN ═══════ */
         main { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+        section { padding: 40px 0; }
+
+        /* ── Animated section dividers ── */
+        section + section {
+            border-top: none;
+        }
+
+        .section-label {
+            font-size: 15px; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 32px;
+        }
+
+        /* ═══════ HERO ═══════ */
+        .hero {
+            padding: 72px 0 56px;
+            display: grid; grid-template-columns: 148px 1fr; gap: 40px; align-items: start;
+        }
+        .hero-photo-wrap {
+            position: relative;
+            width: 148px; height: 148px;
+        }
+        .hero-photo {
+            width: 148px; height: 148px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-light), #d4e4f0);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--serif); font-size: 42px; font-weight: 300;
+            color: var(--accent); overflow: hidden;
+            position: relative; z-index: 1;
+        }
+        .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+        .hero-info h1 {
+            font-family: var(--serif); font-size: 36px; font-weight: 600;
+            letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 10px;
+            color: var(--text);
+        }
+        .hero-info .subtitle {
+            font-size: 15px; color: var(--text-secondary);
+            margin-bottom: 20px; line-height: 1.65;
+        }
+        .hero-info .subtitle a {
+            color: var(--accent); text-decoration: none;
+            background-image: linear-gradient(var(--accent), var(--accent));
+            background-size: 0% 1px;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.3s ease;
+        }
+        .hero-info .subtitle a:hover {
+            background-size: 100% 1px;
+        }
+
+        .hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
+        .hero-links a {
+            font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none;
+            padding: 7px 16px; border: 1px solid var(--border); border-radius: 8px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+        }
+        .hero-links a:hover {
+            background: var(--accent); color: #fff; border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(26,92,138,0.25);
+            transform: translateY(-1px);
+        }
+
+        /* ═══════ NEWS ═══════ */
+        .news {
+            background: var(--card-bg); border: 1px solid var(--border-light);
+            border-radius: var(--radius); padding: 20px 24px;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(12px);
+        }
+        .news-item {
+            display: flex; gap: 14px; font-size: 14px; line-height: 1.6;
+            padding: 6px 0;
+            transition: transform 0.2s ease;
+        }
+        .news-item:hover {
+            transform: translateX(4px);
+        }
+        .news-item + .news-item { margin-top: 4px; border-top: 1px solid var(--border-light); padding-top: 10px; }
+        .news-date {
+            font-family: var(--mono); font-size: 12px; color: var(--text-tertiary);
+            white-space: nowrap; padding-top: 3px;
+            min-width: 38px;
+        }
+        .news-text { color: var(--text-secondary); }
+        .news-text strong { color: var(--text); font-weight: 600; }
+
+        /* ═══════ TIMELINE ═══════ */
+        .timeline { display: flex; flex-direction: column; gap: 0; }
+        .timeline-item {
+            display: grid; grid-template-columns: 124px 1fr; gap: 24px;
+            padding: 20px 0; align-items: start;
+            transition: opacity 0.2s ease;
+        }
+        .timeline-item + .timeline-item { border-top: 1px solid var(--border-light); }
+        .timeline-left { padding-top: 2px; }
+        .timeline-date {
+            font-family: var(--mono); font-size: 11px; color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+        .timeline-header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+        .timeline-icon {
+            width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0;
+            overflow: hidden; box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: transform 0.2s ease;
+        }
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.08);
+        }
+        .timeline-icon img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+        .timeline-right h3 {
+            font-family: var(--serif); font-size: 16px; font-weight: 600;
+            line-height: 1.35;
+        }
+        .timeline-subtitle {
+            font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 5px;
+        }
+        .timeline-detail {
+            font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+        }
+
+        /* ═══════ PUBLICATIONS ═══════ */
+        .pub-card {
+            display: grid; grid-template-columns: 240px 1fr; gap: 28px;
+            padding: 28px; align-items: start;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(12px);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 16px;
+        }
+        .pub-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: rgba(26,92,138,0.15);
+        }
+        .pub-thumb {
+            width: 100%; border-radius: 8px; overflow: hidden;
+            border: 1px solid var(--border-light); background: #f0f0ec;
+            aspect-ratio: auto;
+        }
+        .pub-thumb img { width: 100%; height: auto; display: block; }
+        .pub-info h3 {
+            font-family: var(--serif); font-size: 18px; font-weight: 600;
+            line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 8px;
+        }
+        .pub-authors { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 5px; line-height: 1.5; }
+        .pub-authors .me { font-weight: 600; color: var(--text); }
+        .pub-venue { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+        .pub-venue .under-review { color: var(--text-tertiary); font-style: italic; font-weight: 400; }
+        .pub-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.6; }
+        .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .pub-links a {
+            font-size: 12px; font-weight: 500; color: var(--text-secondary); text-decoration: none;
+            padding: 4px 12px; border: 1px solid var(--border); border-radius: 5px;
+            transition: all 0.25s ease; font-family: var(--mono);
+        }
+        .pub-links a:hover {
+            border-color: var(--accent); color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        /* ═══════ AWARDS ═══════ */
+        .awards-list { display: flex; flex-direction: column; gap: 8px; }
+        .award-item {
+            display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;
+            padding: 14px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+        }
+        .award-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+            border-color: rgba(26,92,138,0.12);
+        }
+        .award-name { font-size: 14px; font-weight: 500; }
+        .award-detail { font-size: 12px; color: var(--text-tertiary); font-family: var(--mono); }
+
+        /* ═══════ FOOTER ═══════ */
+        footer {
+            max-width: var(--max-width); margin: 0 auto; padding: 36px 28px 56px;
+            font-size: 12px; color: var(--text-tertiary); text-align: center;
+            position: relative; z-index: 1;
+        }
+
+        /* ═══════ SCROLL ANIMATIONS ═══════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ═══════ RESPONSIVE ═══════ */
+        @media (max-width: 640px) {
+            .hero { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+            .hero-photo-wrap { margin: 0 auto; }
+            .hero-links { justify-content: center; }
+            .pub-card { grid-template-columns: 1fr; padding: 20px; }
+            .pub-thumb { width: 100%; }
+            .award-item { grid-template-columns: 1fr; gap: 4px; }
+            nav .nav-links { gap: 4px; }
+            nav .nav-links a { font-size: 12px; padding: 6px 8px; }
+            .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+            .hero-info h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="#" class="nav-name">Giorgi Merabishvili</a>
+        <div class="nav-links">
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#publications">Publications</a>
+            <a href="#awards">Awards</a>
+        </div>
+    </div>
+</nav>
+<main>
+    <section class="hero" id="about">
+        <div class="hero-photo-wrap">
+            <div class="hero-photo">
+                <img src="Images/photo.jpg" alt="Giorgi Merabishvili">
+            </div>
+        </div>
+        <div class="hero-info">
+            <h1>Giorgi Merabishvili</h1>
+            <p class="subtitle">
+                PhD student in Computer Science at North Carolina State University,
+                advised by <a href="https://damorim.github.io">Marcelo d'Amorim</a>.
+                I work on software testing and improving the robustness of software systems.
+                Previously, I earned my MS in Computer Engineering from NYU and worked with
+                <a href="https://tsigalko18.github.io">Andrea Stocco</a> at TU Munich (DAAD scholar).
+                This summer I will join the
+                <a href="https://www.mpi-sp.org/">Max Planck Institute for Security and Privacy</a>
+                as a research intern with
+                <a href="https://www.mpi-sp.org/boehme">Marcel Böhme</a>.
+            </p>
+            <div class="hero-links">
+                <a href="mailto:gmerabi@ncsu.edu">Email</a>
+                <a href="https://github.com/giorgix121">GitHub</a>
+                <a href="https://www.linkedin.com/in/giorgi-merabishvili/">LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en">Scholar</a>
+                <a href="cv.pdf">CV</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="news reveal">
+        <div class="news-item">
+            <span class="news-date">2026</span>
+            <span class="news-text">Joining <strong>Max Planck Institute for Security and Privacy</strong> as a research intern.</span>
+        </div>
+        <div class="news-item">
+            <span class="news-date">2026</span>
+            <span class="news-text">Paper on latent regularization accepted at <strong>DeepTest '26</strong> (ICSE Workshop).</span>
+        </div>
+        <div class="news-item">
+            <span class="news-date">2025</span>
+            <span class="news-text">Targeted boundary testing paper accepted at <strong>ACM TOSEM</strong>.</span>
+        </div>
+        <div class="news-item">
+            <span class="news-date">2025</span>
+            <span class="news-text">Started PhD at <strong>NC State University</strong>.</span>
+        </div>
+    </div>
+
+    <!-- ═══════ EDUCATION ═══════ -->
+    <section id="education">
+        <div class="section-label reveal">Education</div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-left">
+                    <span class="timeline-date">2025 – Present</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="Images/logos/NCSU.jpeg" alt="NC State"></div>
+                        <h3>North Carolina State University</h3>
+                    </div>
+                    <p class="timeline-subtitle">PhD in Computer Science</p>
+                    <p class="timeline-detail">Coursework: Design and Analysis of Algorithms, Software Testing and Reliability</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-left">
+                    <span class="timeline-date">2023 – 2025</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="Images/logos/NYU.jpeg" alt="NYU"></div>
+                        <h3>New York University</h3>
+                    </div>
+                    <p class="timeline-subtitle">MS in Computer Engineering · GPA: 3.80</p>
+                    <p class="timeline-detail">Coursework: Machine Learning, Deep Learning, ML for Cybersecurity, Probability and Stochastic Processes</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-left">
+                    <span class="timeline-date">2019 – 2023</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="Images/logos/SFC.png" alt="St. Francis College"></div>
+                        <h3>St. Francis College</h3>
+                    </div>
+                    <p class="timeline-subtitle">BS in Information Technology · GPA: 3.95 · Summa Cum Laude</p>
+                    <p class="timeline-detail">Honors Thesis: "Robotics and Environmental Issues", NE Regional Honors Conference 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ WORK EXPERIENCE ═══════ -->
+    <section id="experience">
+        <div class="section-label reveal">Experience</div>
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-left">
+                    <span class="timeline-date">2026 incoming</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="Images/logos/MPI.jpg" alt="Max Planck Institute"></div>
+                        <h3>Max Planck Institute for Security and Privacy</h3>
+                    </div>
+                    <p class="timeline-subtitle">Research Intern · Bochum, Germany</p>
+                    <p class="timeline-detail">Advisor: Dr. Marcel Böhme</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-left">
+                    <span class="timeline-date">2025 – Present</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="Images/logos/NCSU.jpeg" alt="NC State"></div>
+                        <h3>North Carolina State University</h3>
+                    </div>
+                    <p class="timeline-subtitle">Research Assistant · Raleigh, NC</p>
+                    <p class="timeline-detail">Advisor: Dr. Marcelo d'Amorim. Game testing: developed MR-guided VLM glitch detection for gameplay videos. WebAssembly runtime analysis: transplanting regression tests across runtimes and using them as seed corpora for fuzzing.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-left">
+                    <span class="timeline-date">2024 – 2025</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="Images/logos/TUM.jpeg" alt="TU Munich"></div>
+                        <h3>Technical University of Munich</h3>
+                    </div>
+                    <p class="timeline-subtitle">Research Intern · Munich, Germany</p>
+                    <p class="timeline-detail">Advisor: Dr. Andrea Stocco. Conducted research on automated testing for deep learning systems. Developed latent space interpolation methods for boundary testing and improved validity of generated test pairs.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-left">
+                    <span class="timeline-date">2024 – 2025</span>
+                </div>
+                <div class="timeline-right">
+                    <div class="timeline-header">
+                        <div class="timeline-icon"><img src="Images/logos/ROBOM.jpeg" alt="RoboMaster NYU"></div>
+                        <h3>RoboMaster NYU</h3>
+                    </div>
+                    <p class="timeline-subtitle">Computer Vision Engineer · New York, NY</p>
+                    <p class="timeline-detail">Worked on real-time object detection systems for tracking enemy robots. Trained and tested models on hardware provided by the mechanical team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ PUBLICATIONS ═══════ -->
+    <section id="publications">
+        <div class="section-label reveal">Publications</div>
+
+        <div class="pub-card reveal">
+            <div class="pub-thumb">
+                <img src="Images/latent_reg.gif" alt="Latent regularization: shapes morph as truncation psi decreases, fourth seed flips class at boundary">
+            </div>
+            <div class="pub-info">
+                <h3>Latent Regularization in Generative Test Input Generation</h3>
+                <p class="pub-authors"><span class="me">G. Merabishvili</span>, O. Weißl, A. Stocco</p>
+                <p class="pub-venue">DeepTest '26 — ICSE Workshop, 2026</p>
+                <p class="pub-desc">Studies how truncation in StyleGAN latent spaces affects test input quality. Adaptive truncation (ψ≈0.6) maximizes fault detection while preserving validity and diversity.</p>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1145/3786154.3788585">paper</a>
+                    <a href="https://github.com/ast-fortiss-tum/frontier-generation-latent-space-interpolation">code</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pub-card reveal">
+            <div class="pub-thumb">
+                <img src="Images/mimicry.gif" alt="Mimicry: test input interpolates from source class toward decision boundary via style-mixing">
+            </div>
+            <div class="pub-info">
+                <h3>Targeted Deep Learning System Boundary Testing</h3>
+                <p class="pub-authors">O. Weißl, A. Abdellatif, X. Chen, <span class="me">G. Merabishvili</span>, V. Riccio, S. Kacianka, A. Stocco</p>
+                <p class="pub-venue">ACM Transactions on Software Engineering and Methodology (TOSEM), 2025</p>
+                <p class="pub-desc">Introduces Mimicry, a targeted boundary testing technique using disentangled StyleGAN latent spaces to find inputs near decision boundaries across 5 image classification datasets.</p>
+                <div class="pub-links">
+                    <a href="https://doi.org/10.1145/3771557">paper</a>
+                    <a href="https://github.com/ast-fortiss-tum/SMOO/tree/mimicry">code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ AWARDS ═══════ -->
+    <section id="awards">
+        <div class="section-label reveal">Honors & Awards</div>
+        <div class="awards-list">
+            <div class="award-item reveal reveal-delay-1">
+                <span class="award-name">DAAD Research Scholarship</span>
+                <span class="award-detail">Munich · 2024</span>
+            </div>
+            <div class="award-item reveal reveal-delay-1">
+                <span class="award-name">Merit Award, New York University</span>
+                <span class="award-detail">New York · 2023–2025</span>
+            </div>
+            <div class="award-item reveal reveal-delay-2">
+                <span class="award-name">Summa Cum Laude, St. Francis College</span>
+                <span class="award-detail">New York · 2023</span>
+            </div>
+            <div class="award-item reveal reveal-delay-2">
+                <span class="award-name">Sigma Beta Delta International Honor Society</span>
+                <span class="award-detail">New York · 2023</span>
+            </div>
+            <div class="award-item reveal reveal-delay-3">
+                <span class="award-name">Travel Grant, NE Regional Honors Conference</span>
+                <span class="award-detail">New York · 2023</span>
+            </div>
+            <div class="award-item reveal reveal-delay-3">
+                <span class="award-name">Merit & Institutional Scholarship, St. Francis College</span>
+                <span class="award-detail">New York · 2019–2023</span>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>© 2026 Giorgi Merabishvili</footer>
+
+<script>
+    // ── Nav shadow on scroll ──
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ── Scroll-reveal animations ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
+        body {
+            font-family: var(--sans);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ── Subtle dot grid background ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(0,0,0,0.035) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Warm gradient wash at top ── */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(228,238,245,0.5) 0%, rgba(246,245,241,0) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ═══════ NAV ═══════ */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(246,245,241,0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            transition: box-shadow 0.3s ease;
+        }
+        nav.scrolled {
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+        }
+        nav .nav-inner {
+            max-width: var(--max-width); margin: 0 auto; padding: 0 28px;
+            display: flex; align-items: center; justify-content: space-between; height: 56px;
+        }
+        nav .nav-name {
+            font-family: var(--serif); font-weight: 600; font-size: 20px;
+            color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+        }
+        nav .nav-links { display: flex; gap: 8px; }
+        nav .nav-links a {
+            font-size: 13px; font-weight: 500; color: var(--text-secondary);
+            text-decoration: none; transition: all 0.25s ease;
+            letter-spacing: 0.01em; padding: 6px 12px; border-radius: 6px;
+            position: relative;
+        }
+        nav .nav-links a:hover {
+            color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        /* ═══════ MAIN ═══════ */
+        main { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
         section { padding: 60px 0; }
 
         /* ── Animated section dividers ── */
