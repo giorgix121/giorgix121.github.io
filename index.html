@@ -31,8 +31,10 @@
             --shadow-lg: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
             --radius: 10px;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
+
         body {
             font-family: var(--sans);
             color: var(--text);
@@ -41,6 +43,7 @@
             font-size: 15px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+<<<<<<< HEAD
         }
         body::before {
             content: '';
@@ -59,7 +62,33 @@
             background: linear-gradient(180deg, rgba(228,238,245,0.5) 0%, rgba(246,245,241,0) 100%);
             pointer-events: none;
             z-index: 0;
+=======
+>>>>>>> 37c2215 (updates)
         }
+
+        /* ── Subtle dot grid background ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(0,0,0,0.035) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Warm gradient wash at top ── */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(228,238,245,0.5) 0%, rgba(246,245,241,0) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ═══════ NAV ═══════ */
         nav {
             position: sticky; top: 0; z-index: 100;
             background: rgba(246,245,241,0.75);
@@ -67,6 +96,12 @@
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(0,0,0,0.06);
             transition: box-shadow 0.3s ease;
+<<<<<<< HEAD
+=======
+        }
+        nav.scrolled {
+            box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+>>>>>>> 37c2215 (updates)
         }
         nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
         nav .nav-inner {
@@ -84,6 +119,7 @@
             letter-spacing: 0.01em; padding: 6px 12px; border-radius: 6px;
             position: relative;
         }
+<<<<<<< HEAD
         nav .nav-links a:hover { color: var(--accent); background: var(--accent-glow); }
         main { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
         section { padding: 40px 0; }
@@ -91,10 +127,56 @@
         .section-label {
             font-size: 15px; font-weight: 600; letter-spacing: 0.1em;
             text-transform: uppercase; color: var(--accent); margin-bottom: 32px;
+=======
+        nav .nav-links a:hover {
+            color: var(--accent);
+            background: var(--accent-glow);
         }
+
+        /* ═══════ MAIN ═══════ */
+        main { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+        section { padding: 60px 0; }
+
+        /* ── Animated section dividers ── */
+        section + section {
+            border-top: none;
+            position: relative;
+        }
+        section + section::before {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--accent), var(--border));
+            margin: 0 0 0 0;
+            position: absolute;
+            top: 0;
+        }
+
+        .section-label {
+            font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 32px;
+            display: flex; align-items: center; gap: 12px;
+>>>>>>> 37c2215 (updates)
+        }
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        /* ═══════ HERO ═══════ */
         .hero {
             padding: 72px 0 56px;
             display: grid; grid-template-columns: 148px 1fr; gap: 40px; align-items: start;
+<<<<<<< HEAD
+=======
+        }
+        .hero-photo-wrap {
+            position: relative;
+            width: 148px; height: 148px;
+>>>>>>> 37c2215 (updates)
         }
         .hero-photo-wrap { position: relative; width: 148px; height: 148px; }
         .hero-photo {
@@ -106,6 +188,7 @@
             position: relative; z-index: 1;
         }
         .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
         .hero-info h1 {
             font-family: var(--serif); font-size: 36px; font-weight: 600;
             letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 10px;
@@ -118,15 +201,28 @@
         .hero-info .subtitle a {
             color: var(--accent); text-decoration: none;
             background-image: linear-gradient(var(--accent), var(--accent));
+<<<<<<< HEAD
             background-size: 0% 1px; background-position: 0 100%;
             background-repeat: no-repeat; transition: background-size 0.3s ease;
         }
         .hero-info .subtitle a:hover { background-size: 100% 1px; }
+=======
+            background-size: 0% 1px;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size 0.3s ease;
+        }
+        .hero-info .subtitle a:hover {
+            background-size: 100% 1px;
+        }
+
+>>>>>>> 37c2215 (updates)
         .hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
         .hero-links a {
             font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none;
             padding: 7px 16px; border: 1px solid var(--border); border-radius: 8px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+<<<<<<< HEAD
             background: var(--card-bg); backdrop-filter: blur(8px);
         }
         .hero-links a:hover {
@@ -154,16 +250,63 @@
         .timeline-item {
             display: grid; grid-template-columns: 124px 1fr; gap: 24px;
             padding: 20px 0; align-items: start; transition: opacity 0.2s ease;
+=======
+            background: var(--card-bg);
+            backdrop-filter: blur(8px);
+        }
+        .hero-links a:hover {
+            background: var(--accent); color: #fff; border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(26,92,138,0.25);
+            transform: translateY(-1px);
+        }
+
+        /* ═══════ NEWS ═══════ */
+        .news {
+            background: var(--card-bg); border: 1px solid var(--border-light);
+            border-radius: var(--radius); padding: 20px 24px;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(12px);
+        }
+        .news-item {
+            display: flex; gap: 14px; font-size: 14px; line-height: 1.6;
+            padding: 6px 0;
+            transition: transform 0.2s ease;
+        }
+        .news-item:hover {
+            transform: translateX(4px);
+        }
+        .news-item + .news-item { margin-top: 4px; border-top: 1px solid var(--border-light); padding-top: 10px; }
+        .news-date {
+            font-family: var(--mono); font-size: 12px; color: var(--text-tertiary);
+            white-space: nowrap; padding-top: 3px;
+            min-width: 38px;
+        }
+        .news-text { color: var(--text-secondary); }
+        .news-text strong { color: var(--text); font-weight: 600; }
+
+        /* ═══════ TIMELINE ═══════ */
+        .timeline { display: flex; flex-direction: column; gap: 0; }
+        .timeline-item {
+            display: grid; grid-template-columns: 124px 1fr; gap: 24px;
+            padding: 20px 0; align-items: start;
+            transition: opacity 0.2s ease;
+>>>>>>> 37c2215 (updates)
         }
         .timeline-item + .timeline-item { border-top: 1px solid var(--border-light); }
         .timeline-left { padding-top: 2px; }
         .timeline-date {
+<<<<<<< HEAD
             font-family: var(--mono); font-size: 11px; color: var(--text-tertiary); white-space: nowrap;
+=======
+            font-family: var(--mono); font-size: 11px; color: var(--text-tertiary);
+            white-space: nowrap;
+>>>>>>> 37c2215 (updates)
         }
         .timeline-header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
         .timeline-icon {
             width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0;
             overflow: hidden; box-shadow: var(--shadow-sm);
+<<<<<<< HEAD
             border: 1px solid var(--border-light); transition: transform 0.2s ease;
         }
         .timeline-item:hover .timeline-icon { transform: scale(1.08); }
@@ -217,15 +360,98 @@
         }
         .award-item:hover {
             box-shadow: var(--shadow-md); transform: translateX(4px);
+=======
+            border: 1px solid var(--border-light);
+            transition: transform 0.2s ease;
+        }
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.08);
+        }
+        .timeline-icon img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
+        .timeline-right h3 {
+            font-family: var(--serif); font-size: 16px; font-weight: 600;
+            line-height: 1.35;
+        }
+        .timeline-subtitle {
+            font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 5px;
+        }
+        .timeline-detail {
+            font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+        }
+
+        /* ═══════ PUBLICATIONS ═══════ */
+        .pub-card {
+            display: grid; grid-template-columns: 240px 1fr; gap: 28px;
+            padding: 28px; align-items: start;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(12px);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 16px;
+        }
+        .pub-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: rgba(26,92,138,0.15);
+        }
+        .pub-thumb {
+            width: 100%; border-radius: 8px; overflow: hidden;
+            border: 1px solid var(--border-light); background: #f0f0ec;
+            aspect-ratio: auto;
+        }
+        .pub-thumb img { width: 100%; height: auto; display: block; }
+        .pub-info h3 {
+            font-family: var(--serif); font-size: 18px; font-weight: 600;
+            line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 8px;
+        }
+        .pub-authors { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 5px; line-height: 1.5; }
+        .pub-authors .me { font-weight: 600; color: var(--text); }
+        .pub-venue { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+        .pub-venue .under-review { color: var(--text-tertiary); font-style: italic; font-weight: 400; }
+        .pub-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.6; }
+        .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .pub-links a {
+            font-size: 12px; font-weight: 500; color: var(--text-secondary); text-decoration: none;
+            padding: 4px 12px; border: 1px solid var(--border); border-radius: 5px;
+            transition: all 0.25s ease; font-family: var(--mono);
+        }
+        .pub-links a:hover {
+            border-color: var(--accent); color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        /* ═══════ AWARDS ═══════ */
+        .awards-list { display: flex; flex-direction: column; gap: 8px; }
+        .award-item {
+            display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;
+            padding: 14px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(12px);
+            transition: all 0.25s ease;
+        }
+        .award-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+>>>>>>> 37c2215 (updates)
             border-color: rgba(26,92,138,0.12);
         }
         .award-name { font-size: 14px; font-weight: 500; }
         .award-detail { font-size: 12px; color: var(--text-tertiary); font-family: var(--mono); }
+
+        /* ═══════ FOOTER ═══════ */
         footer {
             max-width: var(--max-width); margin: 0 auto; padding: 36px 28px 56px;
             font-size: 12px; color: var(--text-tertiary); text-align: center;
             position: relative; z-index: 1;
         }
+<<<<<<< HEAD
         .reveal {
             opacity: 0; transform: translateY(24px);
             transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
@@ -235,6 +461,32 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
+=======
+        footer::before {
+            content: '';
+            display: block;
+            width: 32px; height: 1px;
+            background: var(--border);
+            margin: 0 auto 24px;
+        }
+
+        /* ═══════ SCROLL ANIMATIONS ═══════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* ═══════ RESPONSIVE ═══════ */
+>>>>>>> 37c2215 (updates)
         @media (max-width: 640px) {
             .hero { grid-template-columns: 1fr; text-align: center; justify-items: center; }
             .hero-photo-wrap { margin: 0 auto; }
@@ -314,7 +566,13 @@
         <div class="section-label reveal">Education</div>
         <div class="timeline">
             <div class="timeline-item reveal">
+<<<<<<< HEAD
                 <div class="timeline-left"><span class="timeline-date">2025 – Present</span></div>
+=======
+                <div class="timeline-left">
+                    <span class="timeline-date">2025 – Present</span>
+                </div>
+>>>>>>> 37c2215 (updates)
                 <div class="timeline-right">
                     <div class="timeline-header">
                         <div class="timeline-icon"><img src="Images/logos/NCSU.jpeg" alt="NC State"></div>
@@ -325,7 +583,13 @@
                 </div>
             </div>
             <div class="timeline-item reveal">
+<<<<<<< HEAD
                 <div class="timeline-left"><span class="timeline-date">2023 – 2025</span></div>
+=======
+                <div class="timeline-left">
+                    <span class="timeline-date">2023 – 2025</span>
+                </div>
+>>>>>>> 37c2215 (updates)
                 <div class="timeline-right">
                     <div class="timeline-header">
                         <div class="timeline-icon"><img src="Images/logos/NYU.jpeg" alt="NYU"></div>
@@ -336,7 +600,13 @@
                 </div>
             </div>
             <div class="timeline-item reveal">
+<<<<<<< HEAD
                 <div class="timeline-left"><span class="timeline-date">2019 – 2023</span></div>
+=======
+                <div class="timeline-left">
+                    <span class="timeline-date">2019 – 2023</span>
+                </div>
+>>>>>>> 37c2215 (updates)
                 <div class="timeline-right">
                     <div class="timeline-header">
                         <div class="timeline-icon"><img src="Images/logos/SFC.png" alt="St. Francis College"></div>
@@ -353,7 +623,13 @@
         <div class="section-label reveal">Experience</div>
         <div class="timeline">
             <div class="timeline-item reveal">
+<<<<<<< HEAD
                 <div class="timeline-left"><span class="timeline-date">2026 incoming</span></div>
+=======
+                <div class="timeline-left">
+                    <span class="timeline-date">2026 incoming</span>
+                </div>
+>>>>>>> 37c2215 (updates)
                 <div class="timeline-right">
                     <div class="timeline-header">
                         <div class="timeline-icon"><img src="Images/logos/MPI.jpg" alt="Max Planck Institute"></div>
@@ -364,7 +640,13 @@
                 </div>
             </div>
             <div class="timeline-item reveal">
+<<<<<<< HEAD
                 <div class="timeline-left"><span class="timeline-date">2025 – Present</span></div>
+=======
+                <div class="timeline-left">
+                    <span class="timeline-date">2025 – Present</span>
+                </div>
+>>>>>>> 37c2215 (updates)
                 <div class="timeline-right">
                     <div class="timeline-header">
                         <div class="timeline-icon"><img src="Images/logos/NCSU.jpeg" alt="NC State"></div>
@@ -375,7 +657,13 @@
                 </div>
             </div>
             <div class="timeline-item reveal">
+<<<<<<< HEAD
                 <div class="timeline-left"><span class="timeline-date">2024 – 2025</span></div>
+=======
+                <div class="timeline-left">
+                    <span class="timeline-date">2024 – 2025</span>
+                </div>
+>>>>>>> 37c2215 (updates)
                 <div class="timeline-right">
                     <div class="timeline-header">
                         <div class="timeline-icon"><img src="Images/logos/TUM.jpeg" alt="TU Munich"></div>
@@ -386,7 +674,13 @@
                 </div>
             </div>
             <div class="timeline-item reveal">
+<<<<<<< HEAD
                 <div class="timeline-left"><span class="timeline-date">2024 – 2025</span></div>
+=======
+                <div class="timeline-left">
+                    <span class="timeline-date">2024 – 2025</span>
+                </div>
+>>>>>>> 37c2215 (updates)
                 <div class="timeline-right">
                     <div class="timeline-header">
                         <div class="timeline-icon"><img src="Images/logos/ROBOM.jpeg" alt="RoboMaster NYU"></div>
@@ -399,9 +693,45 @@
         </div>
     </section>
 
+    <!-- ═══════ PUBLICATIONS ═══════ -->
     <section id="publications">
         <div class="section-label reveal">Publications</div>
 
+<<<<<<< HEAD
+=======
+        <!-- <div class="pub-card reveal">
+            <div class="pub-thumb">
+                <img src="Images/metaglitch.gif" alt="MetaGlitch: VLM scan detecting a gravity violation as an NPC floats above the ground">
+            </div>
+            <div class="pub-info">
+                <h3>MetaGlitch: Physics-Grounded Metamorphic Testing for Video Game Testing</h3>
+                <p class="pub-authors"><span class="me">G. Merabishvili</span>, et al.</p>
+                <p class="pub-venue"><span class="under-review">Under Submission, 2026</span></p>
+                <p class="pub-desc">Augments VLM prompts with 152 physics-grounded metamorphic relations to detect visual bugs in video games. Improves recall by up to +14.8 pp across 6 VLMs and 10 game titles.</p>
+                <div class="pub-links">
+                    <a href="#">paper</a>
+                    <a href="#">code</a>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="pub-card reveal">
+            <div class="pub-thumb">
+                <img src="Images/wasm_bugs.gif" alt="WASM bug study: rtbench corpus enables transplantation and fuzzing across runtimes, revealing 38 bugs">
+            </div>
+            <div class="pub-info">
+                <h3>Left Behind, Not Forgotten: Reusing Regression Tests to Find Bugs in WebAssembly Runtimes</h3>
+                <p class="pub-authors">et al., <span class="me">G. Merabishvili</span>, et al.</p>
+                <p class="pub-venue"><span class="under-review">Under Submission, 2026</span></p>
+                <p class="pub-desc">Introduces rtbench, a corpus of 584 WASM regression tests. Transplantation and fuzzing together reveal 38 new bugs across 3 runtimes—complementary techniques with zero overlap.</p>
+                <div class="pub-links">
+                    <a href="#">paper</a>
+                    <a href="#">code</a>
+                </div>
+            </div>
+        </div>
+
+>>>>>>> 37c2215 (updates)
         <div class="pub-card reveal">
             <div class="pub-thumb">
                 <img src="Images/latent_reg.gif" alt="Latent regularization: shapes morph as truncation psi decreases, fourth seed flips class at boundary">
@@ -435,6 +765,10 @@
         </div>
     </section>
 
+<<<<<<< HEAD
+=======
+    <!-- ═══════ AWARDS ═══════ -->
+>>>>>>> 37c2215 (updates)
     <section id="awards">
         <div class="section-label reveal">Honors & Awards</div>
         <div class="awards-list">
@@ -466,11 +800,22 @@
     </section>
 </main>
 <footer>© 2026 Giorgi Merabishvili</footer>
+<<<<<<< HEAD
 <script>
+=======
+
+<script>
+    // ── Nav shadow on scroll ──
+>>>>>>> 37c2215 (updates)
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
+<<<<<<< HEAD
+=======
+
+    // ── Scroll-reveal animations ──
+>>>>>>> 37c2215 (updates)
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -480,6 +825,10 @@
             }
         });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 37c2215 (updates)
     reveals.forEach(el => observer.observe(el));
 </script>
 </body>
