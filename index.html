@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giorgi Merabishvili</title>
+
+    <!-- SEO / metadata -->
+    <title>Giorgi Merabishvili — PhD, Software Testing</title>
+    <meta name="author" content="Giorgi Merabishvili">
+    <meta name="description" content="PhD student in Computer Science at NC State. Research on software testing, robustness of software systems, and WebAssembly runtimes.">
+
+    <!-- Open Graph / social previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Giorgi Merabishvili — PhD, Software Testing">
+    <meta property="og:description" content="PhD student at NC State. Software testing, robustness, and WebAssembly runtimes.">
+    <meta property="og:url" content="https://giorgix121.github.io/">
+    <meta property="og:image" content="https://giorgix121.github.io/Images/photo.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Giorgi Merabishvili — PhD, Software Testing">
+    <meta name="twitter:description" content="PhD student at NC State. Software testing, robustness, and WebAssembly runtimes.">
+    <meta name="twitter:image" content="https://giorgix121.github.io/Images/photo.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
@@ -138,13 +154,14 @@
 
         .hero-info h1 {
             font-family: var(--serif); font-size: 36px; font-weight: 600;
-            letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 10px;
+            letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px;
             color: var(--text);
         }
         .hero-info .subtitle {
             font-size: 15px; color: var(--text-secondary);
-            margin-bottom: 20px; line-height: 1.65;
+            margin-bottom: 12px; line-height: 1.65;
         }
+        .hero-info .subtitle:last-of-type { margin-bottom: 22px; }
         .hero-info .subtitle a {
             color: var(--accent); text-decoration: none;
             background-image: linear-gradient(var(--accent), var(--accent));
@@ -232,7 +249,7 @@
             font-family: var(--serif); font-size: 18px; font-weight: 600;
             line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 8px;
         }
-        .pub-authors { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 5px; line-height: 1.5; }
+        .pub-authors { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 5px; line-height: 1.55; }
         .pub-authors .me { font-weight: 600; color: var(--text); }
         .pub-venue { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
         .pub-venue .under-review { color: var(--text-tertiary); font-style: italic; font-weight: 400; }
@@ -326,6 +343,8 @@
                 PhD student in Computer Science at North Carolina State University,
                 advised by <a href="https://damorim.github.io">Marcelo d'Amorim</a>.
                 I work on software testing and improving the robustness of software systems.
+            </p>
+            <p class="subtitle">
                 Previously, I earned my MS in Computer Engineering from NYU and worked with
                 <a href="https://tsigalko18.github.io">Andrea Stocco</a> at TU Munich (DAAD scholar).
                 This summer I will join the
@@ -337,7 +356,7 @@
                 <a href="mailto:gmerabi@ncsu.edu">Email</a>
                 <a href="https://github.com/giorgix121">GitHub</a>
                 <a href="https://www.linkedin.com/in/giorgi-merabishvili/">LinkedIn</a>
-                <a href="https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en">Scholar</a>
+                <a href="https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en">Google Scholar</a>
                 <a href="cv.pdf">CV</a>
             </div>
         </div>
@@ -373,7 +392,6 @@
                         <h3>North Carolina State University</h3>
                     </div>
                     <p class="timeline-subtitle">PhD in Computer Science</p>
-                    <p class="timeline-detail">Coursework: Design and Analysis of Algorithms, Software Testing and Reliability</p>
                 </div>
             </div>
             <div class="timeline-item reveal">
@@ -455,37 +473,7 @@
     <section id="publications">
         <div class="section-label reveal">Publications</div>
 
-        <!-- <div class="pub-card reveal">
-            <div class="pub-thumb">
-                <img src="Images/metaglitch.gif" alt="MetaGlitch: VLM scan detecting a gravity violation as an NPC floats above the ground">
-            </div>
-            <div class="pub-info">
-                <h3>MetaGlitch: Physics-Grounded Metamorphic Testing for Video Game Testing</h3>
-                <p class="pub-authors"><span class="me">G. Merabishvili</span>, et al.</p>
-                <p class="pub-venue"><span class="under-review">Under Submission, 2026</span></p>
-                <p class="pub-desc">Augments VLM prompts with 152 physics-grounded metamorphic relations to detect visual bugs in video games. Improves recall by up to +14.8 pp across 6 VLMs and 10 game titles.</p>
-                <div class="pub-links">
-                    <a href="#">paper</a>
-                    <a href="#">code</a>
-                </div>
-            </div>
-        </div> -->
-
-        <div class="pub-card reveal">
-            <div class="pub-thumb">
-                <img src="Images/wasm_bugs.gif" alt="WASM bug study: rtbench corpus enables transplantation and fuzzing across runtimes, revealing 38 bugs">
-            </div>
-            <div class="pub-info">
-                <h3>Left Behind, Not Forgotten: Reusing Regression Tests to Find Bugs in WebAssembly Runtimes</h3>
-                <p class="pub-authors">et al., <span class="me">G. Merabishvili</span>, et al.</p>
-                <p class="pub-venue"><span class="under-review">Under Submission, 2026</span></p>
-                <p class="pub-desc">Introduces rtbench, a corpus of 584 WASM regression tests. Transplantation and fuzzing together reveal 38 new bugs across 3 runtimes—complementary techniques with zero overlap.</p>
-                <div class="pub-links">
-                    <a href="#">paper</a>
-                    <a href="#">code</a>
-                </div>
-            </div>
-        </div>
+    
 
         <div class="pub-card reveal">
             <div class="pub-thumb">
@@ -497,7 +485,7 @@
                 <p class="pub-venue">DeepTest '26 — ICSE Workshop, 2026</p>
                 <p class="pub-desc">Studies how truncation in StyleGAN latent spaces affects test input quality. Adaptive truncation (ψ≈0.6) maximizes fault detection while preserving validity and diversity.</p>
                 <div class="pub-links">
-                    <a href="https://arxiv.org/abs/2602.15552">paper</a>
+                    <a href="https://doi.org/10.1145/3786154.3788585">paper</a>
                     <a href="https://github.com/ast-fortiss-tum/frontier-generation-latent-space-interpolation">code</a>
                 </div>
             </div>
