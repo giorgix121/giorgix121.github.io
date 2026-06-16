@@ -1,0 +1,45 @@
+name: Update Scholar citations
+
+# Refreshes per-paper "Cited by" counts in scholar.json from Google Scholar
+# (via SerpAPI) and commits the change. Runs weekly, or on demand from the
+# Actions tab. Requires a repository secret named SERPAPI_KEY.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # every Monday at 06:00 UTC
+  workflow_dispatch: {}    # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scholar-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh citation counts
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          SCHOLAR_AUTHOR_ID: pPopoasAAAAJ
+        run: python .github/scripts/update_scholar.py
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- scholar.json; then
+            echo "scholar.json unchanged — nothing to commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add scholar.json
+            git commit -m "chore: update Google Scholar citation counts"
+            git push
+          fi

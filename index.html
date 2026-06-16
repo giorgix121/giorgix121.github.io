@@ -8,505 +8,685 @@
     <title>Giorgi Merabishvili — PhD, Software Engineering</title>
     <meta name="author" content="Giorgi Merabishvili">
     <meta name="description" content="PhD student in Computer Science at NC State. Research on software engineering, software testing, robustness of software systems, and WebAssembly runtimes.">
+    <link rel="canonical" href="https://giorgix121.github.io/">
 
     <!-- Open Graph / social previews -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Giorgi Merabishvili — PhD, Software Engineering">
     <meta property="og:description" content="PhD student at NC State. Software engineering, software testing, robustness, and WebAssembly runtimes.">
     <meta property="og:url" content="https://giorgix121.github.io/">
-    <meta property="og:image" content="https://giorgix121.github.io/Images/photo.jpg">
+    <meta property="og:image" content="https://giorgix121.github.io/Images/photo-og.jpg">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Giorgi Merabishvili — PhD, Software Engineering">
     <meta name="twitter:description" content="PhD student at NC State. Software engineering, software testing, robustness, and WebAssembly runtimes.">
-    <meta name="twitter:image" content="https://giorgix121.github.io/Images/photo.jpg">
+    <meta name="twitter:image" content="https://giorgix121.github.io/Images/photo-og.jpg">
 
-    <link rel="icon" type="image/jpeg" href="https://giorgix121.github.io/Images/photo.jpg">
-    <link rel="apple-touch-icon" href="https://giorgix121.github.io/Images/photo.jpg">
+    <meta name="theme-color" content="#0B0E14">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230B0E14'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Georgia,serif'%20font-style='italic'%20font-size='40'%20fill='%23A78BFA'%20text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="https://giorgix121.github.io/Images/apple-touch-icon.jpg">
+
+    <!-- Set theme before first paint -->
+    <script>
+        (function () {
+            var t = 'dark';
+            try {
+                var p = new URLSearchParams(location.search).get('theme');
+                var s = localStorage.getItem('theme');
+                var m = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+                t = (p === 'light' || p === 'dark') ? p : (s === 'light' || s === 'dark') ? s : m;
+            } catch (e) {}
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <style>
+        /* ═══════ TOKENS ═══════ */
         :root {
-            --bg: #f6f5f1;
-            --bg-warm: #efeee8;
-            --text: #1a1a1a;
-            --text-secondary: #4a4a4a;
-            --text-tertiary: #8a8a8a;
-            --accent: #1a5c8a;
-            --accent-hover: #134a6e;
-            --accent-glow: rgba(26, 92, 138, 0.08);
-            --accent-light: #e4eef5;
-            --border: #ddddd6;
-            --border-light: #eeede8;
-            --card-bg: rgba(255,255,255,0.72);
-            --card-bg-solid: #ffffff;
-            --max-width: 840px;
-            --serif: 'Source Serif 4', Georgia, serif;
-            --sans: 'DM Sans', -apple-system, sans-serif;
-            --mono: 'JetBrains Mono', monospace;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
-            --radius: 10px;
+            color-scheme: dark;
+            --bg: #0B0E14;
+            --bg-elev: #10141D;
+            --bg-elev2: #161C28;
+            --text: #E8ECF2;
+            --text-2: #A8B1BF;
+            --text-3: #6A7486;
+            --line: rgba(148, 163, 184, 0.13);
+            --line-strong: rgba(148, 163, 184, 0.25);
+            --accent: #A78BFA;
+            --accent-strong: #C4B5FD;
+            --accent-dim: rgba(167, 139, 250, 0.10);
+            --glow: rgba(124, 92, 246, 0.12);
+            --chip: #FFFFFF;
+            --viz-green: #34D399;
+            --viz-amber: #FBBF24;
+            --viz-red: #F87171;
+            --viz-blue: #60A5FA;
+            --viz-coral: #FB7185;
+            --max: 1080px;
+            --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+        html[data-theme="light"] {
+            color-scheme: light;
+            --bg: #FAF9F7;
+            --bg-elev: #FFFFFF;
+            --bg-elev2: #F2F0EC;
+            --text: #1A1D24;
+            --text-2: #4B5363;
+            --text-3: #707A8D;
+            --line: rgba(24, 29, 39, 0.11);
+            --line-strong: rgba(24, 29, 39, 0.22);
+            --accent: #6D28D9;
+            --accent-strong: #5B21B6;
+            --accent-dim: rgba(109, 40, 217, 0.07);
+            --glow: rgba(124, 92, 246, 0.07);
+            --chip: #FFFFFF;
+            --viz-green: #059669;
+            --viz-amber: #D97706;
+            --viz-red: #DC2626;
+            --viz-blue: #2563EB;
+            --viz-coral: #E11D48;
+        }
+        /* no-JS visitors with a light system preference */
+        @media (prefers-color-scheme: light) {
+            html:not([data-theme]) {
+                color-scheme: light;
+                --bg: #FAF9F7; --bg-elev: #FFFFFF; --bg-elev2: #F2F0EC;
+                --text: #1A1D24; --text-2: #4B5363; --text-3: #707A8D;
+                --line: rgba(24, 29, 39, 0.11); --line-strong: rgba(24, 29, 39, 0.22);
+                --accent: #6D28D9; --accent-strong: #5B21B6;
+                --accent-dim: rgba(109, 40, 217, 0.07); --glow: rgba(124, 92, 246, 0.07);
+                --viz-green: #059669; --viz-amber: #D97706; --viz-red: #DC2626;
+                --viz-blue: #2563EB; --viz-coral: #E11D48;
+            }
         }
 
+        /* ═══════ BASE ═══════ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
+        html, body { overflow-x: clip; }
         body {
             font-family: var(--sans);
-            color: var(--text);
             background: var(--bg);
+            color: var(--text);
+            font-size: 15.5px;
             line-height: 1.7;
-            font-size: 15px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.35s ease, color 0.35s ease;
         }
-
-        /* ── Subtle dot grid background ── */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(circle, rgba(0,0,0,0.035) 1px, transparent 1px);
-            background-size: 28px 28px;
+            background: radial-gradient(820px 460px at 50% -120px, var(--glow), transparent 70%);
             pointer-events: none;
             z-index: 0;
         }
+        ::selection { background: var(--accent); color: var(--bg); }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-        /* ── Warm gradient wash at top ── */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 500px;
-            background: linear-gradient(180deg, rgba(228,238,245,0.5) 0%, rgba(246,245,241,0) 100%);
-            pointer-events: none;
-            z-index: 0;
+        .skip {
+            position: absolute; left: -9999px; top: 12px; z-index: 200;
+            background: var(--accent); color: var(--bg); padding: 8px 16px;
+            border-radius: 8px; font-size: 13px; text-decoration: none;
         }
+        .skip:focus { left: 12px; }
 
         /* ═══════ NAV ═══════ */
         nav {
             position: sticky; top: 0; z-index: 100;
-            background: rgba(246,245,241,0.75);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-            transition: box-shadow 0.3s ease;
+            background: color-mix(in srgb, var(--bg) 80%, transparent);
+            -webkit-backdrop-filter: blur(16px) saturate(160%);
+            backdrop-filter: blur(16px) saturate(160%);
+            border-bottom: 1px solid var(--line);
         }
-        nav.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,0.06); }
-        nav .nav-inner {
-            max-width: var(--max-width); margin: 0 auto; padding: 0 28px;
-            display: flex; align-items: center; justify-content: space-between; height: 56px;
+        .nav-inner {
+            max-width: var(--max); margin: 0 auto; padding: 0 28px;
+            height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
         }
-        nav .nav-name {
-            font-family: var(--serif); font-weight: 600; font-size: 20px;
-            color: var(--text); text-decoration: none; letter-spacing: -0.02em;
+        .nav-name {
+            font-family: var(--serif); font-style: italic; font-weight: 500;
+            font-size: 18px; color: var(--text); text-decoration: none;
+            letter-spacing: 0.005em; white-space: nowrap;
         }
-        nav .nav-links { display: flex; gap: 8px; }
-        nav .nav-links a {
-            font-size: 13px; font-weight: 500; color: var(--text-secondary);
-            text-decoration: none; transition: all 0.25s ease;
-            letter-spacing: 0.01em; padding: 6px 12px; border-radius: 6px;
-            position: relative;
+        .nav-name .short { display: none; }
+        .nav-right { display: flex; align-items: center; gap: 14px; }
+        .nav-links { display: flex; gap: 2px; }
+        .nav-links a {
+            font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--text-3); text-decoration: none;
+            padding: 7px 10px; border-radius: 6px; transition: color 0.2s ease, background 0.2s ease;
         }
-        nav .nav-links a:hover { color: var(--accent); background: var(--accent-glow); }
+        .nav-links a:hover { color: var(--accent-strong); background: var(--accent-dim); }
+        .theme-btn {
+            width: 32px; height: 32px; flex: none; display: inline-flex;
+            align-items: center; justify-content: center;
+            background: transparent; border: 1px solid var(--line-strong);
+            border-radius: 8px; color: var(--text-2); cursor: pointer;
+            transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+        .theme-btn:hover { color: var(--text); border-color: var(--text-3); transform: rotate(12deg); }
+        .theme-btn svg { width: 15px; height: 15px; }
+        html[data-theme="light"] .icon-sun { display: none; }
+        html:not([data-theme="light"]) .icon-moon { display: none; }
 
-        /* ═══════ MAIN ═══════ */
-        main { max-width: var(--max-width); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
-        section { padding: 60px 0; }
-
-        /* ── Animated section dividers ── */
-        section + section { border-top: none; position: relative; }
-        section + section::before {
-            content: '';
-            display: block;
-            width: 48px; height: 1px;
-            background: linear-gradient(90deg, var(--accent), var(--border));
-            position: absolute; top: 0;
+        /* ═══════ LAYOUT ═══════ */
+        main { max-width: var(--max); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+        section { border-top: 1px solid var(--line); padding: 56px 0 64px; scroll-margin-top: 76px; }
+        .sec-label {
+            font-family: var(--mono); font-size: 11px; font-weight: 500;
+            letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+            display: flex; align-items: baseline; gap: 12px; margin-bottom: 36px;
         }
-
-        .section-label {
-            font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
-            text-transform: uppercase; color: var(--accent); margin-bottom: 32px;
-            display: flex; align-items: center; gap: 12px;
-        }
-        .section-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, var(--border), transparent);
-        }
+        .sec-label .n { color: var(--text-3); font-weight: 400; }
 
         /* ═══════ HERO ═══════ */
         .hero {
-            padding: 72px 0 56px;
-            display: grid; grid-template-columns: 148px 1fr; gap: 40px; align-items: start;
+            border-top: none; padding: 88px 0 68px;
+            display: grid; grid-template-columns: 1fr 176px; gap: 56px; align-items: center;
         }
-        .hero-photo-wrap { position: relative; width: 148px; height: 148px; }
+        .eyebrow {
+            font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+        }
+        h1 {
+            font-family: var(--serif); font-weight: 500;
+            font-size: clamp(38px, 6vw, 54px); line-height: 1.08;
+            letter-spacing: -0.015em; margin-bottom: 24px;
+        }
+        h1 .dot { color: var(--accent); }
+        .bio p { color: var(--text-2); max-width: 58ch; }
+        .bio p + p { margin-top: 12px; }
+        .bio a {
+            color: var(--text); text-decoration: underline;
+            text-decoration-color: var(--line-strong); text-underline-offset: 3px;
+            transition: color 0.2s ease, text-decoration-color 0.2s ease;
+        }
+        .bio a:hover { color: var(--accent-strong); text-decoration-color: var(--accent); }
         .hero-photo {
-            width: 148px; height: 148px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-light), #d4e4f0);
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--serif); font-size: 42px; font-weight: 300;
-            color: var(--accent); overflow: hidden;
-            position: relative; z-index: 1;
+            width: 176px; height: 176px; border-radius: 20px; object-fit: cover;
+            border: 1px solid var(--line-strong); display: block;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
         }
-        .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+        html[data-theme="light"] .hero-photo { box-shadow: 0 12px 32px rgba(26, 29, 36, 0.10); }
 
-        .hero-info h1 {
-            font-family: var(--serif); font-size: 36px; font-weight: 600;
-            letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 14px;
-            color: var(--text);
+        .hero-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-family: var(--mono); font-size: 11.5px; color: var(--text-2);
+            text-decoration: none; padding: 7px 12px;
+            border: 1px solid var(--line-strong); border-radius: 999px;
+            transition: color 0.22s ease, border-color 0.22s ease, background 0.22s ease, transform 0.22s ease;
         }
-        .hero-info .subtitle {
-            font-size: 15px; color: var(--text-secondary);
-            margin-bottom: 12px; line-height: 1.65;
-        }
-        .hero-info .subtitle:last-of-type { margin-bottom: 22px; }
-        .hero-info .subtitle a {
-            color: var(--accent); text-decoration: none;
-            background-image: linear-gradient(var(--accent), var(--accent));
-            background-size: 0% 1px; background-position: 0 100%;
-            background-repeat: no-repeat; transition: background-size 0.3s ease;
-        }
-        .hero-info .subtitle a:hover { background-size: 100% 1px; }
-
-        .hero-links { display: flex; gap: 10px; flex-wrap: wrap; }
-        .hero-links a {
-            font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none;
-            padding: 7px 16px; border: 1px solid var(--border); border-radius: 8px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: var(--card-bg); backdrop-filter: blur(8px);
-        }
-        .hero-links a:hover {
-            background: var(--accent); color: #fff; border-color: var(--accent);
-            box-shadow: 0 4px 12px rgba(26,92,138,0.25); transform: translateY(-1px);
+        .pill svg { width: 14px; height: 14px; flex: none; }
+        .pill:hover {
+            color: var(--accent-strong); border-color: var(--accent);
+            background: var(--accent-dim); transform: translateY(-1px);
         }
 
         /* ═══════ NEWS ═══════ */
-        .news {
-            background: var(--card-bg); border: 1px solid var(--border-light);
-            border-radius: var(--radius); padding: 20px 24px;
-            box-shadow: var(--shadow-sm); backdrop-filter: blur(12px);
-        }
         .news-item {
-            display: flex; gap: 14px; font-size: 14px; line-height: 1.6;
-            padding: 6px 0; transition: transform 0.2s ease;
+            display: grid; grid-template-columns: 72px 1fr; gap: 22px;
+            padding: 12px 0; align-items: baseline;
         }
-        .news-item:hover { transform: translateX(4px); }
-        .news-item + .news-item { margin-top: 4px; border-top: 1px solid var(--border-light); padding-top: 10px; }
-        .news-date {
-            font-family: var(--mono); font-size: 12px; color: var(--text-tertiary);
-            white-space: nowrap; padding-top: 3px; min-width: 38px;
-        }
-        .news-text { color: var(--text-secondary); }
+        .news-item + .news-item { border-top: 1px solid var(--line); }
+        .news-date { font-family: var(--mono); font-size: 11.5px; color: var(--text-3); }
+        .news-text { font-size: 15px; color: var(--text-2); }
         .news-text strong { color: var(--text); font-weight: 600; }
-
-        /* ═══════ TIMELINE ═══════ */
-        .timeline { display: flex; flex-direction: column; gap: 0; }
-        .timeline-item {
-            display: grid; grid-template-columns: 124px 1fr; gap: 24px;
-            padding: 20px 0; align-items: start; transition: opacity 0.2s ease;
+        .live { position: relative; padding-left: 16px; }
+        .live::before {
+            content: ''; position: absolute; left: 0; top: 0.52em;
+            width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
         }
-        .timeline-item + .timeline-item { border-top: 1px solid var(--border-light); }
-        .timeline-left { padding-top: 2px; }
-        .timeline-date {
-            font-family: var(--mono); font-size: 11px; color: var(--text-tertiary); white-space: nowrap;
-        }
-        .timeline-header { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
-        .timeline-icon {
-            width: 32px; height: 32px; border-radius: 7px; flex-shrink: 0;
-            overflow: hidden; box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light); transition: transform 0.2s ease;
-        }
-        .timeline-item:hover .timeline-icon { transform: scale(1.08); }
-        .timeline-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .timeline-right h3 {
-            font-family: var(--serif); font-size: 16px; font-weight: 600; line-height: 1.35;
-        }
-        .timeline-subtitle { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 5px; }
-        .timeline-detail { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+        @keyframes ping { 0% { box-shadow: 0 0 0 0 var(--accent-dim), 0 0 0 0 rgba(167,139,250,0.45); } 80%, 100% { box-shadow: 0 0 0 4px transparent, 0 0 0 9px transparent; } }
+        .live::before { animation: ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite; }
 
         /* ═══════ PUBLICATIONS ═══════ */
-        .pub-card {
-            display: grid; grid-template-columns: 240px 1fr; gap: 28px;
-            padding: 28px; align-items: start;
-            background: var(--card-bg); border: 1px solid var(--border-light);
-            border-radius: var(--radius); box-shadow: var(--shadow-sm);
-            backdrop-filter: blur(12px);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-bottom: 16px;
+        .pub {
+            display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 40px; align-items: start; padding: 44px 0;
         }
-        .pub-card:hover {
-            box-shadow: var(--shadow-md); transform: translateY(-2px);
-            border-color: rgba(26,92,138,0.15);
+        .pub:first-of-type { padding-top: 10px; }
+        .pub + .pub { border-top: 1px solid var(--line); }
+        .pub-fig { margin: 0; }
+        .pub-body { min-width: 0; }
+        .viz-host { position: relative; }
+        .viz-host svg, .viz-host img {
+            display: block; width: 100%; height: auto;
+            background: var(--bg-elev); border: 1px solid var(--line); border-radius: 16px;
         }
-        .pub-thumb {
-            width: 100%; border-radius: 8px; overflow: hidden;
-            border: 1px solid var(--border-light); background: #f0f0ec; aspect-ratio: auto;
+        figcaption {
+            font-size: 12.5px; color: var(--text-3); margin-top: 12px; line-height: 1.6;
+            display: flex; gap: 10px;
         }
-        .pub-thumb img { width: 100%; height: auto; display: block; }
-        .pub-info h3 {
-            font-family: var(--serif); font-size: 18px; font-weight: 600;
-            line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 8px;
+        figcaption::before {
+            content: 'fig.'; font-family: var(--mono); color: var(--accent);
+            font-size: 11px; padding-top: 1px; flex: none;
         }
-        .pub-authors { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 5px; line-height: 1.55; }
-        .pub-authors .me { font-weight: 600; color: var(--text); }
-        .pub-venue { font-size: 13px; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
-        .pub-venue .under-review { color: var(--text-tertiary); font-style: italic; font-weight: 400; }
-        .pub-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.6; }
+        .pub-kind {
+            font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+            text-transform: uppercase; color: var(--text-3); margin-bottom: 10px;
+        }
+        .pub-kind em { color: var(--accent); font-style: normal; }
+        .pub h3 { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.25; letter-spacing: -0.005em; margin-bottom: 10px; }
+        .pub h3 a { color: var(--text); text-decoration: none; transition: color 0.2s ease; }
+        .pub h3 a:hover { color: var(--accent-strong); }
+        .pub-authors { font-size: 14px; color: var(--text-2); margin-bottom: 6px; }
+        .pub-authors .me { color: var(--text); font-weight: 600; }
+        .pub-venue { font-family: var(--mono); font-size: 11.5px; color: var(--text-3); line-height: 1.7; margin-bottom: 14px; }
+        .pub-desc { font-size: 14.5px; color: var(--text-2); max-width: 68ch; margin-bottom: 18px; }
         .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .pub-links a {
-            font-size: 12px; font-weight: 500; color: var(--text-secondary); text-decoration: none;
-            padding: 4px 12px; border: 1px solid var(--border); border-radius: 5px;
-            transition: all 0.25s ease; font-family: var(--mono);
+        .tag {
+            font-family: var(--mono); font-size: 11.5px; color: var(--text-2);
+            text-decoration: none; padding: 5px 13px;
+            border: 1px solid var(--line-strong); border-radius: 7px;
+            transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
         }
-        .pub-links a:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+        .tag::after { content: ' ↗'; color: var(--text-3); font-size: 10px; }
+        .tag:hover { color: var(--accent-strong); border-color: var(--accent); background: var(--accent-dim); }
+        .tag:hover::after { color: var(--accent); }
+        .cite {
+            display: inline-flex; align-items: center; gap: 7px;
+            font-family: var(--mono); font-size: 11.5px; color: var(--accent-strong);
+            text-decoration: none; padding: 5px 12px;
+            border: 1px solid var(--accent); border-radius: 7px; background: var(--accent-dim);
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .cite[hidden] { display: none; }
+        .cite svg { width: 12px; height: 12px; flex: none; }
+        .cite .cite-n { font-weight: 500; }
+        a.cite[href]:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: var(--accent-strong); }
+
+        /* ═══════ TIMELINE (experience / education) ═══════ */
+        .titem {
+            display: grid; grid-template-columns: 118px 1fr; gap: 28px;
+            padding: 20px 0;
+        }
+        .titem + .titem { border-top: 1px solid var(--line); }
+        .tdate { font-family: var(--mono); font-size: 11.5px; color: var(--text-3); padding-top: 6px; white-space: nowrap; }
+        .torg { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+        .torg .logo {
+            width: 30px; height: 30px; flex: none; border-radius: 7px;
+            background: var(--chip); border: 1px solid var(--line);
+            padding: 2px; overflow: hidden;
+        }
+        .torg .logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 4px; display: block; }
+        .torg h3 { font-family: var(--serif); font-weight: 600; font-size: 18.5px; line-height: 1.3; }
+        .trole { font-size: 13.5px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+        .trole span { color: var(--text-3); font-weight: 400; }
+        .tdetail { font-size: 13.5px; color: var(--text-2); line-height: 1.65; max-width: 64ch; }
 
         /* ═══════ AWARDS ═══════ */
-        .awards-list { display: flex; flex-direction: column; gap: 8px; }
-        .award-item {
-            display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline;
-            padding: 14px 20px; background: var(--card-bg);
-            border: 1px solid var(--border-light); border-radius: 8px;
-            box-shadow: var(--shadow-sm); backdrop-filter: blur(12px);
-            transition: all 0.25s ease;
+        .award {
+            display: grid; grid-template-columns: 1fr auto; gap: 16px;
+            align-items: baseline; padding: 13px 0;
         }
-        .award-item:hover {
-            box-shadow: var(--shadow-md); transform: translateX(4px);
-            border-color: rgba(26,92,138,0.12);
-        }
-        .award-name { font-size: 14px; font-weight: 500; }
-        .award-detail { font-size: 12px; color: var(--text-tertiary); font-family: var(--mono); }
+        .award + .award { border-top: 1px solid var(--line); }
+        .award-name { font-size: 14.5px; color: var(--text-2); }
+        .award-meta { font-family: var(--mono); font-size: 11.5px; color: var(--text-3); }
 
         /* ═══════ FOOTER ═══════ */
         footer {
-            max-width: var(--max-width); margin: 0 auto; padding: 36px 28px 56px;
-            font-size: 12px; color: var(--text-tertiary); text-align: center;
+            border-top: 1px solid var(--line);
             position: relative; z-index: 1;
         }
-        footer::before {
-            content: '';
-            display: block;
-            width: 32px; height: 1px;
-            background: var(--border);
-            margin: 0 auto 24px;
+        .foot-inner {
+            max-width: var(--max); margin: 0 auto; padding: 30px 28px 56px;
+            display: flex; justify-content: space-between; gap: 16px;
+            font-family: var(--mono); font-size: 11.5px; color: var(--text-3);
         }
 
-        /* ═══════ SCROLL ANIMATIONS ═══════ */
-        .reveal {
-            opacity: 0; transform: translateY(24px);
-            transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        /* ═══════ VIZ (inline SVG figures) ═══════ */
+        .vz-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; fill: var(--text-3); }
+        .vz-big { font-family: var(--mono); font-size: 33px; font-weight: 500; fill: var(--text); font-variant-numeric: tabular-nums; }
+        .vz-mid { font-family: var(--mono); font-size: 23px; fill: var(--text); font-variant-numeric: tabular-nums; }
+        .vz-num { font-family: var(--mono); font-size: 17px; font-variant-numeric: tabular-nums; }
+        .vz-name { font-family: var(--sans); font-size: 13.5px; fill: var(--text-2); }
+        .vz-small { font-family: var(--mono); font-size: 11px; fill: var(--text-3); }
+        .vz-formula { font-family: var(--mono); font-size: 14.5px; fill: var(--text-2); }
+        .vz-line { stroke: var(--line); }
+        .vz-track { fill: var(--line); }
+        .vz-accent { fill: var(--accent); }
+        .dot { transition: fill 0.45s ease; }
+        .dv { fill: var(--viz-green); }
+        .db { fill: var(--viz-amber); }
+        .do { fill: var(--viz-red); }
+        .cv { fill: var(--viz-green); }
+        .cb { fill: var(--viz-amber); }
+        .co { fill: var(--viz-red); }
+        .ring-v { stroke: var(--viz-green); opacity: 0.45; }
+        .ring-b { stroke: var(--viz-amber); opacity: 0.4; }
+        .ring-o { stroke: var(--text-3); opacity: 0.35; }
+        .lbl-v { fill: var(--viz-green); opacity: 0.8; }
+        .lbl-b { fill: var(--viz-amber); opacity: 0.8; }
+        .lbl-o { fill: var(--viz-red); opacity: 0.75; }
+        .mean { fill: var(--viz-blue); }
+        .mean-halo { fill: var(--viz-blue); opacity: 0.14; }
+        .cl-s-fill { fill: var(--viz-blue); opacity: 0.055; }
+        .cl-s-ring { stroke: var(--viz-blue); opacity: 0.18; fill: none; }
+        .cl-t-fill { fill: var(--viz-coral); opacity: 0.055; }
+        .cl-t-ring { stroke: var(--viz-coral); opacity: 0.18; fill: none; }
+        .ds { fill: var(--viz-blue); opacity: 0.85; }
+        .dt { fill: var(--viz-coral); opacity: 0.85; }
+        .lbl-s { fill: var(--viz-blue); font-weight: 600; }
+        .lbl-t { fill: var(--viz-coral); font-weight: 600; }
+        .bndry { stroke: var(--text-3); stroke-dasharray: 5 8; fill: none; opacity: 0.7; animation: bdash 26s linear infinite; }
+        @keyframes bdash { to { stroke-dashoffset: -520; } }
+        .pb-s { fill: var(--viz-blue); }
+        .pb-t { fill: var(--viz-coral); }
+        .probe { transition: fill 0.45s ease; }
+        .probe-halo { opacity: 0.16; transition: fill 0.45s ease; }
+        .trail { fill: var(--accent); }
+        .pulse { stroke: var(--accent); fill: none; }
+        .bar-s { fill: var(--viz-blue); }
+        .bar-t { fill: var(--viz-coral); }
+
+        /* ═══════ REVEAL ═══════ */
+        .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
+        .reveal.in { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .live::before { animation: none; }
+            .bndry { animation: none; }
+            .theme-btn:hover { transform: none; }
         }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
 
         /* ═══════ RESPONSIVE ═══════ */
-        @media (max-width: 640px) {
-            .hero { grid-template-columns: 1fr; text-align: center; justify-items: center; }
-            .hero-photo-wrap { margin: 0 auto; }
-            .hero-links { justify-content: center; }
-            .pub-card { grid-template-columns: 1fr; padding: 20px; }
-            .pub-thumb { width: 100%; }
-            .award-item { grid-template-columns: 1fr; gap: 4px; }
-            nav .nav-links { gap: 4px; }
-            nav .nav-links a { font-size: 12px; padding: 6px 8px; }
-            .timeline-item { grid-template-columns: 1fr; gap: 6px; }
-            .hero-info h1 { font-size: 30px; }
+        @media (max-width: 720px) {
+            body { font-size: 15px; }
+            .hero { grid-template-columns: 1fr; gap: 36px; padding: 56px 0 56px; }
+            .hero-photo-wrap { order: -1; }
+            .hero-photo { width: 108px; height: 108px; border-radius: 16px; }
+            .nav-inner { padding: 0 16px; gap: 8px; }
+            .nav-right { gap: 8px; }
+            .nav-name .full { display: none; }
+            .nav-name .short { display: inline; }
+            .nav-links { gap: 0; }
+            .nav-links a { font-size: 10px; padding: 7px 5px; letter-spacing: 0.05em; }
+            main { padding: 0 20px; }
+            section { padding: 44px 0 52px; }
+            .news-item { grid-template-columns: 56px 1fr; gap: 14px; }
+            .titem { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
+            .tdate { padding-top: 0; }
+            .pub { grid-template-columns: 1fr; gap: 22px; padding: 32px 0; }
+            .pub:first-of-type { padding-top: 4px; }
+            .pub h3 { font-size: 21px; }
+            .foot-inner { flex-direction: column; gap: 6px; padding: 26px 20px 48px; }
+        }
+
+        /* ═══════ PRINT ═══════ */
+        @media print {
+            :root, html[data-theme="dark"], html[data-theme="light"] {
+                --bg: #ffffff; --bg-elev: #ffffff; --bg-elev2: #f5f5f5;
+                --text: #111111; --text-2: #333333; --text-3: #666666;
+                --line: #dddddd; --line-strong: #bbbbbb;
+                --accent: #4c1d95; --accent-strong: #4c1d95; --accent-dim: transparent;
+                --glow: transparent;
+                --viz-green: #059669; --viz-amber: #D97706; --viz-red: #DC2626;
+                --viz-blue: #2563EB; --viz-coral: #E11D48;
+            }
+            nav, .skip { display: none; }
+            body::before { display: none; }
+            section { break-inside: avoid-page; }
         }
     </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Giorgi Merabishvili",
+        "url": "https://giorgix121.github.io/",
+        "image": "https://giorgix121.github.io/Images/photo-og.jpg",
+        "jobTitle": "PhD Student in Computer Science",
+        "email": "mailto:gmerabi@ncsu.edu",
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "North Carolina State University" },
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "New York University" },
+            { "@type": "CollegeOrUniversity", "name": "St. Francis College" }
+        ],
+        "sameAs": [
+            "https://github.com/giorgix121",
+            "https://www.linkedin.com/in/giorgi-merabishvili/",
+            "https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en",
+            "https://orcid.org/0009-0000-0314-7487"
+        ]
+    }
+    </script>
 </head>
 <body>
-<nav id="navbar">
+<a class="skip" href="#main">Skip to content</a>
+
+<nav>
     <div class="nav-inner">
-        <a href="#" class="nav-name">Giorgi Merabishvili</a>
-        <div class="nav-links">
-            <a href="#education">Education</a>
-            <a href="#experience">Experience</a>
-            <a href="#publications">Publications</a>
-            <a href="#awards">Awards</a>
+        <a href="#" class="nav-name"><span class="full">Giorgi Merabishvili</span><span class="short">GM<span style="color:var(--accent)">.</span></span></a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#publications">Papers</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#awards">Awards</a>
+            </div>
+            <button class="theme-btn" id="theme-toggle" aria-label="Toggle color theme">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 14.1A8.6 8.6 0 0 1 9.9 3.4a8.6 8.6 0 1 0 10.7 10.7z"/></svg>
+            </button>
         </div>
     </div>
 </nav>
-<main>
+
+<main id="main">
+    <!-- ═══════ HERO ═══════ -->
     <section class="hero" id="about">
-        <div class="hero-photo-wrap">
-            <div class="hero-photo">
-                <img src="Images/photo.jpg" alt="Giorgi Merabishvili">
+        <div>
+            <p class="eyebrow">Software Testing · Robustness · WebAssembly Runtimes</p>
+            <h1>Giorgi Merabishvili<span class="dot">.</span></h1>
+            <div class="bio">
+                <p>
+                    PhD student in Computer Science at North Carolina State University,
+                    advised by <a href="https://damorim.github.io">Marcelo d'Amorim</a>.
+                    I work on software testing and improving the robustness of software systems.
+                </p>
+                <p>
+                    Previously, I earned my MS in Computer Engineering from NYU and worked with
+                    <a href="https://tsigalko18.github.io">Andrea Stocco</a> at TU Munich as a DAAD scholar.
+                    This summer I joined the
+                    <a href="https://www.mpi-sp.org/">Max Planck Institute for Security and Privacy</a>
+                    as a research intern, advised by
+                    <a href="https://www.mpi-sp.org/boehme">Marcel Böhme</a>.
+                </p>
             </div>
-        </div>
-        <div class="hero-info">
-            <h1>Giorgi Merabishvili</h1>
-            <p class="subtitle">
-                PhD student in Computer Science at North Carolina State University,
-                advised by <a href="https://damorim.github.io">Marcelo d'Amorim</a>.
-                I work on software testing and improving the robustness of software systems.
-            </p>
-            <p class="subtitle">
-                Previously, I earned my MS in Computer Engineering from NYU and worked with
-                <a href="https://tsigalko18.github.io">Andrea Stocco</a> at TU Munich (DAAD scholar).
-                This summer I joined the
-                <a href="https://www.mpi-sp.org/">Max Planck Institute for Security and Privacy</a>
-                as a research intern advised by
-                <a href="https://www.mpi-sp.org/boehme">Marcel Böhme</a>.
-            </p>
             <div class="hero-links">
-                <a href="mailto:gmerabi@ncsu.edu">Email</a>
-                <a href="https://github.com/giorgix121">GitHub</a>
-                <a href="https://www.linkedin.com/in/giorgi-merabishvili/">LinkedIn</a>
-                <a href="https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en">Google Scholar</a>
-                <a href="https://orcid.org/0009-0000-0314-7487">ORCID</a>
-                <a href="cv.pdf">CV</a>
+                <a class="pill" href="mailto:gmerabi@ncsu.edu">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.2"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+                    Email</a>
+                <a class="pill" href="https://github.com/giorgix121">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 2.87-.39c.97 0 1.95.13 2.87.39 2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.04.77 2.1 0 1.52-.01 2.74-.01 3.11 0 .3.2.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+                    GitHub</a>
+                <a class="pill" href="https://www.linkedin.com/in/giorgi-merabishvili/">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                    LinkedIn</a>
+                <a class="pill" href="https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4 2.5 9l9.5 5 9.5-5L12 4z"/><path d="M6.5 11.6V16c0 1.6 2.5 3 5.5 3s5.5-1.4 5.5-3v-4.4"/><path d="M22 9v5.5"/></svg>
+                    Scholar</a>
+                <a class="pill" href="https://orcid.org/0009-0000-0314-7487">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M8.4 9.6v6M8.4 6.9h.01"/><path d="M11.6 15.6V9.4h2.1a3.1 3.1 0 0 1 0 6.2h-2.1z" stroke-linejoin="round"/></svg>
+                    ORCID</a>
+                <a class="pill" href="cv.pdf">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 2.5h-7A1.5 1.5 0 0 0 5 4v16a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 20V8z"/><path d="M13.5 2.5V8H19"/><path d="M9 13h6M9 16.5h6"/></svg>
+                    CV</a>
             </div>
+        </div>
+        <div class="hero-photo-wrap">
+            <img class="hero-photo" src="Images/photo-480.jpg"
+                 srcset="Images/photo-480.jpg 480w, Images/photo-960.jpg 960w"
+                 sizes="(max-width: 720px) 108px, 176px"
+                 alt="Portrait of Giorgi Merabishvili" width="480" height="480" fetchpriority="high">
         </div>
     </section>
 
-    <div class="news reveal">
-        <div class="news-item">
-            <span class="news-date">2026</span>
-            <span class="news-text">Joined <strong>Max Planck Institute for Security and Privacy</strong> as a research intern.</span>
-        </div>
-        <div class="news-item">
-            <span class="news-date">2026</span>
-            <span class="news-text">Paper on latent regularization accepted at <strong>DeepTest '26</strong> (ICSE Workshop).</span>
-        </div>
-        <div class="news-item">
-            <span class="news-date">2025</span>
-            <span class="news-text">Targeted boundary testing paper accepted at <strong>ACM TOSEM</strong>.</span>
-        </div>
-        <div class="news-item">
-            <span class="news-date">2025</span>
-            <span class="news-text">Started PhD at <strong>NC State University</strong>.</span>
-        </div>
-    </div>
-
-    <section id="education">
-        <div class="section-label reveal">Education</div>
-        <div class="timeline">
-            <div class="timeline-item reveal">
-                <div class="timeline-left"><span class="timeline-date">2025 – Present</span></div>
-                <div class="timeline-right">
-                    <div class="timeline-header">
-                        <div class="timeline-icon"><img src="Images/logos/NCSU.jpeg" alt="NC State"></div>
-                        <h3>North Carolina State University</h3>
-                    </div>
-                    <p class="timeline-subtitle">PhD in Computer Science</p>
-                </div>
+    <!-- ═══════ NEWS ═══════ -->
+    <section id="news">
+        <h2 class="sec-label reveal"><span class="n">01</span>News</h2>
+        <div class="news-list">
+            <div class="news-item reveal">
+                <span class="news-date">2026</span>
+                <span class="news-text live">Joined <strong>Max Planck Institute for Security and Privacy</strong> as a research intern.</span>
             </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-left"><span class="timeline-date">2023 – 2025</span></div>
-                <div class="timeline-right">
-                    <div class="timeline-header">
-                        <div class="timeline-icon"><img src="Images/logos/NYU.jpeg" alt="NYU"></div>
-                        <h3>New York University</h3>
-                    </div>
-                    <p class="timeline-subtitle">MS in Computer Engineering · GPA: 3.80</p>
-                    <p class="timeline-detail">Coursework: Machine Learning, Deep Learning, ML for Cybersecurity, Probability and Stochastic Processes</p>
-                </div>
+            <div class="news-item reveal">
+                <span class="news-date">2026</span>
+                <span class="news-text">Paper on latent regularization accepted at <strong>DeepTest '26</strong> (ICSE Workshop).</span>
             </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-left"><span class="timeline-date">2019 – 2023</span></div>
-                <div class="timeline-right">
-                    <div class="timeline-header">
-                        <div class="timeline-icon"><img src="Images/logos/SFC.png" alt="St. Francis College"></div>
-                        <h3>St. Francis College</h3>
-                    </div>
-                    <p class="timeline-subtitle">BS in Information Technology · GPA: 3.95 · Summa Cum Laude</p>
-                    <p class="timeline-detail">Honors Thesis: "Robotics and Environmental Issues", NE Regional Honors Conference 2023</p>
-                </div>
+            <div class="news-item reveal">
+                <span class="news-date">2025</span>
+                <span class="news-text">Targeted boundary testing paper accepted at <strong>ACM TOSEM</strong>.</span>
             </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="section-label reveal">Experience</div>
-        <div class="timeline">
-            <div class="timeline-item reveal">
-                <div class="timeline-left"><span class="timeline-date">2026 - Summer</span></div>
-                <div class="timeline-right">
-                    <div class="timeline-header">
-                        <div class="timeline-icon"><img src="Images/logos/MPI.jpg" alt="Max Planck Institute"></div>
-                        <h3>Max Planck Institute for Security and Privacy</h3>
-                    </div>
-                    <p class="timeline-subtitle">Research Intern · Bochum, Germany</p>
-                    <p class="timeline-detail">Advisor: Dr. Marcel Böhme</p>
-                </div>
-            </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-left"><span class="timeline-date">2025 – Present</span></div>
-                <div class="timeline-right">
-                    <div class="timeline-header">
-                        <div class="timeline-icon"><img src="Images/logos/NCSU.jpeg" alt="NC State"></div>
-                        <h3>North Carolina State University</h3>
-                    </div>
-                    <p class="timeline-subtitle">Research Assistant · Raleigh, NC</p>
-                    <p class="timeline-detail">Advisor: Dr. Marcelo d'Amorim. Game testing: developed MR-guided VLM glitch detection for gameplay videos. WebAssembly runtime analysis: transplanting regression tests across runtimes and using them as seed corpora for fuzzing.</p>
-                </div>
-            </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-left"><span class="timeline-date">2024 – Summer</span></div>
-                <div class="timeline-right">
-                    <div class="timeline-header">
-                        <div class="timeline-icon"><img src="Images/logos/TUM.jpeg" alt="TU Munich"></div>
-                        <h3>Technical University of Munich</h3>
-                    </div>
-                    <p class="timeline-subtitle">Research Intern · Munich, Germany</p>
-                    <p class="timeline-detail">Advisor: Dr. Andrea Stocco. Conducted research on automated testing for deep learning systems. Developed latent space interpolation methods for boundary testing and improved validity of generated test pairs.</p>
-                </div>
-            </div>
-            <div class="timeline-item reveal">
-                <div class="timeline-left"><span class="timeline-date">2024 – 2025</span></div>
-                <div class="timeline-right">
-                    <div class="timeline-header">
-                        <div class="timeline-icon"><img src="Images/logos/ROBOM.jpeg" alt="RoboMaster NYU"></div>
-                        <h3>RoboMaster NYU</h3>
-                    </div>
-                    <p class="timeline-subtitle">Computer Vision Engineer · New York, NY</p>
-                    <p class="timeline-detail">Worked on real-time object detection systems for tracking enemy robots. Trained and tested models on hardware provided by the mechanical team.</p>
-                </div>
+            <div class="news-item reveal">
+                <span class="news-date">2025</span>
+                <span class="news-text">Started PhD at <strong>NC State University</strong>.</span>
             </div>
         </div>
     </section>
 
     <!-- ═══════ PUBLICATIONS ═══════ -->
     <section id="publications">
-        <div class="section-label reveal">Publications</div>
+        <h2 class="sec-label reveal"><span class="n">02</span>Publications</h2>
 
-    
-
-        <div class="pub-card reveal">
-            <div class="pub-thumb">
-                <img src="Images/latent_reg.gif" alt="Latent regularization: shapes morph as truncation psi decreases, fourth seed flips class at boundary">
-            </div>
-            <div class="pub-info">
-                <h3>Latent Regularization in Generative Test Input Generation</h3>
+        <article class="pub" data-cite="latent-regularization">
+            <figure class="pub-fig reveal">
+                <div class="viz-host" data-fig="latent">
+                    <noscript><img src="Images/latent_reg.gif" alt="Latent regularization: samples pull toward the mean as truncation psi decreases" loading="lazy"></noscript>
+                </div>
+                <figcaption>Decreasing truncation ψ pulls sampled latents toward the mean w̄ — generated test inputs stay valid while preserving diversity.</figcaption>
+            </figure>
+            <div class="pub-body reveal">
+                <p class="pub-kind"><em>Workshop paper</em> · 2026</p>
+                <h3><a href="https://dl.acm.org/doi/10.1145/3786154.3788585">Latent Regularization in Generative Test Input Generation</a></h3>
                 <p class="pub-authors"><span class="me">G. Merabishvili</span>, O. Weißl, A. Stocco</p>
-                <p class="pub-venue">DeepTest '26: Proceedings of the 7th IEEE/ACM International Workshop on Deep Learning for Testing and Testing for Deep Learning</p>
+                <p class="pub-venue">DeepTest '26 — 7th IEEE/ACM International Workshop on Deep Learning for Testing and Testing for Deep Learning</p>
                 <p class="pub-desc">Explores latent-space regularization in style-based GANs to generate more realistic, diverse, and fault-revealing test inputs for deep learning image classifiers.</p>
                 <div class="pub-links">
-                    <a href="https://dl.acm.org/doi/10.1145/3786154.3788585">paper</a>
-                    <a href="https://github.com/ast-fortiss-tum/frontier-generation-latent-space-interpolation">code</a>
+                    <a class="cite" hidden><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="12" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/></svg>Cited by <span class="cite-n"></span></a>
+                    <a class="tag" href="https://dl.acm.org/doi/10.1145/3786154.3788585">paper</a>
+                    <a class="tag" href="https://github.com/ast-fortiss-tum/frontier-generation-latent-space-interpolation">code</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="pub" data-cite="boundary-testing">
+            <figure class="pub-fig reveal">
+                <div class="viz-host" data-fig="mimicry">
+                    <noscript><img src="Images/mimicry.gif" alt="Mimicry: a test input interpolates from the source class across the decision boundary toward the target class" loading="lazy"></noscript>
+                </div>
+                <figcaption>Mimicry interpolates a test input from the source class toward a target class, stopping at the decision boundary of the classifier under test.</figcaption>
+            </figure>
+            <div class="pub-body reveal">
+                <p class="pub-kind"><em>Journal article</em> · 2025</p>
+                <h3><a href="https://doi.org/10.1145/3771557">Targeted Deep Learning System Boundary Testing</a></h3>
+                <p class="pub-authors">O. Weißl, A. Abdellatif, X. Chen, <span class="me">G. Merabishvili</span>, V. Riccio, S. Kacianka, A. Stocco</p>
+                <p class="pub-venue">ACM Transactions on Software Engineering and Methodology (TOSEM)</p>
+                <p class="pub-desc">Introduces Mimicry, a targeted boundary testing technique using disentangled StyleGAN latent spaces to find inputs near decision boundaries across 5 image classification datasets.</p>
+                <div class="pub-links">
+                    <a class="cite" hidden><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="12" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/></svg>Cited by <span class="cite-n"></span></a>
+                    <a class="tag" href="https://doi.org/10.1145/3771557">paper</a>
+                    <a class="tag" href="https://github.com/ast-fortiss-tum/SMOO">code</a>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- ═══════ EXPERIENCE ═══════ -->
+    <section id="experience">
+        <h2 class="sec-label reveal"><span class="n">03</span>Experience</h2>
+        <div class="timeline">
+            <div class="titem reveal">
+                <span class="tdate">2026 · Summer</span>
+                <div>
+                    <div class="torg">
+                        <span class="logo"><img src="Images/logos/MPI.jpg" alt="" loading="lazy"></span>
+                        <h3>Max Planck Institute for Security and Privacy</h3>
+                    </div>
+                    <p class="trole">Research Intern <span>· Bochum, Germany</span></p>
+                    <p class="tdetail">Advisor: Dr. Marcel Böhme.</p>
+                </div>
+            </div>
+            <div class="titem reveal">
+                <span class="tdate">2025 – Present</span>
+                <div>
+                    <div class="torg">
+                        <span class="logo"><img src="Images/logos/NCSU.jpeg" alt="" loading="lazy"></span>
+                        <h3>North Carolina State University</h3>
+                    </div>
+                    <p class="trole">Research Assistant <span>· Raleigh, NC</span></p>
+                    <p class="tdetail">Advisor: Dr. Marcelo d'Amorim. Game testing: developed MR-guided VLM glitch detection for gameplay videos. WebAssembly runtime analysis: transplanting regression tests across runtimes and using them as seed corpora for fuzzing.</p>
+                </div>
+            </div>
+            <div class="titem reveal">
+                <span class="tdate">2024 · Summer</span>
+                <div>
+                    <div class="torg">
+                        <span class="logo"><img src="Images/logos/TUM.jpeg" alt="" loading="lazy"></span>
+                        <h3>Technical University of Munich</h3>
+                    </div>
+                    <p class="trole">Research Intern <span>· Munich, Germany</span></p>
+                    <p class="tdetail">Advisor: Dr. Andrea Stocco. Conducted research on automated testing for deep learning systems. Developed latent space interpolation methods for boundary testing and improved validity of generated test pairs.</p>
+                </div>
+            </div>
+            <div class="titem reveal">
+                <span class="tdate">2024 – 2025</span>
+                <div>
+                    <div class="torg">
+                        <span class="logo"><img src="Images/logos/ROBOM.jpeg" alt="" loading="lazy"></span>
+                        <h3>RoboMaster NYU</h3>
+                    </div>
+                    <p class="trole">Computer Vision Engineer <span>· New York, NY</span></p>
+                    <p class="tdetail">Worked on real-time object detection systems for tracking enemy robots. Trained and tested models on hardware provided by the mechanical team.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="pub-card reveal">
-            <div class="pub-thumb">
-                <img src="Images/mimicry.gif" alt="Mimicry: test input interpolates from source class toward decision boundary via style-mixing">
+    <!-- ═══════ EDUCATION ═══════ -->
+    <section id="education">
+        <h2 class="sec-label reveal"><span class="n">04</span>Education</h2>
+        <div class="timeline">
+            <div class="titem reveal">
+                <span class="tdate">2025 – Present</span>
+                <div>
+                    <div class="torg">
+                        <span class="logo"><img src="Images/logos/NCSU.jpeg" alt="" loading="lazy"></span>
+                        <h3>North Carolina State University</h3>
+                    </div>
+                    <p class="trole">PhD in Computer Science</p>
+                </div>
             </div>
-            <div class="pub-info">
-                <h3>Targeted Deep Learning System Boundary Testing</h3>
-                <p class="pub-authors">O. Weißl, A. Abdellatif, X. Chen, <span class="me">G. Merabishvili</span>, V. Riccio, S. Kacianka, A. Stocco</p>
-                <p class="pub-venue">ACM Transactions on Software Engineering and Methodology (TOSEM), 2025</p>
-                <p class="pub-desc">Introduces Mimicry, a targeted boundary testing technique using disentangled StyleGAN latent spaces to find inputs near decision boundaries across 5 image classification datasets.</p>
-                <div class="pub-links">
-                    <a href="https://doi.org/10.1145/3771557">paper</a>
-                    <a href="https://github.com/ast-fortiss-tum/SMOO">code</a>
+            <div class="titem reveal">
+                <span class="tdate">2023 – 2025</span>
+                <div>
+                    <div class="torg">
+                        <span class="logo"><img src="Images/logos/NYU.jpeg" alt="" loading="lazy"></span>
+                        <h3>New York University</h3>
+                    </div>
+                    <p class="trole">MS in Computer Engineering <span>· GPA 3.80</span></p>
+                    <p class="tdetail">Coursework: Machine Learning, Deep Learning, ML for Cybersecurity, Probability and Stochastic Processes.</p>
+                </div>
+            </div>
+            <div class="titem reveal">
+                <span class="tdate">2019 – 2023</span>
+                <div>
+                    <div class="torg">
+                        <span class="logo"><img src="Images/logos/SFC.png" alt="" loading="lazy"></span>
+                        <h3>St. Francis College</h3>
+                    </div>
+                    <p class="trole">BS in Information Technology <span>· GPA 3.95 · Summa Cum Laude</span></p>
+                    <p class="tdetail">Honors Thesis: "Robotics and Environmental Issues", NE Regional Honors Conference 2023.</p>
                 </div>
             </div>
         </div>
@@ -514,56 +694,432 @@
 
     <!-- ═══════ AWARDS ═══════ -->
     <section id="awards">
-        <div class="section-label reveal">Honors & Awards</div>
+        <h2 class="sec-label reveal"><span class="n">05</span>Honors &amp; Awards</h2>
         <div class="awards-list">
-            <div class="award-item reveal reveal-delay-1">
+            <div class="award reveal">
                 <span class="award-name">DAAD Research Scholarship</span>
-                <span class="award-detail">Munich · 2024</span>
+                <span class="award-meta">Munich · 2024</span>
             </div>
-            <div class="award-item reveal reveal-delay-1">
+            <div class="award reveal">
                 <span class="award-name">Merit Award, New York University</span>
-                <span class="award-detail">New York · 2023–2025</span>
+                <span class="award-meta">New York · 2023–2025</span>
             </div>
-            <div class="award-item reveal reveal-delay-2">
+            <div class="award reveal">
                 <span class="award-name">Summa Cum Laude, St. Francis College</span>
-                <span class="award-detail">New York · 2023</span>
+                <span class="award-meta">New York · 2023</span>
             </div>
-            <div class="award-item reveal reveal-delay-2">
+            <div class="award reveal">
                 <span class="award-name">Sigma Beta Delta International Honor Society</span>
-                <span class="award-detail">New York · 2023</span>
+                <span class="award-meta">New York · 2023</span>
             </div>
-            <div class="award-item reveal reveal-delay-3">
+            <div class="award reveal">
                 <span class="award-name">Travel Grant, NE Regional Honors Conference</span>
-                <span class="award-detail">New York · 2023</span>
+                <span class="award-meta">New York · 2023</span>
             </div>
-            <div class="award-item reveal reveal-delay-3">
-                <span class="award-name">Merit & Institutional Scholarship, St. Francis College</span>
-                <span class="award-detail">New York · 2019–2023</span>
+            <div class="award reveal">
+                <span class="award-name">Merit &amp; Institutional Scholarship, St. Francis College</span>
+                <span class="award-meta">New York · 2019–2023</span>
             </div>
         </div>
     </section>
 </main>
-<footer>© 2026 Giorgi Merabishvili</footer>
+
+<footer>
+    <div class="foot-inner">
+        <span>© 2026 Giorgi Merabishvili</span>
+        <span>Raleigh, NC</span>
+    </div>
+</footer>
 
 <script>
-    // ── Nav shadow on scroll ──
-    const nav = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        nav.classList.toggle('scrolled', window.scrollY > 10);
-    }, { passive: true });
+(function () {
+    'use strict';
 
-    // ── Scroll-reveal animations ──
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+    /* ═══════ Theme toggle ═══════ */
+    var root = document.documentElement;
+    var metaTheme = document.querySelector('meta[name="theme-color"]');
+    function syncMeta() {
+        if (metaTheme) metaTheme.setAttribute('content', root.getAttribute('data-theme') === 'light' ? '#FAF9F7' : '#0B0E14');
+    }
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+        var t = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', t);
+        try { localStorage.setItem('theme', t); } catch (e) {}
+        syncMeta();
+    });
+    syncMeta();
+
+    /* ═══════ Scroll reveal ═══════ */
+    var prm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reveals = document.querySelectorAll('.reveal');
+    if (prm || !('IntersectionObserver' in window)) {
+        reveals.forEach(function (el) { el.classList.add('in'); });
+    } else {
+        var ro = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
+        reveals.forEach(function (el) { ro.observe(el); });
+    }
+
+    /* ═══════ Figure toolkit ═══════ */
+    var SVGNS = 'http://www.w3.org/2000/svg';
+    function E(tag, attrs, parent) {
+        var n = document.createElementNS(SVGNS, tag);
+        for (var k in attrs) n.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(n);
+        return n;
+    }
+    function T(x, y, cls, anchor, content, parent) {
+        var t = E('text', { x: x, y: y, 'class': cls, 'text-anchor': anchor || 'start' }, parent);
+        t.textContent = content;
+        return t;
+    }
+    function rng(seed) {
+        return function () {
+            seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+            var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+            t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+            return ((t ^ t >>> 14) >>> 0) / 4294967296;
+        };
+    }
+    var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+    var easeIO = function (t) { t = clamp(t, 0, 1); return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+
+    /* Shared animation loop — runs only while a figure is on screen.
+       ?animt=<seconds> offsets the clock (deterministic captures). */
+    var tOff = 0;
+    try { tOff = parseFloat(new URLSearchParams(location.search).get('animt')) || 0; } catch (e) {}
+    var figs = [];
+    var rafId = null;
+    function tick(now) {
+        rafId = null;
+        var any = false;
+        for (var i = 0; i < figs.length; i++) {
+            if (figs[i].visible) { any = true; figs[i].update(now / 1000 + tOff); }
+        }
+        if (any) rafId = requestAnimationFrame(tick);
+    }
+    function ensureLoop() {
+        if (!prm && rafId === null && figs.some(function (f) { return f.visible; })) {
+            rafId = requestAnimationFrame(tick);
+        }
+    }
+    var vio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            for (var i = 0; i < figs.length; i++) {
+                if (figs[i].el === e.target) figs[i].visible = e.isIntersecting;
             }
         });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        ensureLoop();
+    }, { threshold: 0.05 });
+    function register(host, update, staticT) {
+        update(prm ? staticT : tOff);
+        if (!prm) { figs.push({ el: host, update: update, visible: false }); vio.observe(host); }
+    }
 
-    reveals.forEach(el => observer.observe(el));
+    /* ═══════ Figure A — Latent truncation (DeepTest '26) ═══════ */
+    (function () {
+        var host = document.querySelector('[data-fig="latent"]');
+        if (!host) return;
+        var W = 1120, H = 560;
+        var svg = E('svg', {
+            viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+            'aria-label': 'Animated diagram: as truncation psi decreases from 1.0 to 0.3, sampled latent points pull toward the mean and move from the outside region into the valid region.'
+        }, host);
+
+        var cx = 360, cy = 286, RV = 102, RB = 172, RO = 240;
+
+        E('circle', { cx: cx, cy: cy, r: RO, 'class': 'ring-o', fill: 'none', 'stroke-dasharray': '3 7' }, svg);
+        E('circle', { cx: cx, cy: cy, r: RB, 'class': 'ring-b', fill: 'none' }, svg);
+        E('circle', { cx: cx, cy: cy, r: RV, 'class': 'ring-v', fill: 'none' }, svg);
+        T(cx + RV * 0.71 + 10, cy - RV * 0.71 - 8, 'vz-small lbl-v', 'start', 'valid', svg);
+        T(cx + RB * 0.71 + 10, cy - RB * 0.71 - 8, 'vz-small lbl-b', 'start', 'boundary', svg);
+        T(cx + RO * 0.71 + 10, cy - RO * 0.71 - 8, 'vz-small lbl-o', 'start', 'outside', svg);
+
+        /* sample dots: deterministic layout */
+        var R = rng(20260610);
+        var dots = [];
+        function tier(count, lo, hi) {
+            for (var i = 0; i < count; i++) {
+                dots.push({
+                    a: R() * Math.PI * 2,
+                    r: lo + R() * (hi - lo),
+                    ph: R() * Math.PI * 2,
+                    el: null, zone: ''
+                });
+            }
+        }
+        tier(12, 50, 96);
+        tier(16, 108, 166);
+        tier(20, 180, 236);
+        var gDots = E('g', {}, svg);
+        dots.forEach(function (d) { d.el = E('circle', { r: 5.5, 'class': 'dot dv' }, gDots); });
+
+        E('circle', { cx: cx, cy: cy, r: 15, 'class': 'mean-halo' }, svg);
+        E('circle', { cx: cx, cy: cy, r: 6.5, 'class': 'mean' }, svg);
+        T(cx + 16, cy + 5, 'vz-small', 'start', 'w̄', svg);
+
+        E('line', { x1: 700, y1: 48, x2: 700, y2: H - 48, 'class': 'vz-line' }, svg);
+
+        /* right column */
+        var RX = 748, RXE = 1062;
+        T(RX, 78, 'vz-label', 'start', 'TRUNCATION', svg);
+        var tPsi = T(RX, 122, 'vz-big', 'start', 'ψ = 1.00', svg);
+        E('rect', { x: RX, y: 142, width: RXE - RX, height: 5, rx: 2.5, 'class': 'vz-track' }, svg);
+        var barPsi = E('rect', { x: RX, y: 142, width: 0, height: 5, rx: 2.5, 'class': 'vz-accent' }, svg);
+
+        T(RX, 204, 'vz-label', 'start', 'GENERATED INPUTS', svg);
+        var rows = [
+            { name: 'Valid', cls: 'cv', y: 240 },
+            { name: 'Boundary', cls: 'cb', y: 276 },
+            { name: 'Outside', cls: 'co', y: 312 }
+        ];
+        var counts = rows.map(function (r) {
+            E('rect', { x: RX, y: r.y - 10, width: 10, height: 10, rx: 3, 'class': r.cls }, svg);
+            T(RX + 20, r.y, 'vz-name', 'start', r.name, svg);
+            return T(RXE, r.y, 'vz-num ' + r.cls, 'end', '0', svg);
+        });
+
+        E('line', { x1: RX, y1: 352, x2: RXE, y2: 352, 'class': 'vz-line' }, svg);
+        T(RX, 392, 'vz-label', 'start', 'DIVERSITY · LPIPS', svg);
+        var tLpips = T(RX, 428, 'vz-mid', 'start', '0.195', svg);
+        T(RX, 478, 'vz-label', 'start', 'LATENT WALK', svg);
+        T(RX, 512, 'vz-formula', 'start', "w′ = w̄ + ψ · (w − w̄)", svg);
+
+        function update(t) {
+            var ph = t % 10;
+            var psi;
+            if (ph < 4) psi = 1 - 0.7 * easeIO(ph / 4);
+            else if (ph < 5.2) psi = 0.3;
+            else if (ph < 8.2) psi = 0.3 + 0.7 * easeIO((ph - 5.2) / 3);
+            else psi = 1;
+
+            var nv = 0, nb = 0, no = 0;
+            for (var i = 0; i < dots.length; i++) {
+                var d = dots[i];
+                var re = d.r * psi + Math.sin(t * 0.7 + d.ph) * 2;
+                d.el.setAttribute('cx', (cx + Math.cos(d.a) * re).toFixed(1));
+                d.el.setAttribute('cy', (cy + Math.sin(d.a) * re).toFixed(1));
+                var z = re < RV ? 'dv' : re < RB ? 'db' : 'do';
+                if (z === 'dv') nv++; else if (z === 'db') nb++; else no++;
+                if (z !== d.zone) { d.zone = z; d.el.setAttribute('class', 'dot ' + z); }
+            }
+            tPsi.textContent = 'ψ = ' + psi.toFixed(2);
+            barPsi.setAttribute('width', (((1 - psi) / 0.7) * (RXE - RX)).toFixed(1));
+            counts[0].textContent = nv;
+            counts[1].textContent = nb;
+            counts[2].textContent = no;
+            tLpips.textContent = (0.118 + 0.077 * psi).toFixed(3);
+        }
+        register(host, update, 2.1);
+    })();
+
+    /* ═══════ Figure B — Mimicry boundary crossing (TOSEM '25) ═══════ */
+    (function () {
+        var host = document.querySelector('[data-fig="mimicry"]');
+        if (!host) return;
+        var W = 1120, H = 560;
+        var svg = E('svg', {
+            viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+            'aria-label': 'Animated diagram: a test input interpolates from the source class cluster, crosses the decision boundary, and lands in the target class cluster while class probabilities flip.'
+        }, host);
+
+        var SC = { x: 300, y: 252 }, TC = { x: 820, y: 252 }, CR = 152;
+
+        E('circle', { cx: SC.x, cy: SC.y, r: CR, 'class': 'cl-s-fill' }, svg);
+        E('circle', { cx: SC.x, cy: SC.y, r: CR, 'class': 'cl-s-ring' }, svg);
+        E('circle', { cx: TC.x, cy: TC.y, r: CR, 'class': 'cl-t-fill' }, svg);
+        E('circle', { cx: TC.x, cy: TC.y, r: CR, 'class': 'cl-t-ring' }, svg);
+
+        var ls = T(SC.x, 62, 'vz-name', 'middle', '', svg);
+        var t1 = document.createElementNS(SVGNS, 'tspan'); t1.setAttribute('class', 'lbl-s'); t1.textContent = 'source';
+        var t2 = document.createElementNS(SVGNS, 'tspan'); t2.textContent = ' class';
+        ls.appendChild(t1); ls.appendChild(t2);
+        var lt = T(TC.x, 62, 'vz-name', 'middle', '', svg);
+        var t3 = document.createElementNS(SVGNS, 'tspan'); t3.setAttribute('class', 'lbl-t'); t3.textContent = 'target';
+        var t4 = document.createElementNS(SVGNS, 'tspan'); t4.textContent = ' class';
+        lt.appendChild(t3); lt.appendChild(t4);
+
+        /* cluster dots */
+        var R = rng(7121);
+        function cluster(c, n, cls) {
+            for (var i = 0; i < n; i++) {
+                var a = R() * Math.PI * 2, r = Math.sqrt(R()) * (CR - 22);
+                E('circle', {
+                    cx: (c.x + Math.cos(a) * r).toFixed(1),
+                    cy: (c.y + Math.sin(a) * r * 0.92).toFixed(1),
+                    r: 4.5, 'class': cls
+                }, svg);
+            }
+        }
+        cluster(SC, 20, 'ds');
+        cluster(TC, 18, 'dt');
+
+        /* decision boundary */
+        var B0 = { x: 578, y: 64 }, B1 = { x: 545, y: 178 }, B2 = { x: 598, y: 316 }, B3 = { x: 556, y: 446 };
+        E('path', { d: 'M ' + B0.x + ' ' + B0.y + ' C ' + B1.x + ' ' + B1.y + ', ' + B2.x + ' ' + B2.y + ', ' + B3.x + ' ' + B3.y, 'class': 'bndry', 'stroke-width': 1.6 }, svg);
+        T(568, 44, 'vz-small', 'middle', 'decision boundary', svg);
+
+        function bez(p0, p1, p2, p3, t) {
+            var u = 1 - t;
+            return {
+                x: u * u * u * p0.x + 3 * u * u * t * p1.x + 3 * u * t * t * p2.x + t * t * t * p3.x,
+                y: u * u * u * p0.y + 3 * u * u * t * p1.y + 3 * u * t * t * p2.y + t * t * t * p3.y
+            };
+        }
+
+        /* probe path */
+        var P0 = { x: 318, y: 272 }, P1 = { x: 470, y: 208 }, P2 = { x: 640, y: 198 }, P3 = { x: 812, y: 240 };
+        var probePt = function (t) { return bez(P0, P1, P2, P3, t); };
+
+        /* find parameter where the probe crosses the boundary */
+        var bSamples = [];
+        for (var s = 0; s <= 200; s++) bSamples.push(bez(B0, B1, B2, B3, s / 200));
+        function boundaryX(y) {
+            var best = bSamples[0], bd = Math.abs(bSamples[0].y - y);
+            for (var i = 1; i < bSamples.length; i++) {
+                var d = Math.abs(bSamples[i].y - y);
+                if (d < bd) { bd = d; best = bSamples[i]; }
+            }
+            return best.x;
+        }
+        var tStar = 0.5, cross = probePt(0.5);
+        for (var q = 0; q <= 400; q++) {
+            var tt = q / 400, p = probePt(tt);
+            if (p.x >= boundaryX(p.y)) { tStar = tt; cross = p; break; }
+        }
+
+        /* trail + probe + pulse */
+        var gFly = E('g', {}, svg);
+        var TRAIL_N = 26;
+        var trailEls = [];
+        for (var k = 0; k < TRAIL_N; k++) trailEls.push(E('circle', { r: 2, 'class': 'trail', opacity: 0 }, gFly));
+        var pulse = E('circle', { r: 0, 'class': 'pulse', opacity: 0, 'stroke-width': 2 }, svg);
+        var halo = E('circle', { r: 14, 'class': 'probe-halo pb-s' }, gFly);
+        var probe = E('circle', { r: 7, 'class': 'probe pb-s' }, gFly);
+
+        /* readout strip */
+        E('line', { x1: 40, y1: 462, x2: 1080, y2: 462, 'class': 'vz-line' }, svg);
+        T(84, 502, 'vz-label', 'start', 'P(SOURCE)', svg);
+        var tPs = T(84, 538, 'vz-mid', 'start', '0.93', svg);
+        E('rect', { x: 178, y: 528, width: 212, height: 6, rx: 3, 'class': 'vz-track' }, svg);
+        var barS = E('rect', { x: 178, y: 528, width: 212 * 0.93, height: 6, rx: 3, 'class': 'bar-s' }, svg);
+        T(560, 502, 'vz-label', 'middle', 'INTERPOLATION t', svg);
+        var tT = T(560, 538, 'vz-mid', 'middle', '0.00', svg);
+        T(1036, 502, 'vz-label', 'end', 'P(TARGET)', svg);
+        var tPt = T(1036, 538, 'vz-mid', 'end', '0.07', svg);
+        E('rect', { x: 730, y: 528, width: 212, height: 6, rx: 3, 'class': 'vz-track' }, svg);
+        var barT = E('rect', { x: 730, y: 528, width: 212 * 0.07, height: 6, rx: 3, 'class': 'bar-t' }, svg);
+
+        var trail = [];
+        var lastPh = 0, probeSide = 's';
+        function setSide(side) {
+            if (side === probeSide) return;
+            probeSide = side;
+            probe.setAttribute('class', 'probe pb-' + side);
+            halo.setAttribute('class', 'probe-halo pb-' + side);
+        }
+        function update(t) {
+            var PERIOD = 11;
+            var ph = t % PERIOD;
+            if (ph < lastPh) trail = [];   /* new cycle */
+            lastPh = ph;
+
+            var tt, alpha = 1, baseR = 7;
+            if (ph < 1) tt = 0;
+            else if (ph < 6.5) tt = easeIO((ph - 1) / 5.5);
+            else if (ph < 8.5) { tt = 1; baseR = 7 + Math.sin((ph - 6.5) * 3.4) * 0.9; }
+            else if (ph < 9.3) { tt = 1; alpha = 1 - (ph - 8.5) / 0.8; }
+            else if (ph < 10.2) { tt = 0; alpha = 0; }
+            else { tt = 0; alpha = (ph - 10.2) / 0.8; }
+
+            var p = probePt(tt);
+            probe.setAttribute('cx', p.x.toFixed(1));
+            probe.setAttribute('cy', p.y.toFixed(1));
+            probe.setAttribute('r', baseR.toFixed(2));
+            halo.setAttribute('cx', p.x.toFixed(1));
+            halo.setAttribute('cy', p.y.toFixed(1));
+            gFly.setAttribute('opacity', clamp(alpha, 0, 1).toFixed(2));
+            setSide(tt >= tStar ? 't' : 's');
+
+            /* trail sampling while travelling */
+            if (ph >= 1 && ph < 6.5) {
+                var last = trail[trail.length - 1];
+                if (!last || Math.hypot(p.x - last.x, p.y - last.y) > 7) {
+                    trail.push({ x: p.x, y: p.y });
+                    if (trail.length > TRAIL_N) trail.shift();
+                }
+            }
+            for (var i = 0; i < TRAIL_N; i++) {
+                var el = trailEls[i], pt = trail[trail.length - 1 - i];
+                if (pt) {
+                    var f = 1 - i / TRAIL_N;
+                    el.setAttribute('cx', pt.x.toFixed(1));
+                    el.setAttribute('cy', pt.y.toFixed(1));
+                    el.setAttribute('r', (1.2 + 2 * f).toFixed(2));
+                    el.setAttribute('opacity', (0.34 * f).toFixed(2));
+                } else el.setAttribute('opacity', 0);
+            }
+
+            /* pulse on crossing */
+            var dtc = ph - crossPhase;
+            if (dtc > 0 && dtc < 0.9 && ph < 8) {
+                pulse.setAttribute('cx', cross.x.toFixed(1));
+                pulse.setAttribute('cy', cross.y.toFixed(1));
+                pulse.setAttribute('r', (10 + dtc * 95).toFixed(1));
+                pulse.setAttribute('opacity', (0.75 * (1 - dtc / 0.9)).toFixed(2));
+            } else pulse.setAttribute('opacity', 0);
+
+            /* probabilities */
+            var sg = 1 / (1 + Math.exp((tt - tStar) * 14));
+            var ps = 0.06 + 0.87 * sg;
+            var pt2 = 0.07 + 0.85 * (1 - sg);
+            tPs.textContent = ps.toFixed(2);
+            tPt.textContent = pt2.toFixed(2);
+            tT.textContent = tt.toFixed(2);
+            barS.setAttribute('width', (212 * ps).toFixed(1));
+            barT.setAttribute('width', (212 * pt2).toFixed(1));
+        }
+        /* phase time at which tt reaches tStar (invert easing numerically) */
+        var crossPhase = 1;
+        for (var w = 0; w <= 550; w++) {
+            var phw = 1 + (w / 550) * 5.5;
+            if (easeIO((phw - 1) / 5.5) >= tStar) { crossPhase = phw; break; }
+        }
+        register(host, update, 4.1);
+    })();
+})();
+</script>
+
+<!-- ═══════ Google Scholar citation counts (data from scholar.json, refreshed by GitHub Action) ═══════ -->
+<script>
+(function () {
+    'use strict';
+    fetch('scholar.json?' + Date.now(), { cache: 'no-cache' })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+            if (!data || !data.papers) return;
+            document.querySelectorAll('.pub[data-cite]').forEach(function (pub) {
+                var info = data.papers[pub.getAttribute('data-cite')];
+                if (!info) return;
+                var n = parseInt(info.citations, 10) || 0;
+                if (n <= 0) return;
+                var badge = pub.querySelector('.cite');
+                if (!badge) return;
+                badge.querySelector('.cite-n').textContent = n;
+                if (info.url) {
+                    badge.setAttribute('href', info.url);
+                    badge.setAttribute('target', '_blank');
+                    badge.setAttribute('rel', 'noopener');
+                    badge.setAttribute('aria-label', 'Cited by ' + n + ' on Google Scholar');
+                }
+                badge.hidden = false;
+            });
+        })
+        .catch(function () {});
+})();
 </script>
 </body>
 </html>
