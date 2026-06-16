@@ -147,14 +147,8 @@
         }
         .nav-inner {
             max-width: var(--max); margin: 0 auto; padding: 0 28px;
-            height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+            height: 60px; display: flex; align-items: center; justify-content: flex-end; gap: 16px;
         }
-        .nav-name {
-            font-family: var(--serif); font-style: italic; font-weight: 500;
-            font-size: 18px; color: var(--text); text-decoration: none;
-            letter-spacing: 0.005em; white-space: nowrap;
-        }
-        .nav-name .short { display: none; }
         .nav-right { display: flex; align-items: center; gap: 14px; }
         .nav-links { display: flex; gap: 2px; }
         .nav-links a {
@@ -179,19 +173,18 @@
         main { max-width: var(--max); margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
         section { border-top: 1px solid var(--line); padding: 56px 0 64px; scroll-margin-top: 76px; }
         .sec-label {
-            font-family: var(--mono); font-size: 11px; font-weight: 500;
-            letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+            font-family: var(--mono); font-size: 13.5px; font-weight: 500;
+            letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
             display: flex; align-items: baseline; gap: 12px; margin-bottom: 36px;
         }
-        .sec-label .n { color: var(--text-3); font-weight: 400; }
 
         /* ═══════ HERO ═══════ */
         .hero {
             border-top: none; padding: 88px 0 68px;
-            display: grid; grid-template-columns: 1fr 176px; gap: 56px; align-items: center;
+            display: grid; grid-template-columns: 1fr 236px; gap: 56px; align-items: center;
         }
         .eyebrow {
-            font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+            font-family: var(--mono); font-size: 13.5px; letter-spacing: 0.16em;
             text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
         }
         h1 {
@@ -199,7 +192,6 @@
             font-size: clamp(38px, 6vw, 54px); line-height: 1.08;
             letter-spacing: -0.015em; margin-bottom: 24px;
         }
-        h1 .dot { color: var(--accent); }
         .bio p { color: var(--text-2); max-width: 58ch; }
         .bio p + p { margin-top: 12px; }
         .bio a {
@@ -209,7 +201,7 @@
         }
         .bio a:hover { color: var(--accent-strong); text-decoration-color: var(--accent); }
         .hero-photo {
-            width: 176px; height: 176px; border-radius: 20px; object-fit: cover;
+            width: 236px; height: 236px; border-radius: 24px; object-fit: cover;
             border: 1px solid var(--line-strong); display: block;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
         }
@@ -235,7 +227,7 @@
             padding: 12px 0; align-items: baseline;
         }
         .news-item + .news-item { border-top: 1px solid var(--line); }
-        .news-date { font-family: var(--mono); font-size: 11.5px; color: var(--text-3); }
+        .news-date { font-family: var(--mono); font-size: 13px; color: var(--text-3); }
         .news-text { font-size: 15px; color: var(--text-2); }
         .news-text strong { color: var(--text); font-weight: 600; }
         .live { position: relative; padding-left: 16px; }
@@ -269,10 +261,9 @@
             font-size: 11px; padding-top: 1px; flex: none;
         }
         .pub-kind {
-            font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
-            text-transform: uppercase; color: var(--text-3); margin-bottom: 10px;
+            font-family: var(--mono); font-weight: 500; font-size: 14.5px;
+            letter-spacing: 0.06em; color: var(--accent); margin-bottom: 12px;
         }
-        .pub-kind em { color: var(--accent); font-style: normal; }
         .pub h3 { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.25; letter-spacing: -0.005em; margin-bottom: 10px; }
         .pub h3 a { color: var(--text); text-decoration: none; transition: color 0.2s ease; }
         .pub h3 a:hover { color: var(--accent-strong); }
@@ -301,6 +292,14 @@
         .cite svg { width: 12px; height: 12px; flex: none; }
         .cite .cite-n { font-weight: 500; }
         a.cite[href]:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: var(--accent-strong); }
+        .status {
+            display: inline-flex; align-items: center; gap: 7px;
+            font-family: var(--mono); font-size: 11.5px; color: var(--viz-amber);
+            padding: 5px 12px; border-radius: 7px;
+            border: 1px solid color-mix(in srgb, var(--viz-amber) 40%, transparent);
+            background: color-mix(in srgb, var(--viz-amber) 9%, transparent);
+        }
+        .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--viz-amber); flex: none; }
 
         /* ═══════ TIMELINE (experience / education) ═══════ */
         .titem {
@@ -308,14 +307,12 @@
             padding: 20px 0;
         }
         .titem + .titem { border-top: 1px solid var(--line); }
-        .tdate { font-family: var(--mono); font-size: 11.5px; color: var(--text-3); padding-top: 6px; white-space: nowrap; }
+        .tdate { font-family: var(--mono); font-size: 13px; color: var(--text-3); padding-top: 5px; white-space: nowrap; }
         .torg { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
         .torg .logo {
-            width: 30px; height: 30px; flex: none; border-radius: 7px;
-            background: var(--chip); border: 1px solid var(--line);
-            padding: 2px; overflow: hidden;
+            width: 48px; height: 48px; flex: none; border-radius: 10px; overflow: hidden;
         }
-        .torg .logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 4px; display: block; }
+        .torg .logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .torg h3 { font-family: var(--serif); font-weight: 600; font-size: 18.5px; line-height: 1.3; }
         .trole { font-size: 13.5px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
         .trole span { color: var(--text-3); font-weight: 400; }
@@ -328,7 +325,7 @@
         }
         .award + .award { border-top: 1px solid var(--line); }
         .award-name { font-size: 14.5px; color: var(--text-2); }
-        .award-meta { font-family: var(--mono); font-size: 11.5px; color: var(--text-3); }
+        .award-meta { font-family: var(--mono); font-size: 13px; color: var(--text-3); }
 
         /* ═══════ FOOTER ═══════ */
         footer {
@@ -342,13 +339,13 @@
         }
 
         /* ═══════ VIZ (inline SVG figures) ═══════ */
-        .vz-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; fill: var(--text-3); }
-        .vz-big { font-family: var(--mono); font-size: 33px; font-weight: 500; fill: var(--text); font-variant-numeric: tabular-nums; }
-        .vz-mid { font-family: var(--mono); font-size: 23px; fill: var(--text); font-variant-numeric: tabular-nums; }
-        .vz-num { font-family: var(--mono); font-size: 17px; font-variant-numeric: tabular-nums; }
-        .vz-name { font-family: var(--sans); font-size: 13.5px; fill: var(--text-2); }
-        .vz-small { font-family: var(--mono); font-size: 11px; fill: var(--text-3); }
-        .vz-formula { font-family: var(--mono); font-size: 14.5px; fill: var(--text-2); }
+        .vz-label { font-family: var(--mono); font-size: 14px; letter-spacing: 0.1em; fill: var(--text-3); }
+        .vz-big { font-family: var(--mono); font-size: 34px; font-weight: 500; fill: var(--text); font-variant-numeric: tabular-nums; }
+        .vz-mid { font-family: var(--mono); font-size: 25px; fill: var(--text); font-variant-numeric: tabular-nums; }
+        .vz-num { font-family: var(--mono); font-size: 19px; font-variant-numeric: tabular-nums; }
+        .vz-name { font-family: var(--sans); font-size: 16px; fill: var(--text-2); }
+        .vz-small { font-family: var(--mono); font-size: 14px; fill: var(--text-3); }
+        .vz-formula { font-family: var(--mono); font-size: 16.5px; fill: var(--text-2); }
         .vz-line { stroke: var(--line); }
         .vz-track { fill: var(--line); }
         .vz-accent { fill: var(--accent); }
@@ -379,6 +376,7 @@
         @keyframes bdash { to { stroke-dashoffset: -520; } }
         .pb-s { fill: var(--viz-blue); }
         .pb-t { fill: var(--viz-coral); }
+        .pb-x { fill: var(--accent); }
         .probe { transition: fill 0.45s ease; }
         .probe-halo { opacity: 0.16; transition: fill 0.45s ease; }
         .trail { fill: var(--accent); }
@@ -403,11 +401,9 @@
             body { font-size: 15px; }
             .hero { grid-template-columns: 1fr; gap: 36px; padding: 56px 0 56px; }
             .hero-photo-wrap { order: -1; }
-            .hero-photo { width: 108px; height: 108px; border-radius: 16px; }
+            .hero-photo { width: 138px; height: 138px; border-radius: 18px; }
             .nav-inner { padding: 0 16px; gap: 8px; }
             .nav-right { gap: 8px; }
-            .nav-name .full { display: none; }
-            .nav-name .short { display: inline; }
             .nav-links { gap: 0; }
             .nav-links a { font-size: 10px; padding: 7px 5px; letter-spacing: 0.05em; }
             main { padding: 0 20px; }
@@ -466,7 +462,6 @@
 
 <nav>
     <div class="nav-inner">
-        <a href="#" class="nav-name"><span class="full">Giorgi Merabishvili</span><span class="short">GM<span style="color:var(--accent)">.</span></span></a>
         <div class="nav-right">
             <div class="nav-links">
                 <a href="#publications">Papers</a>
@@ -486,8 +481,8 @@
     <!-- ═══════ HERO ═══════ -->
     <section class="hero" id="about">
         <div>
-            <p class="eyebrow">Software Testing · Robustness · WebAssembly Runtimes</p>
-            <h1>Giorgi Merabishvili<span class="dot">.</span></h1>
+            <p class="eyebrow">Software Testing · Robustness · SE ∩ AI</p>
+            <h1>Giorgi Merabishvili</h1>
             <div class="bio">
                 <p>
                     PhD student in Computer Science at North Carolina State University,
@@ -495,8 +490,8 @@
                     I work on software testing and improving the robustness of software systems.
                 </p>
                 <p>
-                    Previously, I earned my MS in Computer Engineering from NYU and worked with
-                    <a href="https://tsigalko18.github.io">Andrea Stocco</a> at TU Munich as a DAAD scholar.
+                    Previously, I earned my MS in Computer Engineering from <a href="https://www.nyu.edu/">NYU</a> and worked with
+                    <a href="https://tsigalko18.github.io">Andrea Stocco</a> at <a href="https://www.tum.de/en/">TU Munich</a> as a DAAD scholar.
                     This summer I joined the
                     <a href="https://www.mpi-sp.org/">Max Planck Institute for Security and Privacy</a>
                     as a research intern, advised by
@@ -527,14 +522,14 @@
         <div class="hero-photo-wrap">
             <img class="hero-photo" src="Images/photo-480.jpg"
                  srcset="Images/photo-480.jpg 480w, Images/photo-960.jpg 960w"
-                 sizes="(max-width: 720px) 108px, 176px"
+                 sizes="(max-width: 720px) 138px, 236px"
                  alt="Portrait of Giorgi Merabishvili" width="480" height="480" fetchpriority="high">
         </div>
     </section>
 
     <!-- ═══════ NEWS ═══════ -->
     <section id="news">
-        <h2 class="sec-label reveal"><span class="n">01</span>News</h2>
+        <h2 class="sec-label reveal">News</h2>
         <div class="news-list">
             <div class="news-item reveal">
                 <span class="news-date">2026</span>
@@ -557,17 +552,36 @@
 
     <!-- ═══════ PUBLICATIONS ═══════ -->
     <section id="publications">
-        <h2 class="sec-label reveal"><span class="n">02</span>Publications</h2>
+        <h2 class="sec-label reveal">Publications</h2>
+
+        <article class="pub" data-cite="wasm-regression">
+            <figure class="pub-fig reveal">
+                <div class="viz-host" data-fig="wasm">
+                    <noscript><img src="Images/wasm_bugs.gif" alt="Regression tests from RTBENCH reveal bugs in WebAssembly runtimes via transplantation and fuzzing" loading="lazy"></noscript>
+                </div>
+                <figcaption>RTBENCH replays 584 WebAssembly regression tests across runtimes and reuses them as fuzzing seeds, revealing 34 previously-unknown bugs: 13 via transplantation and 21 via fuzzing, with no overlap.</figcaption>
+            </figure>
+            <div class="pub-body reveal">
+                <p class="pub-kind">2026</p>
+                <h3>Left Behind, Not Forgotten: Reusing Regression Tests to Find Bugs in WebAssembly Runtimes</h3>
+                <p class="pub-authors">I. Hayet, M. EsfandyariDoulabi, <span class="me">G. Merabishvili</span>, M. d'Amorim</p>
+                <p class="pub-venue">IEEE Transactions on Software Engineering (TSE)</p>
+                <p class="pub-desc">A large-scale empirical study showing that reusing regression tests, both transplanted across runtimes and reused as fuzzing seeds, uncovers far more bugs in WebAssembly runtimes than fuzzing with established corpora. Introduces RTBENCH, a corpus of 584 real-world regression tests, and reports 34 previously-unknown bugs.</p>
+                <div class="pub-links">
+                    <span class="status"><span class="status-dot"></span>Under major revision · TSE</span>
+                </div>
+            </div>
+        </article>
 
         <article class="pub" data-cite="latent-regularization">
             <figure class="pub-fig reveal">
                 <div class="viz-host" data-fig="latent">
                     <noscript><img src="Images/latent_reg.gif" alt="Latent regularization: samples pull toward the mean as truncation psi decreases" loading="lazy"></noscript>
                 </div>
-                <figcaption>Decreasing truncation ψ pulls sampled latents toward the mean w̄ — generated test inputs stay valid while preserving diversity.</figcaption>
+                <figcaption>Decreasing truncation ψ pulls sampled latents toward the mean w̄. Generated test inputs stay valid while preserving diversity.</figcaption>
             </figure>
             <div class="pub-body reveal">
-                <p class="pub-kind"><em>Workshop paper</em> · 2026</p>
+                <p class="pub-kind">2026</p>
                 <h3><a href="https://dl.acm.org/doi/10.1145/3786154.3788585">Latent Regularization in Generative Test Input Generation</a></h3>
                 <p class="pub-authors"><span class="me">G. Merabishvili</span>, O. Weißl, A. Stocco</p>
                 <p class="pub-venue">DeepTest '26 — 7th IEEE/ACM International Workshop on Deep Learning for Testing and Testing for Deep Learning</p>
@@ -585,10 +599,10 @@
                 <div class="viz-host" data-fig="mimicry">
                     <noscript><img src="Images/mimicry.gif" alt="Mimicry: a test input interpolates from the source class across the decision boundary toward the target class" loading="lazy"></noscript>
                 </div>
-                <figcaption>Mimicry interpolates a test input from the source class toward a target class, stopping at the decision boundary of the classifier under test.</figcaption>
+                <figcaption>Mimicry employs StyleGAN to generate representative samples of the target class and manipulates the latent representation of the source input to incorporate features of these target samples, thereby adjusting its visual characteristics toward the decision boundary.</figcaption>
             </figure>
             <div class="pub-body reveal">
-                <p class="pub-kind"><em>Journal article</em> · 2025</p>
+                <p class="pub-kind">2025</p>
                 <h3><a href="https://doi.org/10.1145/3771557">Targeted Deep Learning System Boundary Testing</a></h3>
                 <p class="pub-authors">O. Weißl, A. Abdellatif, X. Chen, <span class="me">G. Merabishvili</span>, V. Riccio, S. Kacianka, A. Stocco</p>
                 <p class="pub-venue">ACM Transactions on Software Engineering and Methodology (TOSEM)</p>
@@ -604,7 +618,7 @@
 
     <!-- ═══════ EXPERIENCE ═══════ -->
     <section id="experience">
-        <h2 class="sec-label reveal"><span class="n">03</span>Experience</h2>
+        <h2 class="sec-label reveal">Experience</h2>
         <div class="timeline">
             <div class="titem reveal">
                 <span class="tdate">2026 · Summer</span>
@@ -643,7 +657,7 @@
                 <span class="tdate">2024 – 2025</span>
                 <div>
                     <div class="torg">
-                        <span class="logo"><img src="Images/logos/ROBOM.jpeg" alt="" loading="lazy"></span>
+                        <span class="logo"><img src="Images/logos/NYU.jpeg" alt="" loading="lazy"></span>
                         <h3>RoboMaster NYU</h3>
                     </div>
                     <p class="trole">Computer Vision Engineer <span>· New York, NY</span></p>
@@ -655,7 +669,7 @@
 
     <!-- ═══════ EDUCATION ═══════ -->
     <section id="education">
-        <h2 class="sec-label reveal"><span class="n">04</span>Education</h2>
+        <h2 class="sec-label reveal">Education</h2>
         <div class="timeline">
             <div class="titem reveal">
                 <span class="tdate">2025 – Present</span>
@@ -694,31 +708,31 @@
 
     <!-- ═══════ AWARDS ═══════ -->
     <section id="awards">
-        <h2 class="sec-label reveal"><span class="n">05</span>Honors &amp; Awards</h2>
+        <h2 class="sec-label reveal">Honors &amp; Awards</h2>
         <div class="awards-list">
             <div class="award reveal">
                 <span class="award-name">DAAD Research Scholarship</span>
-                <span class="award-meta">Munich · 2024</span>
+                <span class="award-meta">Munich, Germany · 2024</span>
             </div>
             <div class="award reveal">
                 <span class="award-name">Merit Award, New York University</span>
-                <span class="award-meta">New York · 2023–2025</span>
+                <span class="award-meta">New York, USA · 2023–2025</span>
             </div>
             <div class="award reveal">
                 <span class="award-name">Summa Cum Laude, St. Francis College</span>
-                <span class="award-meta">New York · 2023</span>
+                <span class="award-meta">New York, USA · 2023</span>
             </div>
             <div class="award reveal">
                 <span class="award-name">Sigma Beta Delta International Honor Society</span>
-                <span class="award-meta">New York · 2023</span>
+                <span class="award-meta">New York, USA · 2023</span>
             </div>
             <div class="award reveal">
                 <span class="award-name">Travel Grant, NE Regional Honors Conference</span>
-                <span class="award-meta">New York · 2023</span>
+                <span class="award-meta">New York, USA · 2023</span>
             </div>
             <div class="award reveal">
                 <span class="award-name">Merit &amp; Institutional Scholarship, St. Francis College</span>
-                <span class="award-meta">New York · 2019–2023</span>
+                <span class="award-meta">New York, USA · 2019–2023</span>
             </div>
         </div>
     </section>
@@ -923,7 +937,7 @@
         var W = 1120, H = 560;
         var svg = E('svg', {
             viewBox: '0 0 ' + W + ' ' + H, role: 'img',
-            'aria-label': 'Animated diagram: a test input interpolates from the source class cluster, crosses the decision boundary, and lands in the target class cluster while class probabilities flip.'
+            'aria-label': 'Animated diagram: a test input interpolates from the source class cluster toward the target class and halts at the decision boundary, where the classifier class probabilities settle into equilibrium of about 50/50.'
         }, host);
 
         var SC = { x: 300, y: 252 }, TC = { x: 820, y: 252 }, CR = 152;
@@ -1006,8 +1020,8 @@
         var tPs = T(84, 538, 'vz-mid', 'start', '0.93', svg);
         E('rect', { x: 178, y: 528, width: 212, height: 6, rx: 3, 'class': 'vz-track' }, svg);
         var barS = E('rect', { x: 178, y: 528, width: 212 * 0.93, height: 6, rx: 3, 'class': 'bar-s' }, svg);
-        T(560, 502, 'vz-label', 'middle', 'INTERPOLATION t', svg);
-        var tT = T(560, 538, 'vz-mid', 'middle', '0.00', svg);
+        T(560, 502, 'vz-label', 'middle', 'INTERPOLATION κ', svg);
+        var tT = T(560, 538, 'vz-mid', 'middle', '1.00', svg);
         T(1036, 502, 'vz-label', 'end', 'P(TARGET)', svg);
         var tPt = T(1036, 538, 'vz-mid', 'end', '0.07', svg);
         E('rect', { x: 730, y: 528, width: 212, height: 6, rx: 3, 'class': 'vz-track' }, svg);
@@ -1027,14 +1041,18 @@
             if (ph < lastPh) trail = [];   /* new cycle */
             lastPh = ph;
 
-            var tt, alpha = 1, baseR = 7;
-            if (ph < 1) tt = 0;
-            else if (ph < 6.5) tt = easeIO((ph - 1) / 5.5);
-            else if (ph < 8.5) { tt = 1; baseR = 7 + Math.sin((ph - 6.5) * 3.4) * 0.9; }
-            else if (ph < 9.3) { tt = 1; alpha = 1 - (ph - 8.5) / 0.8; }
-            else if (ph < 10.2) { tt = 0; alpha = 0; }
-            else { tt = 0; alpha = (ph - 10.2) / 0.8; }
+            /* Mimicry halts AT the decision frontier — it never escapes into the
+               target class (the paper's escape-ratio metric penalises that).
+               prog: 0 = source, 1 = boundary (probability equilibrium). */
+            var prog, alpha = 1, baseR = 7, settled = false;
+            if (ph < 1) prog = 0;                                                /* hold at source */
+            else if (ph < 5.5) prog = easeIO((ph - 1) / 4.5);                    /* travel to boundary */
+            else if (ph < 8.5) { prog = 1; settled = true; baseR = 7 + Math.sin((ph - 5.5) * 3.1) * 0.8; }  /* settle */
+            else if (ph < 9.3) { prog = 1; settled = true; alpha = 1 - (ph - 8.5) / 0.8; }  /* fade out */
+            else if (ph < 10.2) { prog = 0; alpha = 0; }                         /* gone */
+            else { prog = 0; alpha = (ph - 10.2) / 0.8; }                        /* fade back in */
 
+            var tt = prog * tStar;          /* clamp interpolation to the boundary, never beyond */
             var p = probePt(tt);
             probe.setAttribute('cx', p.x.toFixed(1));
             probe.setAttribute('cy', p.y.toFixed(1));
@@ -1042,10 +1060,10 @@
             halo.setAttribute('cx', p.x.toFixed(1));
             halo.setAttribute('cy', p.y.toFixed(1));
             gFly.setAttribute('opacity', clamp(alpha, 0, 1).toFixed(2));
-            setSide(tt >= tStar ? 't' : 's');
+            setSide(settled ? 'x' : 's');   /* accent at equilibrium, source-blue while travelling */
 
             /* trail sampling while travelling */
-            if (ph >= 1 && ph < 6.5) {
+            if (ph >= 1 && ph < 5.5) {
                 var last = trail[trail.length - 1];
                 if (!last || Math.hypot(p.x - last.x, p.y - last.y) > 7) {
                     trail.push({ x: p.x, y: p.y });
@@ -1063,32 +1081,156 @@
                 } else el.setAttribute('opacity', 0);
             }
 
-            /* pulse on crossing */
-            var dtc = ph - crossPhase;
-            if (dtc > 0 && dtc < 0.9 && ph < 8) {
+            /* confirmation pulse when the probe locks onto the boundary */
+            var dtc = ph - 5.5;
+            if (dtc > 0 && dtc < 0.95) {
                 pulse.setAttribute('cx', cross.x.toFixed(1));
                 pulse.setAttribute('cy', cross.y.toFixed(1));
-                pulse.setAttribute('r', (10 + dtc * 95).toFixed(1));
-                pulse.setAttribute('opacity', (0.75 * (1 - dtc / 0.9)).toFixed(2));
+                pulse.setAttribute('r', (8 + dtc * 92).toFixed(1));
+                pulse.setAttribute('opacity', (0.7 * (1 - dtc / 0.95)).toFixed(2));
             } else pulse.setAttribute('opacity', 0);
 
-            /* probabilities */
-            var sg = 1 / (1 + Math.exp((tt - tStar) * 14));
-            var ps = 0.06 + 0.87 * sg;
-            var pt2 = 0.07 + 0.85 * (1 - sg);
+            /* class probabilities converge to equilibrium (~0.50 / 0.50) at the frontier */
+            var sg = 1 / (1 + Math.exp((tt - tStar) * 15));
+            var ps = 0.07 + 0.86 * sg;
+            var pt2 = 0.07 + 0.86 * (1 - sg);
             tPs.textContent = ps.toFixed(2);
             tPt.textContent = pt2.toFixed(2);
-            tT.textContent = tt.toFixed(2);
+            tT.textContent = (1 - tt).toFixed(2);   /* interpolation weight κ: 1.00 at the source */
             barS.setAttribute('width', (212 * ps).toFixed(1));
             barT.setAttribute('width', (212 * pt2).toFixed(1));
         }
-        /* phase time at which tt reaches tStar (invert easing numerically) */
-        var crossPhase = 1;
-        for (var w = 0; w <= 550; w++) {
-            var phw = 1 + (w / 550) * 5.5;
-            if (easeIO((phw - 1) / 5.5) >= tStar) { crossPhase = phw; break; }
-        }
         register(host, update, 4.1);
+    })();
+
+    /* ═══════ Figure C — RTBENCH: regression tests find bugs (TSE) ═══════ */
+    (function () {
+        var host = document.querySelector('[data-fig="wasm"]');
+        if (!host) return;
+        var W = 1120, H = 560;
+        var svg = E('svg', {
+            viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+            'aria-label': 'Animated diagram: WebAssembly regression tests from RTBENCH flow through transplantation and fuzzing into runtimes, revealing 34 bugs — 13 by transplantation and 21 by fuzzing.'
+        }, host);
+
+        function node(x, y, w, h, rx) {
+            E('rect', { x: x, y: y, width: w, height: h, rx: rx, fill: 'var(--bg-elev2)', stroke: 'var(--line-strong)', 'stroke-width': 1 }, svg);
+        }
+        function bz(p, t) {
+            var u = 1 - t;
+            return {
+                x: u*u*u*p[0].x + 3*u*u*t*p[1].x + 3*u*t*t*p[2].x + t*t*t*p[3].x,
+                y: u*u*u*p[0].y + 3*u*u*t*p[1].y + 3*u*t*t*p[2].y + t*t*t*p[3].y
+            };
+        }
+        function pathStr(p) { return 'M ' + p[0].x + ' ' + p[0].y + ' C ' + p[1].x + ' ' + p[1].y + ', ' + p[2].x + ' ' + p[2].y + ', ' + p[3].x + ' ' + p[3].y; }
+
+        /* source (RTBENCH) */
+        var CY = 282;
+        var sx = 58, sw = 120, sh = 76, sy = CY - sh / 2;
+        node(sx, sy, sw, sh, 14);
+        T(sx + sw / 2, CY - 6, 'vz-name', 'middle', 'RTBENCH', svg);
+        T(sx + sw / 2, CY + 16, 'vz-small', 'middle', '584 tests', svg);
+
+        /* runtimes target */
+        var nx = 545, nw = 120, nh = 132, ny = CY - nh / 2;
+        node(nx, ny, nw, nh, 16);
+        T(nx + nw / 2, ny + 28, 'vz-small', 'middle', 'RUNTIMES', svg);
+        var gx = nx + nw / 2, gy = CY + 12;
+        var grid = [[-20, -15, true], [20, -15, true], [-20, 19, true], [20, 19, false]];
+        var rdots = grid.map(function (g) {
+            return { el: E('circle', { cx: gx + g[0], cy: gy + g[1], r: 7, 'class': g[2] ? 'do' : 'dv' }, svg), bug: g[2] };
+        });
+        var ring = E('circle', { 'class': 'pulse', fill: 'none', opacity: 0, 'stroke-width': 2, cx: gx, cy: gy + 2 }, svg);
+
+        /* two symmetric arcs: transplantation (up) and fuzzing (down) */
+        var arcT = [{ x: sx + sw, y: CY }, { x: 300, y: 178 }, { x: 420, y: 178 }, { x: nx, y: CY }];
+        var arcF = [{ x: sx + sw, y: CY }, { x: 300, y: 386 }, { x: 420, y: 386 }, { x: nx, y: CY }];
+        E('path', { d: pathStr(arcT), fill: 'none', 'class': 'vz-line', 'stroke-width': 1.4 }, svg);
+        E('path', { d: pathStr(arcF), fill: 'none', 'class': 'vz-line', 'stroke-width': 1.4 }, svg);
+        var midX = (sx + sw + nx) / 2;
+        T(midX, 182, 'vz-small lbl-s', 'middle', 'transplantation', svg);
+        T(midX, 400, 'vz-small lbl-t', 'middle', 'fuzzing', svg);
+
+        /* mutate node on the fuzzing arc */
+        var mp = bz(arcF, 0.5);
+        E('rect', { x: mp.x - 19, y: mp.y - 19, width: 38, height: 38, rx: 8, transform: 'rotate(45 ' + mp.x + ' ' + mp.y + ')', fill: 'var(--bg-elev2)', stroke: 'var(--line-strong)', 'stroke-width': 1 }, svg);
+        T(mp.x, mp.y + 4, 'vz-small', 'middle', 'mutate', svg);
+
+        /* flowing dots (evenly spaced) */
+        var gFlow = E('g', {}, svg);
+        function makeDots(arc, n, cls) {
+            var arr = [];
+            for (var i = 0; i < n; i++) arr.push({ off: i / n, el: E('circle', { r: 4, 'class': cls }, gFlow), arc: arc });
+            return arr;
+        }
+        var dotsA = makeDots(arcT, 5, 'ds');
+        var dotsB = makeDots(arcF, 5, 'dt');
+
+        /* divider */
+        E('line', { x1: 700, y1: 48, x2: 700, y2: H - 48, 'class': 'vz-line' }, svg);
+
+        /* readout */
+        var RX = 748, RXE = 1062;
+        T(RX, 78, 'vz-label', 'start', 'BUGS FOUND', svg);
+        var tTotal = T(RX, 122, 'vz-big', 'start', '0', svg);
+        E('rect', { x: RX, y: 142, width: RXE - RX, height: 5, rx: 2.5, 'class': 'vz-track' }, svg);
+        var barTot = E('rect', { x: RX, y: 142, width: 0, height: 5, rx: 2.5, 'class': 'vz-accent' }, svg);
+
+        T(RX, 204, 'vz-label', 'start', 'BY METHOD', svg);
+        var mrows = [
+            { name: 'Transplantation', sw: 'ds', num: 'lbl-s', y: 240 },
+            { name: 'Fuzzing', sw: 'dt', num: 'lbl-t', y: 276 },
+            { name: 'Overlap', sw: 'vz-track', num: '', y: 312 }
+        ];
+        var mcounts = mrows.map(function (r) {
+            E('rect', { x: RX, y: r.y - 10, width: 10, height: 10, rx: 3, 'class': r.sw }, svg);
+            T(RX + 20, r.y, 'vz-name', 'start', r.name, svg);
+            var el = T(RXE, r.y, 'vz-num' + (r.num ? ' ' + r.num : ''), 'end', '0', svg);
+            if (!r.num) el.setAttribute('fill', 'var(--text-3)');
+            return el;
+        });
+
+        E('line', { x1: RX, y1: 352, x2: RXE, y2: 352, 'class': 'vz-line' }, svg);
+        T(RX, 392, 'vz-label', 'start', 'SEED CORPUS · RTBENCH', svg);
+        T(RX, 428, 'vz-mid', 'start', '584 tests', svg);
+        T(RX, 456, 'vz-small', 'start', '184 from issues · 400 from suites', svg);
+        T(RX, 500, 'vz-label', 'start', 'RUNTIMES', svg);
+        T(RX, 528, 'vz-small', 'start', 'Wasmtime · Wasmer · WAMR · WasmEdge', svg);
+
+        function update(t) {
+            var PERIOD = 12, ph = t % PERIOD;
+            var p = ph < 1 ? 0 : ph < 8 ? easeIO((ph - 1) / 7) : 1;
+            var na = ph > 11.3 ? clamp((12 - ph) / 0.7, 0, 1) : ph < 0.7 ? clamp(ph / 0.7, 0, 1) : 1;
+            var nt = Math.round(13 * p), nf = Math.round(21 * p), tot = nt + nf;
+            tTotal.textContent = tot;
+            tTotal.setAttribute('opacity', na.toFixed(2));
+            barTot.setAttribute('width', ((tot / 34) * (RXE - RX)).toFixed(1));
+            barTot.setAttribute('opacity', na.toFixed(2));
+            mcounts[0].textContent = nt; mcounts[1].textContent = nf; mcounts[2].textContent = 0;
+            for (var m = 0; m < mcounts.length; m++) mcounts[m].setAttribute('opacity', na.toFixed(2));
+
+            var spd = 0.05;
+            function flow(arr) {
+                for (var i = 0; i < arr.length; i++) {
+                    var d = arr[i], f = (t * spd + d.off) % 1, pt = bz(d.arc, f);
+                    d.el.setAttribute('cx', pt.x.toFixed(1));
+                    d.el.setAttribute('cy', pt.y.toFixed(1));
+                    d.el.setAttribute('opacity', (f < 0.06 || f > 0.94 ? 0 : 0.9).toFixed(2));
+                }
+            }
+            flow(dotsA); flow(dotsB);
+
+            var rp = (t % 2) / 2;
+            ring.setAttribute('r', (9 + rp * 34).toFixed(1));
+            ring.setAttribute('opacity', (0.5 * (1 - rp)).toFixed(2));
+            ring.setAttribute('stroke', 'var(--viz-red)');
+
+            for (var i = 0; i < rdots.length; i++) {
+                rdots[i].el.setAttribute('r', (rdots[i].bug ? 7 + Math.sin(t * 3 + i) * 0.8 : 7).toFixed(2));
+            }
+        }
+        register(host, update, 4.0);
     })();
 })();
 </script>

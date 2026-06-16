@@ -3,6 +3,11 @@
   "author_id": "pPopoasAAAAJ",
   "note": "Citation counts from Google Scholar. Auto-refreshed by .github/workflows/scholar.yml (SerpAPI). The 'title' fields are used to match papers on the Scholar profile; edit them only if a paper's Scholar title changes.",
   "papers": {
+    "wasm-regression": {
+      "title": "Left Behind, Not Forgotten: Reusing Regression Tests to Find Bugs in WebAssembly Runtimes",
+      "citations": 0,
+      "url": "https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en"
+    },
     "latent-regularization": {
       "title": "Latent Regularization in Generative Test Input Generation",
       "citations": 2,
