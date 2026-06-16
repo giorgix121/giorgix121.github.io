@@ -21,19 +21,18 @@
     <meta name="twitter:description" content="PhD student at NC State. Software engineering, software testing, robustness, and WebAssembly runtimes.">
     <meta name="twitter:image" content="https://giorgix121.github.io/Images/photo-og.jpg">
 
-    <meta name="theme-color" content="#0B0E14">
+    <meta name="theme-color" content="#FAF9F7">
     <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230B0E14'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Georgia,serif'%20font-style='italic'%20font-size='40'%20fill='%23A78BFA'%20text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
     <link rel="apple-touch-icon" href="https://giorgix121.github.io/Images/apple-touch-icon.jpg">
 
     <!-- Set theme before first paint -->
     <script>
         (function () {
-            var t = 'dark';
+            var t = 'light';
             try {
                 var p = new URLSearchParams(location.search).get('theme');
                 var s = localStorage.getItem('theme');
-                var m = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-                t = (p === 'light' || p === 'dark') ? p : (s === 'light' || s === 'dark') ? s : m;
+                t = (p === 'light' || p === 'dark') ? p : (s === 'light' || s === 'dark') ? s : 'light';
             } catch (e) {}
             document.documentElement.setAttribute('data-theme', t);
         })();
