@@ -240,12 +240,12 @@
         /* ═══════ PUBLICATIONS ═══════ */
         .pub {
             display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-            gap: 40px; align-items: start; padding: 44px 0;
+            gap: 44px; align-items: start; padding: 36px 0;
         }
-        .pub:first-of-type { padding-top: 10px; }
+        .pub:first-of-type { padding-top: 8px; }
         .pub + .pub { border-top: 1px solid var(--line); }
         .pub-fig { margin: 0; }
-        .pub-body { min-width: 0; }
+        .pub-body { min-width: 0; padding-top: 2px; }
         .viz-host { position: relative; }
         .viz-host svg, .viz-host img {
             display: block; width: 100%; height: auto;
@@ -263,13 +263,23 @@
             font-family: var(--mono); font-weight: 500; font-size: 14.5px;
             letter-spacing: 0.06em; color: var(--accent); margin-bottom: 12px;
         }
-        .pub h3 { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.25; letter-spacing: -0.005em; margin-bottom: 10px; }
+        .pub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 9px; }
+        .pub h3 { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.25; letter-spacing: -0.005em; }
         .pub h3 a { color: var(--text); text-decoration: none; transition: color 0.2s ease; }
         .pub h3 a:hover { color: var(--accent-strong); }
+        .pub-year {
+            flex: none; font-family: var(--mono); font-size: 16px; font-weight: 500;
+            letter-spacing: 0.03em; color: var(--accent); font-variant-numeric: tabular-nums;
+            position: relative; top: -1px;
+        }
         .pub-authors { font-size: 14px; color: var(--text-2); margin-bottom: 6px; }
         .pub-authors .me { color: var(--text); font-weight: 600; }
-        .pub-venue { font-family: var(--mono); font-size: 11.5px; color: var(--text-3); line-height: 1.7; margin-bottom: 14px; }
-        .pub-desc { font-size: 14.5px; color: var(--text-2); max-width: 68ch; margin-bottom: 18px; }
+        .pub-venue {
+            font-family: var(--sans); font-size: 13.5px; color: var(--text-2);
+            line-height: 1.6; margin: 16px 2px 0;
+        }
+        .pub-venue .stat { color: var(--viz-amber); font-weight: 600; }
+        .pub-desc { font-size: 14.5px; line-height: 1.62; color: var(--text-2); max-width: 60ch; margin-bottom: 18px; }
         .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
         .tag {
             font-family: var(--mono); font-size: 11.5px; color: var(--text-2);
@@ -315,6 +325,8 @@
         .torg h3 { font-family: var(--serif); font-weight: 600; font-size: 18.5px; line-height: 1.3; }
         .trole { font-size: 13.5px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
         .trole span { color: var(--text-3); font-weight: 400; }
+        .tadvisor { font-size: 13.5px; color: var(--text-3); margin-bottom: 5px; }
+        .tadvisor span { color: var(--text-2); font-weight: 500; }
         .tdetail { font-size: 13.5px; color: var(--text-2); line-height: 1.65; max-width: 64ch; }
 
         /* ═══════ AWARDS ═══════ */
@@ -553,22 +565,37 @@
     <section id="publications">
         <h2 class="sec-label reveal">Publications</h2>
 
+        <article class="pub" data-cite="glitchguard">
+            <figure class="pub-fig reveal">
+                <div class="viz-host" data-fig="glitchguard">
+                    <noscript><img src="Images/glitchguard.gif" alt="A gameplay clip is scanned by a VLM against a checklist of physics-grounded visual properties; a violated gravity property flags a bug" loading="lazy"></noscript>
+                </div>
+                <p class="pub-venue"><span class="stat">under submission</span></p>
+            </figure>
+            <div class="pub-body reveal">
+                <div class="pub-head">
+                    <h3>GlitchGuard: Physics-Grounded Visual Property Testing for Video Games</h3>
+                    <span class="pub-year">2026</span>
+                </div>
+                <p class="pub-authors"><span class="me">G. Merabishvili</span>, M. EsfandyariDoulabi, M. d'Amorim</p>
+                <p class="pub-desc">A training-free property-testing methodology that augments vision-language model prompts with physics-grounded visual properties of correct gameplay, such as collision, gravity, and animation coherence, so their violations act as a bug oracle. It contributes a catalog of 32 generic and 120 game-specific properties across 10 open-world titles, and shows that property-augmented prompting improves bug-detection recall by up to +14.8 pp across 7 VLMs while keeping precision high.</p>
+            </div>
+        </article>
+
         <article class="pub" data-cite="wasm-regression">
             <figure class="pub-fig reveal">
                 <div class="viz-host" data-fig="wasm">
                     <noscript><img src="Images/wasm_bugs.gif" alt="Regression tests from RTBENCH reveal bugs in WebAssembly runtimes via transplantation and fuzzing" loading="lazy"></noscript>
                 </div>
-                <figcaption>RTBENCH replays 584 WebAssembly regression tests across runtimes and reuses them as fuzzing seeds, revealing 34 previously-unknown bugs: 13 via transplantation and 21 via fuzzing, with no overlap.</figcaption>
+                <p class="pub-venue">IEEE Transactions on Software Engineering (TSE) · <span class="stat">under major revision</span></p>
             </figure>
             <div class="pub-body reveal">
-                <p class="pub-kind">2026</p>
-                <h3>Left Behind, Not Forgotten: Reusing Regression Tests to Find Bugs in WebAssembly Runtimes</h3>
-                <p class="pub-authors">I. Hayet, M. EsfandyariDoulabi, <span class="me">G. Merabishvili</span>, M. d'Amorim</p>
-                <p class="pub-venue">IEEE Transactions on Software Engineering (TSE)</p>
-                <p class="pub-desc">A large-scale empirical study showing that reusing regression tests, both transplanted across runtimes and reused as fuzzing seeds, uncovers far more bugs in WebAssembly runtimes than fuzzing with established corpora. Introduces RTBENCH, a corpus of 584 real-world regression tests, and reports 34 previously-unknown bugs.</p>
-                <div class="pub-links">
-                    <span class="status"><span class="status-dot"></span>Under major revision · TSE</span>
+                <div class="pub-head">
+                    <h3>Left Behind, Not Forgotten: Reusing Regression Tests to Find Bugs in WebAssembly Runtimes</h3>
+                    <span class="pub-year">2026</span>
                 </div>
+                <p class="pub-authors">I. Hayet, M. EsfandyariDoulabi, <span class="me">G. Merabishvili</span>, M. d'Amorim</p>
+                <p class="pub-desc">A large-scale empirical study showing that reusing regression tests, both transplanted across runtimes and reused as fuzzing seeds, uncovers far more bugs in WebAssembly runtimes than fuzzing with established corpora. Introduces RTBENCH, a corpus of 584 real-world regression tests, and reports 34 previously-unknown bugs.</p>
             </div>
         </article>
 
@@ -577,13 +604,14 @@
                 <div class="viz-host" data-fig="latent">
                     <noscript><img src="Images/latent_reg.gif" alt="Latent regularization: samples pull toward the mean as truncation psi decreases" loading="lazy"></noscript>
                 </div>
-                <figcaption>Decreasing truncation ψ pulls sampled latents toward the mean w̄. Generated test inputs stay valid while preserving diversity.</figcaption>
+                <p class="pub-venue">DeepTest '26, IEEE/ACM Int'l Workshop on Deep Learning for Testing (ICSEW)</p>
             </figure>
             <div class="pub-body reveal">
-                <p class="pub-kind">2026</p>
-                <h3><a href="https://dl.acm.org/doi/10.1145/3786154.3788585">Latent Regularization in Generative Test Input Generation</a></h3>
+                <div class="pub-head">
+                    <h3><a href="https://dl.acm.org/doi/10.1145/3786154.3788585">Latent Regularization in Generative Test Input Generation</a></h3>
+                    <span class="pub-year">2026</span>
+                </div>
                 <p class="pub-authors"><span class="me">G. Merabishvili</span>, O. Weißl, A. Stocco</p>
-                <p class="pub-venue">DeepTest '26 — 7th IEEE/ACM International Workshop on Deep Learning for Testing and Testing for Deep Learning (ICSEW)</p>
                 <p class="pub-desc">Explores latent-space regularization in style-based GANs to generate more realistic, diverse, and fault-revealing test inputs for deep learning image classifiers.</p>
                 <div class="pub-links">
                     <a class="cite" hidden><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="12" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/></svg>Cited by <span class="cite-n"></span></a>
@@ -598,13 +626,14 @@
                 <div class="viz-host" data-fig="mimicry">
                     <noscript><img src="Images/mimicry.gif" alt="Mimicry: a test input interpolates from the source class across the decision boundary toward the target class" loading="lazy"></noscript>
                 </div>
-                <figcaption>Mimicry employs StyleGAN to generate representative samples of the target class and manipulates the latent representation of the source input to incorporate features of these target samples, thereby adjusting its visual characteristics toward the decision boundary.</figcaption>
+                <p class="pub-venue">ACM Transactions on Software Engineering and Methodology (TOSEM)</p>
             </figure>
             <div class="pub-body reveal">
-                <p class="pub-kind">2025</p>
-                <h3><a href="https://doi.org/10.1145/3771557">Targeted Deep Learning System Boundary Testing</a></h3>
+                <div class="pub-head">
+                    <h3><a href="https://doi.org/10.1145/3771557">Targeted Deep Learning System Boundary Testing</a></h3>
+                    <span class="pub-year">2025</span>
+                </div>
                 <p class="pub-authors">O. Weißl, A. Abdellatif, X. Chen, <span class="me">G. Merabishvili</span>, V. Riccio, S. Kacianka, A. Stocco</p>
-                <p class="pub-venue">ACM Transactions on Software Engineering and Methodology (TOSEM)</p>
                 <p class="pub-desc">Introduces Mimicry, a targeted boundary testing technique using disentangled StyleGAN latent spaces to find inputs near decision boundaries across 5 image classification datasets.</p>
                 <div class="pub-links">
                     <a class="cite" hidden><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="12" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="12" rx="1"/><rect x="17" y="4" width="4" height="16" rx="1"/></svg>Cited by <span class="cite-n"></span></a>
@@ -627,7 +656,7 @@
                         <h3>Max Planck Institute for Security and Privacy</h3>
                     </div>
                     <p class="trole">Research Intern <span>· Bochum, Germany</span></p>
-                    <p class="tdetail">Advisor: Dr. Marcel Böhme.</p>
+                    <p class="tadvisor">Advisor: <span>Dr. Marcel Böhme</span></p>
                 </div>
             </div>
             <div class="titem reveal">
@@ -638,7 +667,8 @@
                         <h3>North Carolina State University</h3>
                     </div>
                     <p class="trole">Research Assistant <span>· Raleigh, NC</span></p>
-                    <p class="tdetail">Advisor: Dr. Marcelo d'Amorim. Game testing: developed MR-guided VLM glitch detection for gameplay videos. WebAssembly runtime analysis: transplanting regression tests across runtimes and using them as seed corpora for fuzzing.</p>
+                    <p class="tadvisor">Advisor: <span>Dr. Marcelo d'Amorim</span></p>
+                    <p class="tdetail">Game testing: developed MR-guided VLM glitch detection for gameplay videos. WebAssembly runtime analysis: transplanting regression tests across runtimes and using them as seed corpora for fuzzing.</p>
                 </div>
             </div>
             <div class="titem reveal">
@@ -649,7 +679,8 @@
                         <h3>Technical University of Munich</h3>
                     </div>
                     <p class="trole">Research Intern <span>· Munich, Germany</span></p>
-                    <p class="tdetail">Advisor: Dr. Andrea Stocco. Conducted research on automated testing for deep learning systems. Developed latent space interpolation methods for boundary testing and improved validity of generated test pairs.</p>
+                    <p class="tadvisor">Advisor: <span>Dr. Andrea Stocco</span></p>
+                    <p class="tdetail">Conducted research on automated testing for deep learning systems. Developed latent space interpolation methods for boundary testing and improved validity of generated test pairs.</p>
                 </div>
             </div>
             <div class="titem reveal">
@@ -1230,6 +1261,148 @@
             }
         }
         register(host, update, 4.0);
+    })();
+
+    /* ═══════ Figure D — GlitchGuard: property-checked game testing (ASE '26) ═══════ */
+    (function () {
+        var host = document.querySelector('[data-fig="glitchguard"]');
+        if (!host) return;
+        var W = 1120, H = 560;
+        var svg = E('svg', {
+            viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+            'aria-label': 'Animated diagram: a gameplay clip with an object floating without support is scanned by a VLM against a checklist of physics properties; the gravity property is violated, flagging a bug, and property-augmented prompting raises Gemini 3.1 Pro recall from 51.1 to 65.9 percent.'
+        }, host);
+
+        /* ---- viewport: the gameplay clip under test ---- */
+        var vx = 58, vy = 118, vw = 392, vh = 324;
+        E('rect', { x: vx, y: vy, width: vw, height: vh, rx: 16, fill: 'var(--bg-elev2)', stroke: 'var(--line-strong)', 'stroke-width': 1 }, svg);
+        T(vx + 16, vy + 28, 'vz-small', 'start', 'CLIP · gameplay', svg);
+
+        var groundY = vy + vh - 56;
+        E('line', { x1: vx + 28, y1: groundY, x2: vx + vw - 28, y2: groundY, 'class': 'vz-line', 'stroke-width': 1.5 }, svg);
+        T(vx + vw - 28, groundY + 22, 'vz-small', 'end', 'ground', svg);
+
+        var ox = vx + vw / 2, objW = 50;
+        var objRing = E('circle', { cx: ox, r: 30, 'class': 'pulse', fill: 'none', 'stroke-width': 2, opacity: 0, stroke: 'var(--viz-red)' }, svg);
+        var gap = E('line', { x1: ox, x2: ox, 'stroke-dasharray': '4 6', stroke: 'var(--viz-red)', 'stroke-width': 1.5, opacity: 0.5 }, svg);
+        var gapLbl = T(ox + 14, 0, 'vz-small lbl-o', 'start', 'no support', svg);
+        var obj = E('rect', { x: ox - objW / 2, width: objW, height: objW, rx: 8, fill: 'var(--bg)', stroke: 'var(--viz-red)', 'stroke-width': 2 }, svg);
+
+        /* scan beam sweeping the clip */
+        var scan = E('line', { x1: vx + 10, x2: vx + vw - 10, stroke: 'var(--accent)', 'stroke-width': 2, opacity: 0.45 }, svg);
+
+        /* verdict badge */
+        var stamp = E('g', { opacity: 0 }, svg);
+        E('rect', { x: vx + vw - 96, y: vy + 16, width: 76, height: 26, rx: 6, fill: 'color-mix(in srgb, var(--viz-red) 16%, transparent)', stroke: 'var(--viz-red)', 'stroke-width': 1 }, stamp);
+        T(vx + vw - 58, vy + 33, 'vz-small lbl-o', 'middle', '⚠ BUG', stamp);
+
+        /* ---- VLM checklist panel ---- */
+        var px = 506, py = 150, pw = 168, ph = 260;
+        E('rect', { x: px, y: py, width: pw, height: ph, rx: 14, fill: 'var(--bg-elev2)', stroke: 'var(--line-strong)', 'stroke-width': 1 }, svg);
+        T(px + pw / 2, py + 34, 'vz-name', 'middle', 'VLM', svg);
+        T(px + pw / 2, py + 56, 'vz-small', 'middle', '+ checklist', svg);
+        E('line', { x1: px + 16, y1: py + 74, x2: px + pw - 16, y2: py + 74, 'class': 'vz-line' }, svg);
+        var props = [
+            { name: 'Collision', ok: true },
+            { name: 'Gravity', ok: false },
+            { name: 'Animation', ok: true }
+        ];
+        var py0 = py + 112;
+        var propEls = props.map(function (p, i) {
+            var yy = py0 + i * 44;
+            var mark = T(px + 22, yy, 'vz-name', 'start', '·', svg);
+            var nm = T(px + 46, yy, 'vz-name', 'start', p.name, svg);
+            return { mark: mark, nm: nm, p: p };
+        });
+
+        /* connector: clip → VLM */
+        var cy = vy + vh / 2;
+        E('path', { d: 'M ' + (vx + vw) + ' ' + cy + ' L ' + px + ' ' + cy, fill: 'none', 'class': 'vz-line', 'stroke-width': 1.4 }, svg);
+        T((vx + vw + px) / 2, cy - 12, 'vz-small', 'middle', 'analyze', svg);
+        var gFlow = E('g', {}, svg);
+        var cdots = [0, 0.5].map(function (o) { return { off: o, el: E('circle', { r: 3.5, 'class': 'ds' }, gFlow) }; });
+
+        /* divider + readout */
+        E('line', { x1: 700, y1: 48, x2: 700, y2: H - 48, 'class': 'vz-line' }, svg);
+        var RX = 748, RXE = 1062;
+        T(RX, 78, 'vz-label', 'start', 'RECALL · GEMINI 3.1 PRO', svg);
+        var tRecall = T(RX, 122, 'vz-big', 'start', '51.1%', svg);
+        E('rect', { x: RX, y: 142, width: RXE - RX, height: 5, rx: 2.5, 'class': 'vz-track' }, svg);
+        var barRec = E('rect', { x: RX, y: 142, width: 0, height: 5, rx: 2.5, 'class': 'vz-accent' }, svg);
+
+        T(RX, 204, 'vz-label', 'start', 'BY PROMPT', svg);
+        var rrows = [
+            { name: 'Baseline', cls: 'vz-track', num: '51.1%', numcls: '', y: 240 },
+            { name: '+ Properties', cls: 'cv', num: '65.9%', numcls: 'lbl-v', y: 276 }
+        ];
+        rrows.forEach(function (r) {
+            E('rect', { x: RX, y: r.y - 10, width: 10, height: 10, rx: 3, 'class': r.cls }, svg);
+            T(RX + 20, r.y, 'vz-name', 'start', r.name, svg);
+            T(RXE, r.y, 'vz-num ' + r.numcls, 'end', r.num, svg);
+        });
+
+        E('line', { x1: RX, y1: 320, x2: RXE, y2: 320, 'class': 'vz-line' }, svg);
+        T(RX, 360, 'vz-label', 'start', 'PROPERTY CATALOG', svg);
+        T(RX, 396, 'vz-mid', 'start', '32 + 120', svg);
+        T(RX, 424, 'vz-small', 'start', '32 generic · 120 game-specific', svg);
+        T(RX, 468, 'vz-label', 'start', 'EVALUATION', svg);
+        T(RX, 500, 'vz-small', 'start', '270 clips · 10 games · 7 VLMs', svg);
+
+        function update(t) {
+            var PERIOD = 12, ph = t % PERIOD, p;
+            if (ph < 2) p = 0;
+            else if (ph < 4) p = easeIO((ph - 2) / 2);
+            else if (ph < 9.5) p = 1;
+            else if (ph < 11) p = 1 - easeIO((ph - 9.5) / 1.5);
+            else p = 0;
+            var applied = p > 0.5;
+
+            /* hovering object + gap to ground */
+            var ocy = 236 + Math.sin(t * 1.6) * 11;
+            obj.setAttribute('y', (ocy - objW / 2).toFixed(1));
+            objRing.setAttribute('cy', ocy.toFixed(1));
+            gap.setAttribute('y1', (ocy + objW / 2).toFixed(1));
+            gap.setAttribute('y2', groundY.toFixed(1));
+            gapLbl.setAttribute('y', ((ocy + objW / 2 + groundY) / 2 + 4).toFixed(1));
+
+            /* scan sweep */
+            var sy = (vy + 12) + ((t * 0.45) % 1) * (vh - 24);
+            scan.setAttribute('y1', sy.toFixed(1));
+            scan.setAttribute('y2', sy.toFixed(1));
+
+            /* checklist marks */
+            propEls.forEach(function (pe) {
+                if (applied) {
+                    pe.mark.textContent = pe.p.ok ? '✓' : '✗';
+                    pe.mark.setAttribute('fill', pe.p.ok ? 'var(--viz-green)' : 'var(--viz-red)');
+                    pe.nm.setAttribute('fill', pe.p.ok ? 'var(--text-2)' : 'var(--viz-red)');
+                } else {
+                    pe.mark.textContent = '·';
+                    pe.mark.setAttribute('fill', 'var(--text-3)');
+                    pe.nm.setAttribute('fill', 'var(--text-2)');
+                }
+            });
+
+            /* verdict + bug pulse */
+            stamp.setAttribute('opacity', clamp((p - 0.45) / 0.25, 0, 1).toFixed(2));
+            var rp = (t % 1.6) / 1.6;
+            objRing.setAttribute('r', (24 + rp * 22).toFixed(1));
+            objRing.setAttribute('opacity', (clamp((p - 0.5) / 0.3, 0, 1) * 0.55 * (1 - rp)).toFixed(2));
+
+            /* recall readout */
+            var recall = 51.1 + 14.8 * p;
+            tRecall.textContent = recall.toFixed(1) + '%';
+            barRec.setAttribute('width', (clamp(recall / 70, 0, 1) * (RXE - RX)).toFixed(1));
+
+            /* flowing dots clip → VLM */
+            for (var i = 0; i < cdots.length; i++) {
+                var f = (t * 0.4 + cdots[i].off) % 1;
+                cdots[i].el.setAttribute('cx', ((vx + vw) + (px - vx - vw) * f).toFixed(1));
+                cdots[i].el.setAttribute('cy', cy.toFixed(1));
+                cdots[i].el.setAttribute('opacity', (f < 0.08 || f > 0.92 ? 0 : 0.85).toFixed(2));
+            }
+        }
+        register(host, update, 4.5);
     })();
 })();
 </script>
