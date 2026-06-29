@@ -275,8 +275,14 @@
         .pub-authors { font-size: 14px; color: var(--text-2); margin-bottom: 6px; }
         .pub-authors .me { color: var(--text); font-weight: 600; }
         .pub-venue {
-            font-family: var(--sans); font-size: 13.5px; color: var(--text-2);
-            line-height: 1.6; margin: 16px 2px 0;
+            display: flex; align-items: flex-start; gap: 10px;
+            font-family: var(--sans); font-size: 13.5px; font-weight: 500; color: var(--text);
+            line-height: 1.55; margin: 16px 2px 0;
+        }
+        .pub-venue::before {
+            content: ''; flex: none; width: 7px; height: 7px; margin-top: 7px;
+            border-radius: 999px; background: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-dim);
         }
         .pub-venue .stat { color: var(--viz-amber); font-weight: 600; }
         .pub-desc { font-size: 14.5px; line-height: 1.62; color: var(--text-2); max-width: 60ch; margin-bottom: 18px; }
