@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-22",
+  "updated": "2026-06-29",
   "author_id": "pPopoasAAAAJ",
   "note": "Citation counts from Google Scholar. Auto-refreshed by .github/workflows/scholar.yml (SerpAPI). The 'title' fields are used to match papers on the Scholar profile; edit them only if a paper's Scholar title changes.",
   "papers": {
@@ -15,7 +15,7 @@
     },
     "boundary-testing": {
       "title": "Targeted Deep Learning System Boundary Testing",
-      "citations": 10,
+      "citations": 11,
       "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15246109615216041728"
     }
   }
