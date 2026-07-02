@@ -22,7 +22,7 @@
     <meta name="twitter:image" content="https://giorgix121.github.io/Images/photo-og.jpg">
 
     <meta name="theme-color" content="#FAF9F7">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230B0E14'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Georgia,serif'%20font-style='italic'%20font-size='40'%20fill='%23A78BFA'%20text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="Images/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="https://giorgix121.github.io/Images/apple-touch-icon.jpg">
 
     <!-- Set theme before first paint -->
@@ -239,17 +239,17 @@
 
         /* ═══════ PUBLICATIONS ═══════ */
         .pub {
-            display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-            gap: 44px; align-items: start; padding: 36px 0;
+            display: grid; grid-template-columns: minmax(300px, 470px) minmax(0, 1fr);
+            gap: 32px; align-items: start; padding: 26px 0;
         }
         .pub:first-of-type { padding-top: 8px; }
         .pub + .pub { border-top: 1px solid var(--line); }
-        .pub-fig { margin: 0; }
+        .pub-fig { margin: 0; max-width: 470px; }
         .pub-body { min-width: 0; padding-top: 2px; }
         .viz-host { position: relative; }
         .viz-host svg, .viz-host img {
             display: block; width: 100%; height: auto;
-            background: var(--bg-elev); border: 1px solid var(--line); border-radius: 16px;
+            background: var(--bg-elev); border: 1px solid var(--line); border-radius: 12px;
         }
         figcaption {
             font-size: 12.5px; color: var(--text-3); margin-top: 12px; line-height: 1.6;
@@ -264,7 +264,7 @@
             letter-spacing: 0.06em; color: var(--accent); margin-bottom: 12px;
         }
         .pub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; margin-bottom: 9px; }
-        .pub h3 { font-family: var(--serif); font-weight: 600; font-size: 24px; line-height: 1.25; letter-spacing: -0.005em; }
+        .pub h3 { font-family: var(--serif); font-weight: 600; font-size: 22px; line-height: 1.25; letter-spacing: -0.005em; }
         .pub h3 a { color: var(--text); text-decoration: none; transition: color 0.2s ease; }
         .pub h3 a:hover { color: var(--accent-strong); }
         .pub-year {
@@ -276,8 +276,8 @@
         .pub-authors .me { color: var(--text); font-weight: 600; }
         .pub-venue {
             display: flex; align-items: flex-start; gap: 10px;
-            font-family: var(--sans); font-size: 13.5px; font-weight: 500; color: var(--text);
-            line-height: 1.55; margin: 16px 2px 0;
+            font-family: var(--sans); font-size: 12.8px; font-weight: 500; color: var(--text);
+            line-height: 1.45; margin: 11px 2px 0;
         }
         .pub-venue::before {
             content: ''; flex: none; width: 7px; height: 7px; margin-top: 7px;
@@ -285,7 +285,7 @@
             box-shadow: 0 0 0 3px var(--accent-dim);
         }
         .pub-venue .stat { color: var(--viz-amber); font-weight: 600; }
-        .pub-desc { font-size: 14.5px; line-height: 1.62; color: var(--text-2); max-width: 60ch; margin-bottom: 18px; }
+        .pub-desc { font-size: 14.5px; line-height: 1.58; color: var(--text-2); max-width: 72ch; margin-bottom: 16px; }
         .pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
         .tag {
             font-family: var(--mono); font-size: 11.5px; color: var(--text-2);
@@ -320,6 +320,17 @@
         .titem {
             display: grid; grid-template-columns: 118px 1fr; gap: 28px;
             padding: 20px 0;
+        }
+        .timeline-block + .timeline-block { margin-top: 42px; }
+        .timeline-label {
+            display: flex; align-items: center; gap: 14px;
+            font-family: var(--mono); font-size: 12.5px; font-weight: 500;
+            letter-spacing: 0.13em; text-transform: uppercase; color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .timeline-label::after {
+            content: ''; height: 1px; flex: 1;
+            background: linear-gradient(90deg, var(--line-strong), transparent);
         }
         .titem + .titem { border-top: 1px solid var(--line); }
         .tdate { font-family: var(--mono); font-size: 13px; color: var(--text-3); padding-top: 5px; white-space: nowrap; }
@@ -428,8 +439,9 @@
             .news-item { grid-template-columns: 56px 1fr; gap: 14px; }
             .titem { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
             .tdate { padding-top: 0; }
-            .pub { grid-template-columns: 1fr; gap: 22px; padding: 32px 0; }
+            .pub { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
             .pub:first-of-type { padding-top: 4px; }
+            .pub-fig { max-width: 100%; }
             .pub h3 { font-size: 21px; }
             .foot-inner { flex-direction: column; gap: 6px; padding: 26px 20px 48px; }
         }
@@ -588,7 +600,7 @@
                     <span class="pub-year">2026</span>
                 </div>
                 <p class="pub-authors"><span class="me">G. Merabishvili</span>, M. EsfandyariDoulabi, M. d'Amorim</p>
-                <p class="pub-desc">A training-free property-testing methodology that augments vision language model prompts with automatically mined visual properties of correct gameplay, grounded in physics and covering collision, gravity, and animation coherence, so violations act as a bug oracle. It contributes a catalog of 32 generic properties and 120 properties tailored to individual games across 10 titles, and shows that adding these properties to prompts improves bug detection recall by up to +14.8 pp across 7 VLMs while keeping precision high.</p>
+                <p class="pub-desc">A training-free property-testing methodology that augments VLM prompts with automatically mined visual properties of correct gameplay, covering collision, gravity, and animation coherence. It contributes 32 generic and 120 game-specific properties, improving bug detection recall by up to +14.8 pp across 7 VLMs while keeping precision high.</p>
             </div>
         </article>
 
@@ -597,7 +609,7 @@
                 <div class="viz-host" data-fig="wasm">
                     <noscript><img src="Images/wasm_bugs.gif" alt="Regression tests from RTBENCH reveal bugs in WebAssembly runtimes via transplantation and fuzzing" loading="lazy"></noscript>
                 </div>
-                <p class="pub-venue">IEEE Transactions on Software Engineering (TSE) · <span class="stat">under major revision</span></p>
+                <p class="pub-venue">IEEE Transactions on Software Engineering (TSE) · <span class="stat">major revision</span></p>
             </figure>
             <div class="pub-body reveal">
                 <div class="pub-head">
@@ -605,7 +617,7 @@
                     <span class="pub-year">2026</span>
                 </div>
                 <p class="pub-authors">I. Hayet, M. EsfandyariDoulabi, <span class="me">G. Merabishvili</span>, M. d'Amorim</p>
-                <p class="pub-desc">A large-scale empirical study showing that reusing regression tests, both transplanted across runtimes and reused as fuzzing seeds, uncovers far more bugs in WebAssembly runtimes than fuzzing with established corpora. Introduces RTBENCH, a corpus of 584 real-world regression tests, and reports 34 previously-unknown bugs.</p>
+                <p class="pub-desc">A large-scale study showing that regression tests, transplanted across runtimes and reused as fuzzing seeds, uncover more WebAssembly runtime bugs than fuzzing with established corpora. Introduces RTBENCH, a corpus of 584 real-world regression tests, and reports 34 previously unknown bugs.</p>
             </div>
         </article>
 
@@ -657,51 +669,83 @@
     <!-- ═══════ EXPERIENCE ═══════ -->
     <section id="experience">
         <h2 class="sec-label reveal">Experience</h2>
-        <div class="timeline">
-            <div class="titem reveal">
-                <span class="tdate">2026 · Summer</span>
-                <div>
-                    <div class="torg">
-                        <span class="logo"><img src="Images/logos/MPI.jpg" alt="" loading="lazy"></span>
-                        <h3>Max Planck Institute for Security and Privacy</h3>
+        <div class="timeline-block">
+            <h3 class="timeline-label reveal">Research &amp; Engineering</h3>
+            <div class="timeline">
+                <div class="titem reveal">
+                    <span class="tdate">2026 · Summer</span>
+                    <div>
+                        <div class="torg">
+                            <span class="logo"><img src="Images/logos/MPI.jpg" alt="" loading="lazy"></span>
+                            <h3>Max Planck Institute for Security and Privacy</h3>
+                        </div>
+                        <p class="trole">Research Intern <span>· Bochum, Germany</span></p>
+                        <p class="tadvisor">Advisor: <span>Dr. Marcel Böhme</span></p>
                     </div>
-                    <p class="trole">Research Intern <span>· Bochum, Germany</span></p>
-                    <p class="tadvisor">Advisor: <span>Dr. Marcel Böhme</span></p>
+                </div>
+                <div class="titem reveal">
+                    <span class="tdate">2025 – Present</span>
+                    <div>
+                        <div class="torg">
+                            <span class="logo"><img src="Images/logos/NCSU.jpeg" alt="" loading="lazy"></span>
+                            <h3>North Carolina State University</h3>
+                        </div>
+                        <p class="trole">Research Assistant <span>· Raleigh, NC</span></p>
+                        <p class="tadvisor">Advisor: <span>Dr. Marcelo d'Amorim</span></p>
+                        <p class="tdetail">Game testing: developed MR-guided VLM glitch detection for gameplay videos. WebAssembly runtime analysis: transplanting regression tests across runtimes and using them as seed corpora for fuzzing.</p>
+                    </div>
+                </div>
+                <div class="titem reveal">
+                    <span class="tdate">2024 · Summer</span>
+                    <div>
+                        <div class="torg">
+                            <span class="logo"><img src="Images/logos/TUM.jpeg" alt="" loading="lazy"></span>
+                            <h3>Technical University of Munich</h3>
+                        </div>
+                        <p class="trole">Research Intern <span>· Munich, Germany</span></p>
+                        <p class="tadvisor">Advisor: <span>Dr. Andrea Stocco</span></p>
+                        <p class="tdetail">Conducted research on automated testing for deep learning systems. Developed latent space interpolation methods for boundary testing and improved validity of generated test pairs.</p>
+                    </div>
+                </div>
+                <div class="titem reveal">
+                    <span class="tdate">2024 – 2025</span>
+                    <div>
+                        <div class="torg">
+                            <span class="logo"><img src="Images/logos/NYU.jpeg" alt="" loading="lazy"></span>
+                            <h3>RoboMaster NYU</h3>
+                        </div>
+                        <p class="trole">Computer Vision Engineer <span>· New York, NY</span></p>
+                        <p class="tdetail">Worked on real-time object detection systems for tracking enemy robots. Trained and tested models on hardware provided by the mechanical team.</p>
+                    </div>
                 </div>
             </div>
-            <div class="titem reveal">
-                <span class="tdate">2025 – Present</span>
-                <div>
-                    <div class="torg">
-                        <span class="logo"><img src="Images/logos/NCSU.jpeg" alt="" loading="lazy"></span>
-                        <h3>North Carolina State University</h3>
+        </div>
+        <div class="timeline-block">
+            <h3 class="timeline-label reveal">Teaching &amp; Mentorship</h3>
+            <div class="timeline">
+                <div class="titem reveal">
+                    <span class="tdate">2026 · Spring</span>
+                    <div>
+                        <div class="torg">
+                            <span class="logo"><img src="Images/logos/NCSU.jpeg" alt="" loading="lazy"></span>
+                            <h3>North Carolina State University</h3>
+                        </div>
+                        <p class="trole">Teaching Assistant <span>· CSC 326: Software Engineering</span></p>
+                        <p class="tadvisor">Instructor: <span>Dr. Wesley Klewerton Guez Assuncao</span></p>
+                        <p class="tdetail">Led two weekly lab sections for undergraduate software engineering students, supporting team-based development and core engineering practices.</p>
                     </div>
-                    <p class="trole">Research Assistant <span>· Raleigh, NC</span></p>
-                    <p class="tadvisor">Advisor: <span>Dr. Marcelo d'Amorim</span></p>
-                    <p class="tdetail">Game testing: developed MR-guided VLM glitch detection for gameplay videos. WebAssembly runtime analysis: transplanting regression tests across runtimes and using them as seed corpora for fuzzing.</p>
                 </div>
-            </div>
-            <div class="titem reveal">
-                <span class="tdate">2024 · Summer</span>
-                <div>
-                    <div class="torg">
-                        <span class="logo"><img src="Images/logos/TUM.jpeg" alt="" loading="lazy"></span>
-                        <h3>Technical University of Munich</h3>
+                <div class="titem reveal">
+                    <span class="tdate">2025 · Summer</span>
+                    <div>
+                        <div class="torg">
+                            <span class="logo"><img src="Images/logos/UIUC.svg" alt="" loading="lazy"></span>
+                            <h3>University of Illinois Urbana-Champaign</h3>
+                        </div>
+                        <p class="trole">Research Mentor <span>· UIUC+ Program</span></p>
+                        <p class="tadvisor">Advisor: <span>Dr. Marcelo d'Amorim</span></p>
+                        <p class="tdetail">Mentored three undergraduate students on PingPong, an adaptive fuzzing project that coordinates AFL++ and AFLGo using coverage-growth plateau detection.</p>
                     </div>
-                    <p class="trole">Research Intern <span>· Munich, Germany</span></p>
-                    <p class="tadvisor">Advisor: <span>Dr. Andrea Stocco</span></p>
-                    <p class="tdetail">Conducted research on automated testing for deep learning systems. Developed latent space interpolation methods for boundary testing and improved validity of generated test pairs.</p>
-                </div>
-            </div>
-            <div class="titem reveal">
-                <span class="tdate">2024 – 2025</span>
-                <div>
-                    <div class="torg">
-                        <span class="logo"><img src="Images/logos/NYU.jpeg" alt="" loading="lazy"></span>
-                        <h3>RoboMaster NYU</h3>
-                    </div>
-                    <p class="trole">Computer Vision Engineer <span>· New York, NY</span></p>
-                    <p class="tdetail">Worked on real-time object detection systems for tracking enemy robots. Trained and tested models on hardware provided by the mechanical team.</p>
                 </div>
             </div>
         </div>
@@ -718,7 +762,8 @@
                         <span class="logo"><img src="Images/logos/NCSU.jpeg" alt="" loading="lazy"></span>
                         <h3>North Carolina State University</h3>
                     </div>
-                    <p class="trole">PhD in Computer Science</p>
+                    <p class="trole">PhD in Computer Science <span>· GPA 3.4</span></p>
+                    <p class="tdetail">Coursework: Software Engineering, Advanced Software Testing and Analysis, Design and Analysis of Algorithms.</p>
                 </div>
             </div>
             <div class="titem reveal">
