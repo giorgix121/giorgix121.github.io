@@ -231,7 +231,7 @@
         .news-text strong { color: var(--text); font-weight: 600; }
         .live { position: relative; padding-left: 16px; }
         .live::before {
-            content: ''; position: absolute; left: 0; top: 0.52em;
+            content: ''; position: absolute; left: 0; top: calc(0.85em - 3px);
             width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
         }
         @keyframes ping { 0% { box-shadow: 0 0 0 0 var(--accent-dim), 0 0 0 0 rgba(167,139,250,0.45); } 80%, 100% { box-shadow: 0 0 0 4px transparent, 0 0 0 9px transparent; } }
@@ -280,7 +280,7 @@
             line-height: 1.45; margin: 11px 2px 0;
         }
         .pub-venue::before {
-            content: ''; flex: none; width: 7px; height: 7px; margin-top: 7px;
+            content: ''; flex: none; width: 7px; height: 7px; margin-top: calc(0.725em - 3.5px);
             border-radius: 999px; background: var(--accent);
             box-shadow: 0 0 0 3px var(--accent-dim);
         }
@@ -354,6 +354,11 @@
         .award + .award { border-top: 1px solid var(--line); }
         .award-name { font-size: 14.5px; color: var(--text-2); }
         .award-meta { font-family: var(--mono); font-size: 13px; color: var(--text-3); }
+        .sub-label {
+            font-family: var(--mono); font-size: 12px; font-weight: 500;
+            letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3);
+            margin-bottom: 4px;
+        }
 
         /* ═══════ FOOTER ═══════ */
         footer {
@@ -566,7 +571,7 @@
             </div>
             <div class="news-item reveal">
                 <span class="news-date">2026</span>
-                <span class="news-text">Attending <strong>TAROT Summer School 2026</strong> at <strong>Technical University of Munich</strong>.</span>
+                <span class="news-text">Attended <strong>TAROT Summer School 2026</strong> at <strong>Technical University of Munich</strong>.</span>
             </div>
             <div class="news-item reveal">
                 <span class="news-date">2026</span>
@@ -818,6 +823,30 @@
             <div class="award reveal">
                 <span class="award-name">Merit &amp; Institutional Scholarship, St. Francis College</span>
                 <span class="award-meta">New York, USA · 2019–2023</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ BEYOND RESEARCH ═══════ -->
+    <section id="beyond">
+        <h2 class="sec-label reveal">Beyond Research</h2>
+        <p class="sub-label reveal">Water Polo</p>
+        <div class="awards-list">
+            <div class="award reveal">
+                <span class="award-name">Triangle Water Polo</span>
+                <span class="award-meta">North Carolina, USA · Present</span>
+            </div>
+            <div class="award reveal">
+                <span class="award-name">NYU Water Polo Club, CWPA New York Division All-Conference Selection</span>
+                <span class="award-meta">New York, USA</span>
+            </div>
+            <div class="award reveal">
+                <span class="award-name">St. Francis College Water Polo Team, NCAA Division I</span>
+                <span class="award-meta">New York, USA</span>
+            </div>
+            <div class="award reveal">
+                <span class="award-name">Water Polo Youth National Team</span>
+                <span class="award-meta">Tbilisi, Georgia</span>
             </div>
         </div>
     </section>
