@@ -236,6 +236,53 @@
         }
         @keyframes ping { 0% { box-shadow: 0 0 0 0 var(--accent-dim), 0 0 0 0 rgba(167,139,250,0.45); } 80%, 100% { box-shadow: 0 0 0 4px transparent, 0 0 0 9px transparent; } }
         .live::before { animation: ping 2.6s cubic-bezier(0, 0, 0.2, 1) infinite; }
+        .news-cam {
+            display: inline-flex; align-items: center; gap: 6px;
+            vertical-align: middle; margin-left: 8px; position: relative; top: -1px;
+            font-family: var(--mono); font-size: 11px; line-height: 1; letter-spacing: 0.04em;
+            padding: 3px 11px; cursor: pointer;
+            color: var(--accent-strong); background: var(--accent-dim);
+            border: 1px solid var(--accent); border-radius: 999px;
+            transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+        .news-cam:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); border-color: var(--accent-strong); }
+        .news-cam svg { width: 13px; height: 13px; flex: none; }
+
+        /* ═══════ PHOTO VIEWER ═══════ */
+        .lightbox {
+            position: fixed; inset: 0; z-index: 300;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 56px 72px 28px;
+            background: color-mix(in srgb, var(--bg) 90%, transparent);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            backdrop-filter: blur(16px) saturate(140%);
+            visibility: hidden; opacity: 0;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        .lightbox.open { visibility: visible; opacity: 1; }
+        .lb-img {
+            max-width: min(1280px, 100%); max-height: 76vh; display: block;
+            border: 1px solid var(--line-strong); border-radius: 14px;
+            background: var(--bg-elev);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+        }
+        html[data-theme="light"] .lb-img { box-shadow: 0 24px 64px rgba(26, 29, 36, 0.18); }
+        .lb-caption { font-size: 13.5px; color: var(--text-2); margin-top: 16px; text-align: center; max-width: 64ch; }
+        .lb-caption:empty { display: none; }
+        .lb-count { font-family: var(--mono); font-size: 12px; color: var(--text-3); margin-top: 6px; font-variant-numeric: tabular-nums; }
+        .lb-btn {
+            position: absolute; width: 40px; height: 40px;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: color-mix(in srgb, var(--bg-elev) 85%, transparent);
+            border: 1px solid var(--line-strong); border-radius: 10px;
+            color: var(--text-2); cursor: pointer;
+            transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+        .lb-btn:hover { color: var(--accent-strong); border-color: var(--accent); background: var(--accent-dim); }
+        .lb-btn svg { width: 18px; height: 18px; }
+        .lb-close { top: 18px; right: 18px; }
+        .lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+        .lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
 
         /* ═══════ PUBLICATIONS ═══════ */
         .pub {
@@ -442,6 +489,9 @@
             main { padding: 0 20px; }
             section { padding: 44px 0 52px; }
             .news-item { grid-template-columns: 56px 1fr; gap: 14px; }
+            .lightbox { padding: 56px 16px 16px; }
+            .lb-prev { left: 10px; }
+            .lb-next { right: 10px; }
             .titem { grid-template-columns: 1fr; gap: 8px; padding: 18px 0; }
             .tdate { padding-top: 0; }
             .pub { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
@@ -462,7 +512,7 @@
                 --viz-green: #059669; --viz-amber: #D97706; --viz-red: #DC2626;
                 --viz-blue: #2563EB; --viz-coral: #E11D48;
             }
-            nav, .skip { display: none; }
+            nav, .skip, .news-cam, .lightbox { display: none; }
             body::before { display: none; }
             section { break-inside: avoid-page; }
         }
@@ -571,7 +621,11 @@
             </div>
             <div class="news-item reveal">
                 <span class="news-date">2026</span>
-                <span class="news-text">Attended <strong>TAROT Summer School 2026</strong> at <strong>Technical University of Munich</strong>.</span>
+                <span class="news-text">Attended <strong>TAROT Summer School 2026</strong> at <strong>Technical University of Munich</strong>.<button class="news-cam" aria-label="View photos from TAROT Summer School 2026"
+                        data-caption="TAROT Summer School 2026 · TU Munich"
+                        data-photos="Images/Gallery/TAROT_1.jpeg, Images/Gallery/TAROT_2.jpeg">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5a2 2 0 0 1 2-2h2l1.6-2h5.8l1.6 2h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/><circle cx="12" cy="12.5" r="3.4"/></svg>photos
+                </button></span>
             </div>
             <div class="news-item reveal">
                 <span class="news-date">2026</span>
@@ -852,6 +906,22 @@
     </section>
 </main>
 
+<!-- ═══════ PHOTO VIEWER ═══════ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <img class="lb-img" src="" alt="">
+    <div class="lb-caption"></div>
+    <div class="lb-count"></div>
+    <button class="lb-btn lb-close" aria-label="Close photo viewer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <button class="lb-btn lb-prev" aria-label="Previous photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+    </button>
+    <button class="lb-btn lb-next" aria-label="Next photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>
+    </button>
+</div>
+
 <footer>
     <div class="foot-inner">
         <span>© 2026 Giorgi Merabishvili</span>
@@ -890,6 +960,69 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -32px 0px' });
         reveals.forEach(function (el) { ro.observe(el); });
     }
+
+    /* ═══════ News photo viewer ═══════ */
+    (function () {
+        var lb = document.getElementById('lightbox');
+        var cams = document.querySelectorAll('.news-cam');
+        if (!lb || !cams.length) return;
+        var img = lb.querySelector('.lb-img');
+        var cap = lb.querySelector('.lb-caption');
+        var count = lb.querySelector('.lb-count');
+        var btnClose = lb.querySelector('.lb-close');
+        var btnPrev = lb.querySelector('.lb-prev');
+        var btnNext = lb.querySelector('.lb-next');
+        var photos = [], idx = 0, lastFocus = null;
+
+        function show(i) {
+            idx = (i + photos.length) % photos.length;
+            img.src = photos[idx];
+            count.textContent = (idx + 1) + ' / ' + photos.length;
+            photos.forEach(function (src) { if (src !== photos[idx]) { var p = new Image(); p.src = src; } });
+        }
+        function open(btn) {
+            photos = (btn.getAttribute('data-photos') || '').split(',')
+                .map(function (s) { return s.trim(); }).filter(Boolean);
+            if (!photos.length) return;
+            var caption = btn.getAttribute('data-caption') || '';
+            cap.textContent = caption;
+            img.alt = caption || 'Photo';
+            var multi = photos.length > 1;
+            btnPrev.style.display = multi ? '' : 'none';
+            btnNext.style.display = multi ? '' : 'none';
+            count.style.display = multi ? '' : 'none';
+            lastFocus = btn;
+            document.body.style.overflow = 'hidden';
+            lb.classList.add('open');
+            show(0);
+            btnClose.focus();
+        }
+        function close() {
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+            img.removeAttribute('src');
+            if (lastFocus) lastFocus.focus();
+        }
+        cams.forEach(function (b) { b.addEventListener('click', function () { open(b); }); });
+        btnClose.addEventListener('click', close);
+        btnPrev.addEventListener('click', function () { show(idx - 1); });
+        btnNext.addEventListener('click', function () { show(idx + 1); });
+        lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+        document.addEventListener('keydown', function (e) {
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape') close();
+            else if (e.key === 'ArrowLeft') show(idx - 1);
+            else if (e.key === 'ArrowRight') show(idx + 1);
+        });
+        var touchX = null;
+        lb.addEventListener('touchstart', function (e) { touchX = e.changedTouches[0].clientX; }, { passive: true });
+        lb.addEventListener('touchend', function (e) {
+            if (touchX === null) return;
+            var dx = e.changedTouches[0].clientX - touchX;
+            touchX = null;
+            if (Math.abs(dx) > 48 && photos.length > 1) show(dx > 0 ? idx - 1 : idx + 1);
+        }, { passive: true });
+    })();
 
     /* ═══════ Figure toolkit ═══════ */
     var SVGNS = 'http://www.w3.org/2000/svg';
