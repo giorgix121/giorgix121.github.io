@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-27",
+  "updated": "2026-08-03",
   "author_id": "pPopoasAAAAJ",
   "note": "Citation counts from Google Scholar. Auto-refreshed by .github/workflows/scholar.yml (SerpAPI). The 'title' fields are used to match papers on the Scholar profile; edit them only if a paper's Scholar title changes.",
   "papers": {
@@ -10,13 +10,13 @@
     },
     "latent-regularization": {
       "title": "Latent Regularization in Generative Test Input Generation",
-      "citations": 3,
+      "citations": 4,
       "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17959150979050984144"
     },
     "boundary-testing": {
       "title": "Targeted Deep Learning System Boundary Testing",
       "citations": 13,
-      "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=15246109615216041728"
+      "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1201573558246191271"
     }
   }
 }
