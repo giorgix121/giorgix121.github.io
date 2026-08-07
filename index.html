@@ -180,7 +180,7 @@
         /* ═══════ HERO ═══════ */
         .hero {
             border-top: none; padding: 88px 0 68px;
-            display: grid; grid-template-columns: 1fr 236px; gap: 56px; align-items: center;
+            display: grid; grid-template-columns: 1fr 340px; gap: 56px; align-items: center;
         }
         .eyebrow {
             font-family: var(--mono); font-size: 13.5px; letter-spacing: 0.16em;
@@ -200,8 +200,8 @@
         }
         .bio a:hover { color: var(--accent-strong); text-decoration-color: var(--accent); }
         .hero-photo {
-            width: 236px; height: 236px; border-radius: 24px; object-fit: cover;
-            border: 1px solid var(--line-strong); display: block;
+            width: 340px; height: 340px; border-radius: 24px; object-fit: cover;
+            border: 1px solid var(--line-strong); display: block; transform: translateX(-28px);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
         }
         html[data-theme="light"] .hero-photo { box-shadow: 0 12px 32px rgba(26, 29, 36, 0.10); }
@@ -481,7 +481,7 @@
             body { font-size: 15px; }
             .hero { grid-template-columns: 1fr; gap: 36px; padding: 56px 0 56px; }
             .hero-photo-wrap { order: -1; }
-            .hero-photo { width: 138px; height: 138px; border-radius: 18px; }
+            .hero-photo { width: 180px; height: 180px; border-radius: 18px; }
             .nav-inner { padding: 0 16px; gap: 8px; }
             .nav-right { gap: 8px; }
             .nav-links { gap: 0; }
@@ -605,8 +605,8 @@
         </div>
         <div class="hero-photo-wrap">
             <img class="hero-photo" src="Images/photo-480.jpg"
-                 srcset="Images/photo-480.jpg 480w, Images/photo-960.jpg 960w"
-                 sizes="(max-width: 720px) 138px, 236px"
+                 srcset="Images/photo-480.jpg 480w, Images/photo-960.jpg 960w, Images/photo-1440.jpg 1440w"
+                 sizes="(max-width: 720px) 180px, 340px"
                  alt="Portrait of Giorgi Merabishvili" width="480" height="480" fetchpriority="high">
         </div>
     </section>
