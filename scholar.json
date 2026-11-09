@@ -1,21 +1,21 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-09",
   "author_id": "pPopoasAAAAJ",
   "note": "Citation counts from Google Scholar. Auto-refreshed by .github/workflows/scholar.yml (SerpAPI). The 'title' fields are used to match papers on the Scholar profile; edit them only if a paper's Scholar title changes.",
   "papers": {
     "wasm-regression": {
       "title": "Left Behind, Not Forgotten: Reusing Regression Tests to Find Bugs in WebAssembly Runtimes",
       "citations": 0,
-      "url": "https://scholar.google.com/citations?user=pPopoasAAAAJ&hl=en"
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=pPopoasAAAAJ&pagesize=100&citation_for_view=pPopoasAAAAJ:d1gkVwhDpl0C"
     },
     "latent-regularization": {
       "title": "Latent Regularization in Generative Test Input Generation",
-      "citations": 6,
+      "citations": 7,
       "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=17959150979050984144"
     },
     "boundary-testing": {
       "title": "Targeted Deep Learning System Boundary Testing",
-      "citations": 19,
+      "citations": 20,
       "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1201573558246191271"
     }
   }
